@@ -1,252 +1,387 @@
 'use client'
 import { useState } from 'react'
-import { ChevronDownIcon, MessageCircleIcon } from '@/components/Icons'
 import Link from 'next/link'
-import { SectionHeading } from '@/components/AnimateIn'
+import { AnimateIn, StaggerContainer } from '@/components/AnimateIn'
+import { ChevronDownIcon, SearchIcon, MessageCircleIcon } from '@/components/Icons'
 import Breadcrumb from '@/components/Breadcrumb'
 
-const faqData = {
-  id: {
-    categories: [
-      {
-        name: 'Umum', slug: 'umum',
-        items: [
-          { q: 'Apakah BGE melayani seluruh Indonesia?', a: 'Ya, tim BGE melayani proyek di seluruh Indonesia. Kami memiliki teknisi bersertifikasi yang siap mobile ke lokasi proyek di Jawa, Sumatera, Kalimantan, Sulawesi, dan Papua.' },
-          { q: 'Apakah BGE menerima tender proyek pemerintah?', a: 'Ya, BGE memiliki pengalaman dalam proyek pemerintah dan BUMN. Kami dapat membantu penyusunan dokumen tender, spesifikasi teknis, dan RAB sesuai ketentuan pengadaan.' },
-          { q: 'Apakah BGE bisa membantu pengajuan pembiayaan?', a: 'Ya, BGE memiliki mitra pembiayaan untuk proyek energi terbarukan dan efisiensi energi. Kami bisa membantu menyusun proposal bisnis dan kelengkapan dokumen untuk pengajuan kredit investasi.' },
-        ],
-      },
-      {
-        name: 'Produk & Teknis', slug: 'teknis',
-        items: [
-          { q: 'Apa perbedaan Chiller Air-Cooled dan Water-Cooled?', a: 'Air-Cooled Chiller lebih mudah instalasi dan perawatan, cocok untuk area dengan keterbatasan air. Water-Cooled Chiller lebih efisien (COP lebih tinggi) dan lebih awet, ideal untuk proyek skala besar dengan kebutuhan pendinginan 24/7.' },
-          { q: 'Berapa kapasitas maksimal chiller yang bisa disediakan?', a: 'BGE menyediakan chiller dari kapasitas 5 TR hingga 2.000 TR untuk aplikasi komersial dan industri. Kami juga dapat merancang sistem multi-chiller untuk kebutuhan beban yang sangat besar.' },
-          { q: 'Apakah BGE menyediakan produk selain YORK?', a: 'Ya, selain YORK (chiller, AHU, FCU), BGE juga menyediakan Shakti Solar (panel surya, pompa DC), Cooling Tower, Boiler, Steam Accessories, PPR Pipe & Fittings, dan High Efficiency Pump dari berbagai merek terpercaya.' },
-          { q: 'Bagaimana sistem monitoring Energy Management System BGE?', a: 'EMS BGE menyediakan dashboard real-time yang bisa diakses via web dan mobile. Fitur meliputi monitoring konsumsi per zona, alarm otomatis, laporan bulanan, dan rekomendasi optimasi berbasis data.' },
-        ],
-      },
-      {
-        name: 'Investasi & Penghematan', slug: 'investasi',
-        items: [
-          { q: 'Berapa lama waktu pengembalian investasi (ROI) untuk panel surya?', a: 'Rata-rata ROI untuk skala industri adalah 3-5 tahun tergantung pada konsumsi energi, kapasitas panel, dan insentif pemerintah. Tim BGE akan menghitung proyeksi ROI spesifik untuk kebutuhan Anda.' },
-          { q: 'Berapa besar penghematan energi yang bisa dicapai?', a: 'Dengan Energy Management System (EMS) dan optimasi HVAC, klien rata-rata mencapai penghematan 20-40% pada tagihan listrik. Beberapa proyek bahkan mencapai 50% setelah rekomisioning sistem.' },
-          { q: 'Apakah ada konsultasi gratis sebelum pembelian?', a: 'Ya, BGE menyediakan konsultasi teknis gratis termasuk site survey, analisis kebutuhan beban pendingin/energi, dan rekomendasi sistem yang sesuai.' },
-        ],
-      },
-      {
-        name: 'Layanan & Garansi', slug: 'layanan',
-        items: [
-          { q: 'Apakah BGE menyediakan jasa pemeliharaan rutin?', a: 'Ya, kami menyediakan kontrak pemeliharaan preventif untuk HVAC, Chiller, Cooling Tower, dan Panel Surya. Jadwal pemeliharaan bisa mingguan, bulanan, atau kwartal sesuai kebutuhan.' },
-          { q: 'Bagaimana cara memulai audit energi?', a: 'Hubungi kami melalui form kontak atau telepon. Tim teknis kami akan melakukan survei awal lokasi, mengumpulkan data konsumsi energi, dan memberikan laporan audit lengkap beserta rekomendasi.' },
-          { q: 'Berapa lama waktu pemasangan HVAC industri?', a: 'Waktu pemasangan bervariasi tergantung skala dan kompleksitas sistem. Untuk chiller skala menengah (50-200 TR), estimasi 2-4 minggu termasuk commissioning dan handover.' },
-          { q: 'Berapa garansi yang diberikan?', a: 'Garansi standar 1-5 tahun tergantung jenis peralatan. Untuk produk YORK, garansi kompresor hingga 5 tahun tersedia dengan kontrak pemeliharaan.' },
-          { q: 'Bagaimana cara mengajukan klaim garansi?', a: 'Hubungi tim support BGE via telepon atau email. Kami akan memproses klaim dalam 1x24 jam dan menjadwalkan kunjungan teknisi ke lokasi.' },
-        ],
-      },
-    ],
-  },
-  en: {
-    categories: [
-      {
-        name: 'General', slug: 'general',
-        items: [
-          { q: 'Does BGE serve all of Indonesia?', a: 'Yes, BGE serves projects throughout Indonesia. We have certified technicians ready for mobile deployment across Java, Sumatra, Kalimantan, Sulawesi, and Papua.' },
-          { q: 'Does BGE participate in government project tenders?', a: 'Yes, BGE has experience with government and SOE projects. We assist with tender document preparation, technical specifications, and budget planning per procurement regulations.' },
-          { q: 'Can BGE help with financing applications?', a: 'Yes, BGE has financing partners for renewable energy and energy efficiency projects. We can help prepare business proposals and documentation for investment credit applications.' },
-        ],
-      },
-      {
-        name: 'Products & Technical', slug: 'technical',
-        items: [
-          { q: 'What is the difference between Air-Cooled and Water-Cooled Chiller?', a: 'Air-Cooled Chillers are easier to install and maintain, suitable for areas with water limitations. Water-Cooled Chillers are more efficient (higher COP) and durable, ideal for 24/7 large-scale cooling.' },
-          { q: 'What is the maximum chiller capacity available?', a: 'BGE provides chillers from 5 TR up to 2,000 TR for commercial and industrial applications. We also design multi-chiller systems for very large load requirements.' },
-          { q: 'Does BGE provide products other than YORK?', a: 'Yes, besides YORK (chiller, AHU, FCU), BGE also provides Shakti Solar (solar panels, DC pumps), Cooling Tower, Boilers, Steam Accessories, PPR Pipe & Fittings, and High Efficiency Pumps.' },
-          { q: 'How does the BGE Energy Management System monitoring work?', a: 'EMS BGE provides a real-time dashboard accessible via web and mobile. Features include per-zone consumption monitoring, automatic alarms, monthly reports, and data-driven optimization recommendations.' },
-        ],
-      },
-      {
-        name: 'Investment & Savings', slug: 'investment',
-        items: [
-          { q: 'How long is the ROI for solar panels?', a: 'The average ROI for industrial scale is 3-5 years depending on energy consumption, panel capacity, and government incentives. BGE can calculate specific ROI projections for your needs.' },
-          { q: 'How much energy savings can be achieved?', a: 'With Energy Management System and HVAC optimization, clients average 20-40% savings on electricity bills. Some projects achieve up to 50% after system recommissioning.' },
-          { q: 'Is there free consultation before purchase?', a: 'Yes, BGE provides free technical consultation including site survey, cooling/energy load analysis, and system recommendations.' },
-        ],
-      },
-      {
-        name: 'Service & Warranty', slug: 'service',
-        items: [
-          { q: 'Does BGE provide routine maintenance services?', a: 'Yes, we provide preventive maintenance contracts for HVAC, Chiller, Cooling Tower, and Solar Panels. Maintenance schedules can be weekly, monthly, or quarterly.' },
-          { q: 'How do I start an energy audit?', a: 'Contact us via the contact form or phone. Our technical team will conduct an initial site survey, collect energy consumption data, and provide a complete audit report with recommendations.' },
-          { q: 'How long does industrial HVAC installation take?', a: 'Installation time varies by scale and complexity. For medium-sized chillers (50-200 TR), estimate 2-4 weeks including commissioning and handover.' },
-          { q: 'What warranty is provided?', a: 'Standard warranty is 1-5 years depending on equipment type. For YORK products, compressor warranty up to 5 years is available with maintenance contracts.' },
-          { q: 'How do I file a warranty claim?', a: 'Contact BGE support via phone or email. We process claims within 24 hours and schedule a technician visit to your location.' },
-        ],
-      },
-    ],
-  },
+/* ============================================
+   FAQ DATA
+   ============================================ */
+type FAQCategory = {
+  name: string
+  slug: string
+  items: { q: string; a: string }[]
 }
 
+const faqCategories: Record<string, FAQCategory[]> = {
+  id: [
+    {
+      name: 'Umum',
+      slug: 'umum',
+      items: [
+        {
+          q: 'Apakah BGE melayani proyek di seluruh Indonesia?',
+          a: 'Ya, BGE melayani proyek di seluruh Indonesia. Tim teknisi bersertifikasi kami siap ditempatkan di lokasi proyek di Jawa, Sumatera, Kalimantan, Sulawesi, hingga Papua. Kami memiliki jaringan mitra logistik untuk mendukung pengiriman equipment ke berbagai wilayah.',
+        },
+        {
+          q: 'Apakah BGE menerima tender proyek pemerintah dan BUMN?',
+          a: 'Ya, BGE memiliki pengalaman panjang dalam menangani proyek pemerintah dan BUMN. Kami membantu penyusunan dokumen tender, spesifikasi teknis, RAB, hingga presentasi technical. Silakan hubungi tim bisnis kami untuk diskusi lebih lanjut.',
+        },
+        {
+          q: 'Bagaimana cara memulai konsultasi dengan BGE?',
+          a: 'Anda bisa menghubungi kami melalui form kontak di website, email, atau telepon langsung. Konsultasi awal dan site survey gratis untuk proyek di area Jabodetabek. Untuk proyek di luar Jabodetabek, biaya transportasi teknisi akan dikomunikasikan sebelumnya.',
+        },
+      ],
+    },
+    {
+      name: 'Teknis',
+      slug: 'teknis',
+      items: [
+        {
+          q: 'Apa perbedaan Chiller Air-Cooled dan Water-Cooled?',
+          a: 'Air-Cooled Chiller lebih mudah instalasi dan perawatan karena tidak membutuhkan cooling tower. Cocok untuk area dengan keterbatasan air. Water-Cooled Chiller memiliki COP lebih tinggi (lebih efisien) dan umur lebih panjang, ideal untuk proyek skala besar dengan kebutuhan pendinginan 24/7.',
+        },
+        {
+          q: 'Berapa kapasitas maksimal chiller yang bisa disediakan BGE?',
+          a: 'BGE menyediakan chiller dari kapasitas 5 TR hingga 2.000 TR untuk aplikasi komersial dan industri. Kami juga mampu merancang sistem multi-chiller paralel untuk kebutuhan beban pendinginan yang sangat besar, termasuk desain distribusi air pendingin dan控制系统.',
+        },
+        {
+          q: 'Apakah BGE menyediakan produk selain YORK?',
+          a: 'Ya, selain lini lengkap YORK (chiller, AHU, FCU, control system), BGE juga menyediakan Shakti Solar (panel surya, pompa DC), Cooling Tower merek terkemuka, Boiler industri, Steam Accessories, PPR Pipe & Fittings, dan High Efficiency Pump dari berbagai brand terpercaya.',
+        },
+        {
+          q: 'Bagaimana cara kerja Energy Management System (EMS) dari BGE?',
+          a: 'EMS BGE menyediakan dashboard real-time yang bisa diakses via web dan mobile. Fitur meliputi monitoring konsumsi energi per zona, alarm otomatis untuk anomali konsumsi, laporan bulanan otomatis, dan rekomendasi optimasi berbasis data analytics. Semua data tersimpan cloud dengan enkripsi.',
+        },
+      ],
+    },
+    {
+      name: 'Garansi',
+      slug: 'garansi',
+      items: [
+        {
+          q: 'Berapa lama garansi yang diberikan untuk produk BGE?',
+          a: 'Garansi standar bervariasi berdasarkan jenis peralatan. Untuk chiller YORK, garansi kompresor hingga 5 tahun tersedia dengan kontrak pemeliharaan. Panel surya mendapat garansi performa 25 tahun dan garansi produk 12 tahun. Garansi layanan BGE mencakup 1 tahun untuk instalasi dan commissioning.',
+        },
+        {
+          q: 'Bagaimana cara mengajukan klaim garansi?',
+          a: 'Hubungi tim support BGE via telepon atau email. Sertakan nomor kontrak dan deskripsi masalah. Tim kami akan merespons dalam 1x24 jam dan menjadwalkan kunjungan teknisi ke lokasi. Untuk keadaan darurat (system down), kami menerapkan SLA respons 4 jam di area Jabodetabek.',
+        },
+      ],
+    },
+    {
+      name: 'Instalasi',
+      slug: 'instalasi',
+      items: [
+        {
+          q: 'Berapa lama waktu pemasangan sistem HVAC industri?',
+          a: 'Waktu pemasangan bervariasi tergantung skala dan kompleksitas. Untuk chiller skala menengah (50-200 TR), estimasi 2-4 minggu termasuk commissioning dan handover. Proyek skala besar dengan multiple chillers dan distribusi pipa bisa memakan waktu 3-6 bulan. Timeline detail akan disampaikan dalam proposal.',
+        },
+        {
+          q: 'Apakah BGE menyediakan layanan pemeliharaan rutin?',
+          a: 'Ya, kami menyediakan kontrak pemeliharaan preventif (preventive maintenance) untuk seluruh sistem HVAC, Chiller, Cooling Tower, dan Panel Surya. Jadwal bisa mingguan, bulanan, atau kwartal sesuai kebutuhan. Layanan meliputi inspeksi rutin, penggantian parts, kalibrasi sensor, dan laporan kondisi sistem.',
+        },
+        {
+          q: 'Bagaimana proses commissioning dan handover sistem?',
+          a: 'Proses commissioning meliputi verifikasi performa setiap komponen, testing beban penuh, tuning kontroler, dan pelatihan operatior. Kami menyerahkan dokumen as-built, manual operasi, spare parts list, dan training certificate. Masa pemantauan 30 hari pasca-handover disertakan untuk memastikan stabilitas operasi.',
+        },
+      ],
+    },
+  ],
+  en: [
+    {
+      name: 'General',
+      slug: 'general',
+      items: [
+        {
+          q: 'Does BGE serve projects across all of Indonesia?',
+          a: 'Yes, BGE serves projects throughout Indonesia. Our certified technicians are ready for deployment across Java, Sumatra, Kalimantan, Sulawesi, and Papua. We maintain a logistics partner network to support equipment delivery to all regions.',
+        },
+        {
+          q: 'Does BGE accept government and SOE project tenders?',
+          a: 'Yes, BGE has extensive experience handling government and SOE projects. We assist with tender document preparation, technical specifications, budget planning, and technical presentations. Contact our business team to discuss further.',
+        },
+        {
+          q: 'How do I start a consultation with BGE?',
+          a: 'You can reach us through the website contact form, email, or direct phone call. Initial consultation and site survey are free for projects in the Jabodetabek area. For projects outside Jabodetabek, technician travel costs will be communicated in advance.',
+        },
+      ],
+    },
+    {
+      name: 'Technical',
+      slug: 'technical',
+      items: [
+        {
+          q: 'What is the difference between Air-Cooled and Water-Cooled Chiller?',
+          a: 'Air-Cooled Chillers are easier to install and maintain as they do not require a cooling tower. Suitable for areas with water limitations. Water-Cooled Chillers offer higher COP (more efficient) and longer lifespan, ideal for large-scale 24/7 cooling applications.',
+        },
+        {
+          q: 'What is the maximum chiller capacity available from BGE?',
+          a: 'BGE provides chillers ranging from 5 TR to 2,000 TR for commercial and industrial applications. We also design parallel multi-chiller systems for very large cooling load requirements, including chilled water distribution and control system engineering.',
+        },
+        {
+          q: 'Does BGE provide products other than YORK?',
+          a: 'Yes, besides the complete YORK lineup (chiller, AHU, FCU, control systems), BGE also provides Shakti Solar (solar panels, DC pumps), Cooling Towers from leading brands, industrial Boilers, Steam Accessories, PPR Pipe & Fittings, and High Efficiency Pumps.',
+        },
+        {
+          q: 'How does the BGE Energy Management System (EMS) work?',
+          a: 'BGE EMS provides a real-time dashboard accessible via web and mobile. Features include per-zone energy consumption monitoring, automatic anomaly alarms, automated monthly reports, and data analytics-based optimization recommendations. All data is cloud-stored with encryption.',
+        },
+      ],
+    },
+    {
+      name: 'Warranty',
+      slug: 'warranty',
+      items: [
+        {
+          q: 'What warranty period does BGE provide for its products?',
+          a: 'Standard warranties vary by equipment type. For YORK chillers, compressor warranty up to 5 years is available with maintenance contracts. Solar panels come with 25-year performance warranty and 12-year product warranty. BGE service warranty covers 1 year for installation and commissioning.',
+        },
+        {
+          q: 'How do I file a warranty claim?',
+          a: 'Contact BGE support via phone or email with your contract number and problem description. Our team responds within 24 hours and schedules a technician visit. For emergencies (system down), we maintain a 4-hour response SLA in the Jabodetabek area.',
+        },
+      ],
+    },
+    {
+      name: 'Installation',
+      slug: 'installation',
+      items: [
+        {
+          q: 'How long does industrial HVAC system installation take?',
+          a: 'Installation time varies by scale and complexity. For medium-sized chillers (50-200 TR), expect 2-4 weeks including commissioning and handover. Large-scale projects with multiple chillers and piping distribution may take 3-6 months. A detailed timeline is included in every proposal.',
+        },
+        {
+          q: 'Does BGE provide routine maintenance services?',
+          a: 'Yes, we provide preventive maintenance contracts for all HVAC systems, Chillers, Cooling Towers, and Solar Panels. Schedules can be weekly, monthly, or quarterly. Services include routine inspections, parts replacement, sensor calibration, and system condition reports.',
+        },
+        {
+          q: 'What is the commissioning and handover process?',
+          a: 'Commissioning includes verifying each component\'s performance, full load testing, controller tuning, and operator training. We deliver as-built documentation, operation manuals, spare parts lists, and training certificates. A 30-day post-handover monitoring period is included to ensure operational stability.',
+        },
+      ],
+    },
+  ],
+}
+
+/* ============================================
+   COMPONENT
+   ============================================ */
 export default function FAQPage({ params }: { params: { lang: string } }) {
   const lang = params.lang === 'en' ? 'en' : 'id'
-  const [open, setOpen] = useState<{ catIdx: number; itemIdx: number } | null>(null)
-  const [activeCategory, setActiveCategory] = useState(0)
+  const [activeTab, setActiveTab] = useState(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [search, setSearch] = useState('')
 
-  const data = faqData[lang]
-  const categories = data.categories
+  const categories = faqCategories[lang]
+  const allItems = categories.flatMap((cat) =>
+    cat.items.map((item) => ({ ...item, category: cat.name, categorySlug: cat.slug }))
+  )
 
   const t = {
     title: lang === 'id' ? 'Pertanyaan Umum' : 'Frequently Asked Questions',
-    subtitle: lang === 'id' ? 'Jawaban atas pertanyaan yang paling sering diajukan.' : 'Answers to frequently asked questions about BGE solutions.',
+    subtitle: lang === 'id' ? 'Temukan jawaban atas pertanyaan yang paling sering diajukan tentang solusi HVAC dan energi hijau kami.' : 'Find answers to frequently asked questions about our HVAC and green energy solutions.',
+    searchPlaceholder: lang === 'id' ? 'Cari pertanyaan...' : 'Search questions...',
+    allLabel: lang === 'id' ? 'Semua' : 'All',
     ctaTitle: lang === 'id' ? 'Masih Punya Pertanyaan?' : 'Still Have Questions?',
-    ctaDesc: lang === 'id' ? 'Tim ahli kami siap membantu. Hubungi kami sekarang untuk konsultasi gratis.' : 'Our expert team is ready to help. Contact us now for a free consultation.',
+    ctaDesc: lang === 'id' ? 'Tim ahli kami siap membantu Anda. Hubungi kami sekarang untuk konsultasi gratis.' : 'Our expert team is ready to help. Contact us now for a free consultation.',
     ctaBtn: lang === 'id' ? 'Hubungi Kami' : 'Contact Us',
+    noResults: lang === 'id' ? 'Tidak ada hasil ditemukan' : 'No results found',
+    noResultsHint: lang === 'id' ? 'Coba kata kunci yang berbeda' : 'Try different keywords',
   }
 
-  const toggleFAQ = (catIdx: number, itemIdx: number) => {
-    if (open?.catIdx === catIdx && open?.itemIdx === itemIdx) {
-      setOpen(null)
-    } else {
-      setOpen({ catIdx, itemIdx })
-    }
+  /* Filter items by active tab and search */
+  const activeSlug = activeTab === 0 ? null : categories[activeTab - 1]?.slug
+  const filteredItems = allItems.filter((item) => {
+    const matchesTab = activeSlug === null || item.categorySlug === activeSlug
+    const matchesSearch =
+      search === '' ||
+      item.q.toLowerCase().includes(search.toLowerCase()) ||
+      item.a.toLowerCase().includes(search.toLowerCase())
+    return matchesTab && matchesSearch
+  })
+
+  const toggleItem = (idx: number) => {
+    setOpenIndex(openIndex === idx ? null : idx)
   }
-
-  // Search filtering
-  const filteredCategories = search
-    ? categories.map(cat => ({
-        ...cat,
-        items: cat.items.filter(
-          item => item.q.toLowerCase().includes(search.toLowerCase()) ||
-                  item.a.toLowerCase().includes(search.toLowerCase())
-        ),
-      })).filter(cat => cat.items.length > 0)
-    : categories
-
-  const displayCategories = filteredCategories
-  const hasResults = displayCategories.some(c => c.items.length > 0)
 
   return (
-    <>
-      {/* Hero Section */}
-      <section
-        className="relative min-h-[50vh] flex items-center justify-center overflow-hidden"
-        style={{
-          background: 'linear-gradient(145deg, #0a1628 0%, #0D1B2A 25%, #132637 50%, #1a3348 75%, #0D1B2A 100%)',
-        }}
-      >
-        {/* Noise texture overlay */}
-        <div className="noise-texture opacity-50 pointer-events-none mix-blend-overlay" />
-
-        <div className="relative z-10 text-center px-4 sm:px-6 md:px-8 py-20 sm:py-24 md:py-32 max-w-5xl mx-auto">
-          <Breadcrumb
-            items={[{ label: lang === 'id' ? 'FAQ' : 'FAQ' }]}
-            lang={lang}
-          />
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white mb-6 mt-6">
-            {t.title}
-          </h1>
-          <p className="text-white/70 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto leading-relaxed">
-            {t.subtitle}
-          </p>
+    <div>
+      {/* ============================================
+          HERO SECTION
+          ============================================ */}
+      <section className="relative min-h-[50vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(145deg, var(--dark) 0%, #112A1A 30%, #1B4332 60%, #0B1D13 100%)',
+          }} />
+          <div className="absolute inset-0 grid-overlay opacity-40" />
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: 'radial-gradient(ellipse 600px 400px at 25% 40%, rgba(82,183,136,0.08) 0%, transparent 70%), radial-gradient(ellipse 500px 500px at 75% 60%, rgba(64,145,108,0.06) 0%, transparent 60%)',
+          }} />
+          <div className="absolute top-1/3 right-[15%] w-80 h-80 rounded-full opacity-[0.03] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #52B788 0%, transparent 70%)' }} />
+          <div className="absolute bottom-1/4 left-[8%] w-56 h-56 rounded-full opacity-[0.04] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #40916C 0%, transparent 70%)' }} />
         </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-28 pb-20 md:pt-32 md:pb-28">
+          <Breadcrumb items={[{ label: t.title }]} lang={lang} />
+          <div className="max-w-3xl mt-6">
+            <AnimateIn>
+              <p className="eyebrow mb-4">{lang === 'id' ? 'Bantuan & Dukungan' : 'Help & Support'}</p>
+            </AnimateIn>
+            <AnimateIn delay={100}>
+              <h1 className="font-outfit text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.08]">
+                {t.title}
+              </h1>
+            </AnimateIn>
+            <AnimateIn delay={200}>
+              <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
+                {t.subtitle}
+              </p>
+            </AnimateIn>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, var(--surface) 100%)',
+          }} />
       </section>
 
-      {/* Section Divider */}
-      <div className="section-divider" />
+      {/* ============================================
+          FAQ CONTENT
+          ============================================ */}
+      <section className="bg-[var(--surface)] py-20 md:py-28">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
 
-      {/* Main Content */}
-      <div className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto page-enter">
-
-        {/* Search Bar */}
-        <div className="relative mb-6">
-          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg className="w-5 h-5 text-[#2C3E50]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-          </div>
-          <input
-            type="text"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            placeholder={lang === 'id' ? 'Cari pertanyaan...' : 'Search questions...'}
-            className="w-full pl-12 pr-4 py-4 bg-white rounded-2xl border border-[#2C3E50]/10 focus:border-[#2D5A27]/40 focus:outline-none focus:ring-4 focus:ring-[#2D5A27]/5 text-[#1A252F] placeholder:text-[#2C3E50]/30 transition-all shadow-sm"
-          />
-          {search && (
-            <button onClick={() => setSearch('')} className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#2C3E50]/40 hover:text-[#2C3E50]/70">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-          )}
-        </div>
-
-        {/* Category Tabs */}
-        <div className="overflow-x-auto flex gap-3 pb-2 mb-8">
-          {displayCategories.map((cat, i) => (
-            <button
-              key={cat.slug}
-              onClick={() => { setActiveCategory(i); setOpen(null) }}
-              className={`whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-medium transition-all shrink-0 ${
-                activeCategory === i
-                  ? 'bg-[#2D5A27] text-white shadow-md'
-                  : 'bg-white text-[#2C3E50]/60 border border-[#2C3E50]/10 hover:bg-[#F1F5F9] hover:text-[#2C3E50]'
-              }`}
-            >
-              {cat.name}
-              <span className="ml-2 text-xs opacity-60">{cat.items.length}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* FAQ Items per Category */}
-        <div className="space-y-4">
-          {hasResults ? (
-            displayCategories[activeCategory]?.items.map((f, i) => {
-              const isOpen = open?.catIdx === activeCategory && open?.itemIdx === i
-              return (
-                <div
-                  key={i}
-                  className="hover-glow bg-white/70 backdrop-blur-xl rounded-2xl border border-white/20 overflow-hidden transition-shadow duration-300"
-                  style={{ boxShadow: isOpen ? '0 8px 30px rgba(45, 90, 39, 0.08)' : 'none' }}
+          {/* Search Bar */}
+          <AnimateIn>
+            <div className="relative mb-6">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <SearchIcon size={20} className="text-[var(--ink-muted)]" />
+              </div>
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => { setSearch(e.target.value); setOpenIndex(null) }}
+                placeholder={t.searchPlaceholder}
+                className="w-full pl-12 pr-4 py-4 bg-white rounded-[var(--radius-card)] border border-[var(--border)] focus:border-[var(--brand-light)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-bright)]/20 text-[var(--ink)] placeholder:text-[var(--ink-muted)] transition-all shadow-sm font-[var(--font-dm-sans)]"
+              />
+              {search && (
+                <button
+                  onClick={() => setSearch('')}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-[var(--ink-muted)] hover:text-[var(--ink)] transition-colors"
+                  aria-label="Clear search"
                 >
-                  <button
-                    onClick={() => toggleFAQ(activeCategory, i)}
-                    className="w-full p-4 sm:p-6 text-left flex justify-between items-center font-bold text-[#1A252F] cursor-pointer"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="pr-4">{f.q}</span>
-                    <ChevronDownIcon size={20} className={`shrink-0 transition-all duration-300 text-[#2D5A27] ${isOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-                    role="region"
-                  >
-                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-[#2C3E50]/70 leading-relaxed text-sm sm:text-base lg:text-lg">{f.a}</div>
-                  </div>
-                </div>
-              )
-            })
-          ) : (
-            <div className="text-center py-16 text-[#2C3E50]/50">
-              <svg className="w-12 h-12 mx-auto mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-              <p className="text-lg font-medium">{lang === 'id' ? 'Tidak ada hasil' : 'No results found'}</p>
-              <p className="text-sm mt-1">{lang === 'id' ? 'Coba kata kunci lain' : 'Try different keywords'}</p>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
             </div>
-          )}
-        </div>
+          </AnimateIn>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 bg-gradient-to-br from-[#2D5A27] to-[#1A252F] p-8 sm:p-10 md:p-14 rounded-3xl text-center shadow-xl">
-          <div className="w-16 h-16 bg-white/15 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-white/10">
-            <MessageCircleIcon size={32} className="text-white" />
+          {/* Category Filter Tabs */}
+          <AnimateIn delay={100}>
+            <div className="flex flex-wrap gap-2 mb-10">
+              {/* "Semua / All" tab */}
+              <button
+                onClick={() => { setActiveTab(0); setOpenIndex(null) }}
+                className={`px-5 py-2.5 rounded-[var(--radius-btn)] text-sm font-semibold transition-all ${
+                  activeTab === 0
+                    ? 'bg-[var(--brand)] text-white shadow-sm'
+                    : 'bg-white text-[var(--ink-muted)] border border-[var(--border)] hover:border-[var(--brand-light)] hover:text-[var(--brand)]'
+                }`}
+              >
+                {t.allLabel}
+                <span className="ml-1.5 text-xs opacity-60">{allItems.length}</span>
+              </button>
+              {categories.map((cat, i) => (
+                <button
+                  key={cat.slug}
+                  onClick={() => { setActiveTab(i + 1); setOpenIndex(null) }}
+                  className={`px-5 py-2.5 rounded-[var(--radius-btn)] text-sm font-semibold transition-all ${
+                    activeTab === i + 1
+                      ? 'bg-[var(--brand)] text-white shadow-sm'
+                      : 'bg-white text-[var(--ink-muted)] border border-[var(--border)] hover:border-[var(--brand-light)] hover:text-[var(--brand)]'
+                  }`}
+                >
+                  {cat.name}
+                  <span className="ml-1.5 text-xs opacity-60">{cat.items.length}</span>
+                </button>
+              ))}
+            </div>
+          </AnimateIn>
+
+          {/* FAQ Accordion Items */}
+          <div className="space-y-3">
+            {filteredItems.length > 0 ? (
+              <StaggerContainer className="space-y-3" staggerDelay={60}>
+                {filteredItems.map((item, i) => {
+                  const isOpen = openIndex === i
+                  return (
+                    <div key={i} className="card-corporate !p-0 overflow-hidden">
+                      <button
+                        onClick={() => toggleItem(i)}
+                        className="w-full text-left px-6 py-5 flex justify-between items-center gap-4 cursor-pointer"
+                        aria-expanded={isOpen}
+                      >
+                        <span className="font-semibold text-[var(--ink)] text-[15px] sm:text-base leading-snug">
+                          {item.q}
+                        </span>
+                        <ChevronDownIcon
+                          size={18}
+                          className={`shrink-0 text-[var(--brand)] transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      <div
+                        className="overflow-hidden transition-all duration-300 ease-in-out"
+                        style={{ maxHeight: isOpen ? '500px' : '0px' }}
+                        role="region"
+                      >
+                        <div className="px-6 pb-5 pt-0 text-[var(--ink-secondary)] leading-relaxed text-sm sm:text-[15px] border-t border-[var(--border)] pt-4">
+                          {item.a}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </StaggerContainer>
+            ) : (
+              <div className="text-center py-16">
+                <SearchIcon size={40} className="mx-auto mb-4 text-[var(--ink-muted)] opacity-30" />
+                <p className="text-lg font-semibold text-[var(--ink)]">{t.noResults}</p>
+                <p className="text-sm text-[var(--ink-muted)] mt-1">{t.noResultsHint}</p>
+              </div>
+            )}
           </div>
-          <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4">{t.ctaTitle}</h3>
-          <p className="text-white/70 mb-8 max-w-lg mx-auto text-sm sm:text-base lg:text-lg">{t.ctaDesc}</p>
-          <Link
-            href={`/${lang}/contact`}
-            className="inline-flex items-center gap-3 bg-white text-[#1A252F] px-8 py-4 rounded-full font-bold hover:bg-[#2D5A27] hover:text-white transition-all shadow-lg"
-          >
-            <MessageCircleIcon size={20} />
-            {t.ctaBtn}
-          </Link>
+
+          {/* Bottom CTA */}
+          <AnimateIn className="mt-16">
+            <div className="section-dark rounded-[var(--radius-card)] p-8 sm:p-10 md:p-14 text-center relative overflow-hidden">
+              <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-[var(--brand-bright)]/15 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <MessageCircleIcon size={28} className="text-[var(--brand-bright)]" />
+                </div>
+                <h3 className="font-outfit text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+                  {t.ctaTitle}
+                </h3>
+                <p className="text-white/60 mb-8 max-w-lg mx-auto text-sm sm:text-base">
+                  {t.ctaDesc}
+                </p>
+                <Link href={`/${lang}/contact`} className="btn-primary">
+                  <MessageCircleIcon size={18} />
+                  {t.ctaBtn}
+                </Link>
+              </div>
+            </div>
+          </AnimateIn>
         </div>
-      </div>
-    </>
+      </section>
+    </div>
   )
 }

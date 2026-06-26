@@ -1,28 +1,4 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Outfit, DM_Sans } from 'next/font/google'
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
-  display: 'swap',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-})
-
-export const metadata: Metadata = {
-  title: {
-    default: 'Benua Green Energy | Solusi Energi Hijau Industri',
-    template: '%s | Benua Green Energy'
-  },
-  description: 'Pemimpin dalam solusi HVAC, Energy Management System, dan Panel Surya terintegrasi untuk efisiensi industri berkelanjutan di Indonesia.',
-}
-
-function MaintenancePage() {
+export default function MaintenancePage() {
   return (
     <div style={{
       minHeight: '100vh',
@@ -89,22 +65,5 @@ function MaintenancePage() {
         }
       `}</style>
     </div>
-  )
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const maintenance = process.env.NEXT_PUBLIC_MAINTENANCE === 'true'
-
-  return (
-    <html lang="id" className={`scroll-smooth ${outfit.variable} ${dmSans.variable}`}>
-      <body className={dmSans.className}>
-        {maintenance ? <MaintenancePage /> : children}
-        <div className="noise-overlay" aria-hidden="true" />
-      </body>
-    </html>
   )
 }

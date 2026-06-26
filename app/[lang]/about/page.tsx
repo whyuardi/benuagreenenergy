@@ -1,260 +1,352 @@
 'use client'
-import { AwardIcon, TargetIcon, EyeIcon, BarChartIcon, ThermometerIcon, ShieldIcon, UsersIcon, LeafIcon } from '@/components/Icons'
+import Link from 'next/link'
+import Image from 'next/image'
 import { AnimateIn } from '@/components/AnimateIn'
 import Breadcrumb from '@/components/Breadcrumb'
+import {
+  AwardIcon,
+  TargetIcon,
+  EyeIcon,
+  BarChartIcon,
+  ThermometerIcon,
+  ShieldIcon,
+  UsersIcon,
+  LeafIcon,
+  ShieldCheckIcon,
+  SparklesIcon,
+  ArrowRightIcon,
+} from '@/components/Icons'
 
 export default function AboutPage({ params }: { params: { lang: string } }) {
   const lang = params.lang === 'en' ? 'en' : 'id'
 
   const t = lang === 'id' ? {
-    title: 'Tentang Kami', subtitle: 'Mitra strategis Anda dalam transisi energi hijau di Indonesia dan Asia Tenggara.',
+    title: 'Tentang Kami',
+    subtitle: 'Mitra strategis Anda dalam transisi energi hijau di Indonesia dan Asia Tenggara.',
     historyTitle: 'Perjalanan Kami',
+    historyLabel: 'Sejak 2000',
     history_1: 'BGE Group, didirikan pada tahun 2000 dengan kantor pusat di Singapura dan Jakarta, adalah pelopor investasi energi hijau dan keberlanjutan. PT. Benua Green Energy hadir sebagai bagian dari grup ini untuk melayani kebutuhan industri Indonesia dalam sistem HVAC, manajemen energi, dan solusi energi terbarukan.',
     history_2: 'Dengan pengalaman lebih dari 25 tahun, kami berkomitmen untuk terus berinovasi dan mengalokasikan 10% dari pendapatan penjualan tahunan untuk Research & Development. Kami menghadirkan sistem pendingin non-listrik (LiBr Absorption Chiller) dan refrigerant rendah GWP yang ramah lingkungan.',
-    globalTitle: 'Dampak Global & Solusi Kami',
-    global_1: 'Berdasarkan laporan IEA dan UNEP, sektor pendinginan berkontribusi terhadap sekitar 10% emisi CO₂ global dan mengonsumsi sekitar 20% listrik dunia.',
-    global_2: 'Setiap penurunan 10°C suhu ruangan ber-AC akan diikuti peningkatan 1°C suhu di luar ruangan. Semakin dingin ruangan ber-AC, semakin panas suhu di luar. Bumi semakin panas.',
-    global_3: 'Kami percaya bahwa solusi HVAC yang efisien (high COP, inverter, system design), penggunaan refrigerant Low-GWP, dan perawatan rutin adalah kunci untuk mengurangi dampak ini.',
+    historyStat1Num: '2000',
+    historyStat1Label: 'Tahun Berdiri',
+    historyStat2Num: '2',
+    historyStat2Label: 'Kantor Regional',
+    historyStat3Num: '500+',
+    historyStat3Label: 'Proyek Selesai',
+    visionTitle: 'Visi',
+    missionTitle: 'Misi',
     vision: 'Menjadi mitra strategis utama bagi industri dalam transisi energi hijau di Asia Tenggara.',
     mission: 'Menyediakan solusi HVAC dan Energy Management System yang efisien, andal, dan terjangkau untuk skala industri besar.',
-    exp: '25+ Tahun Pengalaman', expDesc: 'Telah dipercaya oleh berbagai sektor industri di seluruh Indonesia sejak tahun 2000.',
-    rnd: '10% untuk R&D', rndDesc: 'Komitmen kami terhadap inovasi teknologi energi berkelanjutan.',
-    globalFact: 'Cooling ~10% CO₂ Global', globalDesc: 'Kontribusi sektor pendingin terhadap emisi global (IEA & UNEP).',
-    teamTitle: 'Tim Manajemen Kami',
-    teamDesc: 'Para profesional berpengalaman yang memimpin transformasi energi hijau di Indonesia.',
-    team: [
-      { name: 'Person 1', role: 'Direktur Utama', exp: '20+ tahun di industri HVAC & energi', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face' },
-      { name: 'Person 2', role: 'Direktur Teknis', exp: '18+ tahun engineering & project management', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face' },
-      { name: 'Person 3', role: 'Direktur Keuangan', exp: '15+ tahun financial planning & strategy', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' },
-      { name: 'Person 4', role: 'Kepala Teknik', exp: '25+ tahun chiller & HVAC specialist', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face' },
-    ],
+    certsTitle: 'Sertifikasi & Keanggotaan',
+    certsSubtitle: 'Standar internasional yang kami pertahankan untuk menjamin kualitas layanan.',
+    exp: '25+ Tahun',
+    expLabel: 'Pengalaman',
+    expDesc: 'Telah dipercaya oleh berbagai sektor industri di seluruh Indonesia sejak tahun 2000.',
+    rnd: '10%',
+    rndLabel: 'Investasi R&D',
+    rndDesc: 'Komitmen kami terhadap inovasi teknologi energi berkelanjutan.',
+    engineers: '50+',
+    engineersLabel: 'Insinyur Ahli',
+    engineersDesc: 'Tim teknis profesional yang siap memberikan solusi terbaik.',
     certs: [
       { name: 'ISO 9001:2015', desc: 'Sistem Manajemen Mutu untuk layanan HVAC & energi' },
-      { name: 'Mitra Resmi YORK®', desc: 'Authorized distributor & service center untuk produk YORK' },
+      { name: 'Mitra Resmi YORK', desc: 'Authorized distributor & service center untuk produk YORK' },
       { name: 'Anggota ASHRAE', desc: 'American Society of Heating, Refrigerating and Air-Conditioning Engineers' },
       { name: 'IUJASMI', desc: 'Ikatan Ahli Utama Jasa & Sistem Mekanikal Indonesia' },
     ],
   } : {
-    title: 'About Us', subtitle: 'Your strategic partner in the green energy transition across Indonesia and Southeast Asia.',
+    title: 'About Us',
+    subtitle: 'Your strategic partner in the green energy transition across Indonesia and Southeast Asia.',
     historyTitle: 'Our Journey',
+    historyLabel: 'Since 2000',
     history_1: 'BGE Group, established in 2000 with headquarters in Singapore and Jakarta, is a leading advocate for green energy investment and sustainability. PT. Benua Green Energy was established as part of this group to serve Indonesian industries in HVAC systems, energy management, and renewable energy solutions.',
     history_2: 'With over 25 years of experience, we are committed to continuous innovation, allocating 10% of annual sales revenue to Research & Development. We proudly present non-electric cooling systems (LiBr Absorption Chiller) and low-GWP refrigerants that are environmentally friendly.',
-    globalTitle: 'Global Impact & Our Solutions',
-    global_1: 'According to IEA and UNEP reports, the cooling sector contributes approximately 10% of global CO₂ emissions and consumes about 20% of the world\'s electricity.',
-    global_2: 'Every 10°C decrease in air-conditioned indoor temperature is followed by a 1°C increase in outdoor temperature. The colder the AC room, the hotter it gets outside. Our planet is warming.',
-    global_3: 'We believe that efficient HVAC solutions (high COP, inverter, system design), Low-GWP refrigerants, and regular maintenance are the keys to reducing this impact.',
+    historyStat1Num: '2000',
+    historyStat1Label: 'Founded',
+    historyStat2Num: '2',
+    historyStat2Label: 'Regional Offices',
+    historyStat3Num: '500+',
+    historyStat3Label: 'Projects Completed',
+    visionTitle: 'Vision',
+    missionTitle: 'Mission',
     vision: 'To be the primary strategic partner for industries in the green energy transition across Southeast Asia.',
     mission: 'Providing efficient, reliable, and affordable HVAC and Energy Management System solutions for large-scale industrial needs.',
-    exp: '25+ Years Experience', expDesc: 'Trusted by various industrial sectors across Indonesia since 2000.',
-    rnd: '10% for R&D', rndDesc: 'Our commitment to sustainable energy technology innovation.',
-    globalFact: 'Cooling ~10% Global CO₂', globalDesc: 'Cooling sector contribution to global emissions (IEA & UNEP).',
-    teamTitle: 'Our Management Team',
-    teamDesc: 'Experienced professionals leading the green energy transformation in Indonesia.',
-    team: [
-      { name: 'Ravi Desai', role: 'CEO', exp: '20+ years in HVAC & energy industry', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face' },
-      { name: 'Andi Pratama', role: 'CTO', exp: '18+ years engineering & project management', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face' },
-      { name: 'Siti Rahmawati', role: 'CFO', exp: '15+ years financial planning & strategy', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' },
-      { name: 'Bambang Wijaya', role: 'Chief Engineer', exp: '25+ years chiller & HVAC specialist', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face' },
-    ],
+    certsTitle: 'Certifications & Memberships',
+    certsSubtitle: 'International standards we uphold to guarantee service quality.',
+    exp: '25+ Years',
+    expLabel: 'Experience',
+    expDesc: 'Trusted by various industrial sectors across Indonesia since 2000.',
+    rnd: '10%',
+    rndLabel: 'R&D Investment',
+    rndDesc: 'Our commitment to sustainable energy technology innovation.',
+    engineers: '50+',
+    engineersLabel: 'Expert Engineers',
+    engineersDesc: 'Professional technical team ready to deliver the best solutions.',
     certs: [
       { name: 'ISO 9001:2015', desc: 'Quality Management System for HVAC & energy services' },
-      { name: 'Official YORK® Partner', desc: 'Authorized distributor & service center for YORK products' },
+      { name: 'Official YORK Partner', desc: 'Authorized distributor & service center for YORK products' },
       { name: 'ASHRAE Member', desc: 'American Society of Heating, Refrigerating and Air-Conditioning Engineers' },
       { name: 'GBCI Member', desc: 'Green Building Council Indonesia member' },
     ],
   }
 
   return (
-    <div className="page-enter">
-      {/* Hero Banner */}
-      <section className="relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
+    <div>
+      {/* ============================================
+          HERO SECTION
+          ============================================ */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(145deg, #0a1628 0%, #0D1B2A 25%, #132637 50%, #1a3348 75%, #0D1B2A 100%)',
+            background: 'linear-gradient(145deg, var(--dark) 0%, #112A1A 30%, #1B4332 60%, #0B1D13 100%)',
           }} />
-          <div className="absolute inset-0 opacity-15 hero-zoom" style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }} />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
-          <div className="absolute inset-0" style={{
-            background: 'linear-gradient(180deg, rgba(10,22,40,0.3) 0%, rgba(13,27,42,0.6) 40%, rgba(13,27,42,0.85) 70%, rgba(13,27,42,1) 100%)',
-          }} />
+          <div className="absolute inset-0 grid-overlay opacity-40" />
           {/* Ambient glow orbs */}
           <div className="absolute inset-0 pointer-events-none" style={{
-            background: 'radial-gradient(ellipse 600px 400px at 20% 30%, rgba(45,90,39,0.12) 0%, transparent 70%), radial-gradient(ellipse 500px 500px at 80% 60%, rgba(26,55,122,0.08) 0%, transparent 60%)',
+            background: 'radial-gradient(ellipse 600px 400px at 25% 40%, rgba(82,183,136,0.08) 0%, transparent 70%), radial-gradient(ellipse 500px 500px at 75% 60%, rgba(64,145,108,0.06) 0%, transparent 60%)',
           }} />
-          <div className="absolute top-1/4 right-[15%] w-72 h-72 rounded-full opacity-[0.04] subtle-float pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #4CAF50 0%, transparent 70%)' }} />
-          <div className="absolute bottom-1/3 left-[10%] w-48 h-48 rounded-full opacity-[0.03] subtle-float pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #81C784 0%, transparent 70%)', animationDelay: '2s' }} />
-          <div className="absolute inset-0 noise-texture opacity-50 pointer-events-none mix-blend-overlay" />
+          <div className="absolute top-1/3 right-[15%] w-80 h-80 rounded-full opacity-[0.03] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #52B788 0%, transparent 70%)' }} />
+          <div className="absolute bottom-1/4 left-[8%] w-56 h-56 rounded-full opacity-[0.04] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #40916C 0%, transparent 70%)' }} />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full pb-24 md:pb-32">
-          <div className="max-w-3xl">
-            <Breadcrumb items={[{ label: lang === 'id' ? 'Tentang Kami' : 'About Us' }]} lang={lang} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-28 pb-20 md:pt-32 md:pb-28">
+          <Breadcrumb items={[{ label: t.title }]} lang={lang} />
+          <div className="max-w-3xl mt-6">
             <AnimateIn>
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white mb-6 mt-8">{t.title}</h1>
+              <p className="eyebrow mb-4">{lang === 'id' ? 'Profil Perusahaan' : 'Company Profile'}</p>
             </AnimateIn>
-            <AnimateIn delay={0.2}>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/70 max-w-2xl">{t.subtitle}</p>
+            <AnimateIn delay={100}>
+              <h1 className="font-outfit text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.08]">
+                {t.title}
+              </h1>
+            </AnimateIn>
+            <AnimateIn delay={200}>
+              <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
+                {t.subtitle}
+              </p>
             </AnimateIn>
           </div>
         </div>
+
+        {/* Bottom gradient blend */}
         <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(13,27,42,0.85) 0%, rgba(13,27,42,0.5) 30%, rgba(253,251,247,0.3) 60%, #FDFBF7 100%)',
+            background: 'linear-gradient(to bottom, transparent 0%, var(--surface) 100%)',
           }}
         />
       </section>
 
-      {/* Content section */}
-      <div className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto bg-[#FDFBF7] relative">
-        <div className="absolute inset-0 noise-texture opacity-50 pointer-events-none mix-blend-overlay" />
-      <div className="max-w-5xl mx-auto relative z-10">
-
-      {/* History */}
-      <div className="max-w-5xl mx-auto mb-20">
-        <div className="section-divider mb-8 sm:mb-12" />
-        <AnimateIn><h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A252F] mb-8 heading-line inline-block">{t.historyTitle}</h2></AnimateIn>
-        <div className="space-y-6 text-lg text-[#2C3E50]/80 leading-relaxed mt-10">
-          <AnimateIn delay={0.1}><p>{t.history_1}</p></AnimateIn>
-          <AnimateIn delay={0.15}><p>{t.history_2}</p></AnimateIn>
-        </div>
-      </div>
-
-      {/* Stats Cards - Glassmorphism */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto mb-20">
-        <AnimateIn delay={0.1}>
-          <div className="group bg-white/70 backdrop-blur-xl p-10 rounded-3xl border border-white/20 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500 hover-glow">
-            <AwardIcon size={40} className="text-[#2D5A27] mb-6" />
-            <h3 className="font-bold text-2xl mb-3">{t.exp}</h3>
-            <p className="text-[#2C3E50]/70">{t.expDesc}</p>
-          </div>
-        </AnimateIn>
-        <AnimateIn delay={0.2}>
-          <div className="group bg-white/70 backdrop-blur-xl p-10 rounded-3xl border border-white/20 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500 hover-glow">
-            <TargetIcon size={40} className="text-[#2D5A27] mb-6" />
-            <h3 className="font-bold text-2xl mb-3">{t.rnd}</h3>
-            <p className="text-[#2C3E50]/70">{t.rndDesc}</p>
-          </div>
-        </AnimateIn>
-      </div>
-
-      {/* Global Impact - Bento Layout */}
-      <div className="max-w-5xl mx-auto mb-20">
-        <div className="section-divider mb-8 sm:mb-12" />
-        <AnimateIn><h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A252F] mb-8">{t.globalTitle}</h2></AnimateIn>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {/* Featured BIG stat */}
-          <AnimateIn delay={0.1} className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-[#2D5A27] to-[#1A252F] p-8 rounded-3xl shadow-lg flex flex-col justify-center relative overflow-hidden group hover-glow">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%, rgba(255,255,255,0.04) 100%)',
-            }} />
-            <ThermometerIcon size={36} className="text-white/80 mb-4 relative z-10" />
-            <p className="text-5xl font-bold text-white mb-2 relative z-10">~10%</p>
-            <p className="text-sm text-white/60 uppercase tracking-wider relative z-10">CO₂ Global</p>
-            <p className="text-white/50 text-xs mt-4 leading-relaxed relative z-10">{lang === 'id' ? 'Kontribusi sektor pendingin terhadap emisi CO₂ global (sumber: IEA & UNEP).' : 'Cooling sector contribution to global CO₂ emissions (source: IEA & UNEP).'}</p>
-          </AnimateIn>
-          {/* Stat 2 - glass */}
-          <AnimateIn delay={0.2} className="bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all duration-300 hover-glow">
-            <BarChartIcon size={28} className="text-[#2D5A27] mb-3" />
-            <p className="text-3xl font-bold text-[#1A252F]">~20%</p>
-            <p className="text-xs text-[#2C3E50]/60 uppercase tracking-wider mt-1">{lang === 'id' ? 'Listrik Global' : 'Global Electricity'}</p>
-          </AnimateIn>
-          {/* Stat 3 - glass */}
-          <AnimateIn delay={0.3} className="bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-md transition-all duration-300 hover-glow">
-            <LeafIcon size={28} className="text-[#2D5A27] mb-3" />
-            <p className="text-3xl font-bold text-[#1A252F]">-40%</p>
-            <p className="text-xs text-[#2C3E50]/60 uppercase tracking-wider mt-1">{lang === 'id' ? 'Potensi Hemat' : 'Potential Savings'}</p>
-          </AnimateIn>
-          {/* Quote card */}
-          <AnimateIn delay={0.25} className="md:col-span-2 bg-[#2D5A27]/5 backdrop-blur-xl p-6 rounded-2xl border border-[#2D5A27]/20 flex items-center">
-            <p className="text-sm text-[#2C3E50]/80 italic leading-relaxed">{lang === 'id' ? 'Setiap penurunan 10°C suhu ruangan ber-AC diikuti peningkatan 1°C suhu di luar ruangan.' : 'Every 10°C decrease in AC indoor temp is followed by a 1°C increase outdoors.'}</p>
-          </AnimateIn>
-        </div>
-        <div className="space-y-4 text-lg text-[#2C3E50]/80 leading-relaxed">
-          <AnimateIn delay={0.1}><p>{t.global_1}</p></AnimateIn>
-          <AnimateIn delay={0.15}><p>{t.global_2}</p></AnimateIn>
-          <AnimateIn delay={0.2}>
-            <div className="bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-[#2D5A27]/20 shadow-sm">
-              <p className="font-semibold text-[#2D5A27] mb-2">{lang === 'id' ? 'Solusi Kami:' : 'Our Solution:'}</p>
-              <p>{t.global_3}</p>
+      {/* ============================================
+          HISTORY SECTION - Asymmetric 2-col
+          ============================================ */}
+      <section className="bg-[var(--surface)] py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left: Story text (7 cols) */}
+            <div className="lg:col-span-7">
+              <AnimateIn>
+                <p className="eyebrow mb-4">{t.historyLabel}</p>
+              </AnimateIn>
+              <AnimateIn delay={100}>
+                <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--ink)] mb-8 tracking-tight">
+                  {t.historyTitle}
+                </h2>
+              </AnimateIn>
+              <div className="space-y-5">
+                <AnimateIn delay={150}>
+                  <p className="text-[var(--ink-secondary)] leading-relaxed text-base sm:text-lg">
+                    {t.history_1}
+                  </p>
+                </AnimateIn>
+                <AnimateIn delay={200}>
+                  <p className="text-[var(--ink-secondary)] leading-relaxed text-base sm:text-lg">
+                    {t.history_2}
+                  </p>
+                </AnimateIn>
+              </div>
             </div>
-          </AnimateIn>
-        </div>
-      </div>
 
-      {/* Team Section */}
-      {t.team && (
-        <div className="max-w-5xl mx-auto mb-20">
-          <div className="section-divider mb-8 sm:mb-12" />
-          <AnimateIn><h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A252F] mb-4">{t.teamTitle}</h2></AnimateIn>
-          <AnimateIn delay={0.1}><p className="text-[#2C3E50]/70 mb-12">{t.teamDesc}</p></AnimateIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t.team.map((m: any, i: number) => (
-              <AnimateIn key={i} delay={0.15 + i * 0.1}>
-                <div className="group bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-white/20 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 text-center hover-glow">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#2D5A27] to-[#1A252F] mx-auto mb-4 overflow-hidden ring-2 ring-white/30 group-hover:ring-[#2D5A27]/30 transition-all duration-500">
-                    <img src={m.img} alt={m.name} className="w-full h-full object-cover" />
+            {/* Right: Stat cards (5 cols) */}
+            <div className="lg:col-span-5 space-y-5">
+              {[
+                { num: t.historyStat1Num, label: t.historyStat1Label, icon: AwardIcon, delay: 150 },
+                { num: t.historyStat2Num, label: t.historyStat2Label, icon: Building2Icon, delay: 200 },
+                { num: t.historyStat3Num, label: t.historyStat3Label, icon: BarChartIcon, delay: 250 },
+              ].map((stat, i) => (
+                <AnimateIn key={i} delay={stat.delay} direction="right">
+                  <div className="card-corporate flex items-center gap-5">
+                    <div className="w-12 h-12 rounded-xl bg-[var(--brand)]/8 flex items-center justify-center shrink-0">
+                      <stat.icon size={22} className="text-[var(--brand)]" />
+                    </div>
+                    <div>
+                      <p className="font-outfit text-2xl sm:text-3xl font-bold text-[var(--ink)] tracking-tight">{stat.num}</p>
+                      <p className="text-sm text-[var(--ink-muted)] font-medium">{stat.label}</p>
+                    </div>
                   </div>
-                  <h4 className="font-bold text-[#1A252F]">{m.name}</h4>
-                  <p className="text-sm text-[#2D5A27] font-medium mb-2">{m.role}</p>
-                  <p className="text-xs text-[#2C3E50]/60">{m.exp}</p>
+                </AnimateIn>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          STATS ROW - Dark bg with glass panels
+          ============================================ */}
+      <section className="section-dark py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 grid-overlay opacity-30" />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse 800px 500px at 50% 50%, rgba(82,183,136,0.06) 0%, transparent 70%)',
+        }} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              { num: t.exp, label: t.expLabel, desc: t.expDesc, icon: AwardIcon, delay: 0 },
+              { num: t.rnd, label: t.rndLabel, desc: t.rndDesc, icon: TargetIcon, delay: 100 },
+              { num: t.engineers, label: t.engineersLabel, desc: t.engineersDesc, icon: UsersIcon, delay: 200 },
+            ].map((stat, i) => (
+              <AnimateIn key={i} delay={stat.delay}>
+                <div className="glass-panel p-7 sm:p-8 h-full">
+                  <div className="w-11 h-11 rounded-lg bg-white/[0.06] flex items-center justify-center mb-5">
+                    <stat.icon size={22} className="text-[var(--brand-bright)]" />
+                  </div>
+                  <p className="font-outfit text-3xl sm:text-4xl font-bold text-white tracking-tight mb-1">
+                    {stat.num}
+                  </p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--brand-bright)] mb-3">
+                    {stat.label}
+                  </p>
+                  <p className="text-sm text-white/50 leading-relaxed">
+                    {stat.desc}
+                  </p>
                 </div>
               </AnimateIn>
             ))}
           </div>
         </div>
-      )}
+      </section>
 
-      {/* Certifications */}
-      {t.certs && (
-        <div className="max-w-5xl mx-auto mb-20">
-          <div className="section-divider mb-8 sm:mb-12" />
-          <AnimateIn><h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A252F] mb-8">{lang === 'id' ? 'Sertifikasi & Keanggotaan' : 'Certifications & Memberships'}</h2></AnimateIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {t.certs.map((c: any, i: number) => (
-              <AnimateIn key={i} delay={0.1 + i * 0.1}>
-                <div className="group flex items-start gap-4 bg-white/70 backdrop-blur-xl p-5 rounded-2xl border border-white/20 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-500 hover-glow">
-                  <ShieldIcon size={24} className="text-[#2D5A27] shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-[#1A252F] text-sm">{c.name}</h4>
-                    <p className="text-xs text-[#2C3E50]/60 mt-1">{c.desc}</p>
+      {/* ============================================
+          CERTIFICATIONS - Asymmetric grid
+          ============================================ */}
+      <section className="bg-[var(--surface)] py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="mb-14">
+            <AnimateIn>
+              <p className="eyebrow mb-4">{lang === 'id' ? 'Standar Kualitas' : 'Quality Standards'}</p>
+            </AnimateIn>
+            <AnimateIn delay={100}>
+              <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--ink)] tracking-tight">
+                {t.certsTitle}
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={150}>
+              <p className="text-[var(--ink-muted)] mt-4 max-w-xl text-base sm:text-lg leading-relaxed">
+                {t.certsSubtitle}
+              </p>
+            </AnimateIn>
+          </div>
+
+          {/* Asymmetric 4-col grid: 2+2 with varied heights */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {t.certs.map((c: any, i: number) => {
+              const certIcons = [ShieldCheckIcon, ShieldIcon, AwardIcon, SparklesIcon]
+              const CertIcon = certIcons[i]
+              const isFeatured = i === 0 || i === 3
+              return (
+                <AnimateIn key={i} delay={100 + i * 80}>
+                  <div className={`card-corporate h-full ${isFeatured ? 'sm:row-span-1' : ''}`}>
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 ${
+                      i === 0 ? 'bg-[var(--brand)] text-white' :
+                      i === 1 ? 'bg-[var(--brand)]/10 text-[var(--brand)]' :
+                      i === 2 ? 'bg-[var(--surface-alt)] text-[var(--brand-light)]' :
+                      'bg-[var(--brand)] text-white'
+                    }`}>
+                      <CertIcon size={20} />
+                    </div>
+                    <h3 className="font-outfit font-bold text-[var(--ink)] text-base mb-2">
+                      {c.name}
+                    </h3>
+                    <p className="text-sm text-[var(--ink-muted)] leading-relaxed">
+                      {c.desc}
+                    </p>
                   </div>
-                </div>
-              </AnimateIn>
-            ))}
+                </AnimateIn>
+              )
+            })}
           </div>
         </div>
-      )}
+      </section>
 
-      {/* Vision & Mission */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        <AnimateIn delay={0.1}>
-          <div className="group bg-[#1A252F] text-white p-10 rounded-3xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden hover-glow">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
-              background: 'linear-gradient(135deg, rgba(45,90,39,0.15) 0%, transparent 60%)',
-            }} />
-            <EyeIcon size={36} className="mb-6 relative z-10" />
-            <h3 className="font-serif text-2xl mb-4 relative z-10">{lang === 'id' ? 'Visi' : 'Vision'}</h3>
-            <p className="text-white/70 leading-relaxed relative z-10">{t.vision}</p>
+      {/* ============================================
+          VISION & MISSION
+          ============================================ */}
+      <section className="bg-[var(--surface-alt)] py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="mb-14">
+            <AnimateIn>
+              <p className="eyebrow mb-4">{lang === 'id' ? 'Arah Strategis' : 'Strategic Direction'}</p>
+            </AnimateIn>
+            <AnimateIn delay={100}>
+              <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--ink)] tracking-tight">
+                {lang === 'id' ? 'Visi & Misi' : 'Vision & Mission'}
+              </h2>
+            </AnimateIn>
           </div>
-        </AnimateIn>
-        <AnimateIn delay={0.2}>
-          <div className="group bg-[#2D5A27] text-white p-10 rounded-3xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden hover-glow">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%)',
-            }} />
-            <TargetIcon size={36} className="mb-6 relative z-10" />
-            <h3 className="font-serif text-2xl mb-4 relative z-10">{lang === 'id' ? 'Misi' : 'Mission'}</h3>
-            <p className="text-white/70 leading-relaxed relative z-10">{t.mission}</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <AnimateIn delay={100}>
+              <div className="relative overflow-hidden rounded-2xl bg-[var(--dark)] p-8 sm:p-10 h-full">
+                <div className="absolute inset-0 pointer-events-none" style={{
+                  background: 'linear-gradient(135deg, rgba(82,183,136,0.08) 0%, transparent 60%)',
+                }} />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center mb-6">
+                    <EyeIcon size={22} className="text-[var(--brand-bright)]" />
+                  </div>
+                  <p className="eyebrow text-[var(--brand-bright)] mb-3">{t.visionTitle}</p>
+                  <p className="font-outfit text-xl sm:text-2xl font-semibold text-white leading-snug tracking-tight">
+                    {t.vision}
+                  </p>
+                </div>
+              </div>
+            </AnimateIn>
+
+            <AnimateIn delay={200}>
+              <div className="relative overflow-hidden rounded-2xl bg-[var(--brand)] p-8 sm:p-10 h-full">
+                <div className="absolute inset-0 pointer-events-none" style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%)',
+                }} />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-white/[0.12] flex items-center justify-center mb-6">
+                    <TargetIcon size={22} className="text-white" />
+                  </div>
+                  <p className="eyebrow text-white/60 mb-3">{t.missionTitle}</p>
+                  <p className="font-outfit text-xl sm:text-2xl font-semibold text-white leading-snug tracking-tight">
+                    {t.mission}
+                  </p>
+                </div>
+              </div>
+            </AnimateIn>
           </div>
-        </AnimateIn>
-      </div>
+        </div>
+      </section>
     </div>
-  </div>
-</div>
+  )
+}
+
+/* Inline icon to avoid extra import - Building outline for stat cards */
+function Building2Icon({ size = 24, className = '' }: { size?: number; className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+      <path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" />
+    </svg>
   )
 }
