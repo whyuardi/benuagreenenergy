@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Home", "about": "About Us", "services": "Services",
+    "products": "Products", "portfolio": "Portfolio", "contact": "Contact Us",
+    "blog": "Blog", "faq": "FAQ"
+  },
+  "hero": {
+    "badge": "Sustainable Energy",
+    "title": "Green Energy Solutions for Industrial Future",
+    "subtitle": "We provide integrated HVAC technology, energy management systems, and solar panel solutions to enhance your company's operational efficiency.",
+    "cta1": "Free Consultation", "cta2": "Explore Products"
+  },
+  "about": {
+    "title": "Elevating Energy Efficiency to the Highest Level",
+    "subtitle": "PT. Benua Green Energy is committed to helping Indonesian industries achieve Net Zero Emission targets through innovative cooling and energy management technology.",
+    "history": "Founded with a vision to modernize industrial energy infrastructure, we combine engineering expertise with the latest technology to reduce operational costs while preserving the environment.",
+    "vision": "To be the primary strategic partner for industries in the green energy transition across Southeast Asia.",
+    "mission": "Providing efficient, reliable, and affordable HVAC and EMS solutions for large-scale industrial needs."
+  },
+  "services": {
+    "title": "Our Premium Services",
+    "hvac_t": "HVAC & Chiller",
+    "hvac_d": "High-efficiency industrial cooling systems for factories and commercial buildings.",
+    "ems_t": "Energy Management",
+    "ems_d": "Energy audits and real-time monitoring systems to optimize operational costs.",
+    "solar_t": "Solar Solutions",
+    "solar_d": "Industrial solar panel implementation for energy independence and carbon emission reduction.",
+    "cta": "Learn More"
+  },
+  "products": {
+    "title": "Product Catalog",
+    "subtitle": "World-class technology designed for maximum durability and high energy efficiency.",
+    "chiller_t": "Industrial Chillers",
+    "ems_t": "EMS Hardware",
+    "solar_t": "Solar Panels"
+  },
+  "portfolio": {
+    "title": "Our Track Record",
+    "subtitle": "Concrete evidence of our energy solution implementations across various industrial sectors.",
+    "project_1": "HVAC Optimization - Food Factory",
+    "project_2": "Integrated EMS System - Office Building",
+    "project_3": "Industrial Solar Panels - Industrial Estate"
+  },
+  "contact": {
+    "title": "Start Your Energy Transformation",
+    "subtitle": "Contact our expert team for a free energy audit or a price quotation request.",
+    "form_name": "Full Name",
+    "form_email": "Company Email",
+    "form_company": "Company Name",
+    "form_message": "Your Message / Requirement",
+    "form_submit": "Send Request",
+    "success_msg": "Your request has been sent! Our team will contact you shortly.",
+    "map_title": "Our Location"
+  },
+  "blog": {
+    "title": "Energy Insights",
+    "subtitle": "Latest articles on energy efficiency and industrial green technology.",
+    "read_more": "Read More"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to the most common questions regarding BGE solutions.",
+    "q1": "How long is the return on investment (ROI) for solar panels?",
+    "a1": "The average ROI for industrial scale is 3-5 years depending on energy consumption and government subsidies.",
+    "q2": "Does BGE provide routine maintenance services?",
+    "a2": "Yes, we provide preventive maintenance contracts to ensure HVAC and EMS system efficiency remains optimal.",
+    "q3": "How do I start an energy audit?",
+    "a3": "Simply contact us via the contact form, and our expert team will schedule an initial site survey."
+  },
+  "footer": {
+    "description": "Leader in green energy solutions and industrial efficiency in Indonesia. Helping companies transform towards sustainable operations.",
+    "nav_title": "Navigation",
+    "contact_title": "Contact",
+    "rights": "All rights reserved."
+  }
+}

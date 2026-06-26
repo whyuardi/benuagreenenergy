@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Beranda", "about": "Tentang Kami", "services": "Layanan",
+    "products": "Produk", "portfolio": "Proyek", "contact": "Hubungi Kami",
+    "blog": "Blog", "faq": "FAQ"
+  },
+  "hero": {
+    "badge": "Energi Berkelanjutan",
+    "title": "Solusi Energi Hijau Untuk Masa Depan Industri",
+    "subtitle": "Kami menyediakan teknologi HVAC, sistem manajemen energi, dan solusi panel surya terintegrasi untuk meningkatkan efisiensi operasional perusahaan Anda.",
+    "cta1": "Konsultasi Gratis", "cta2": "Lihat Produk"
+  },
+  "about": {
+    "title": "Membawa Efisiensi Energi ke Level Tertinggi",
+    "subtitle": "PT. Benua Green Energy berkomitmen untuk membantu industri Indonesia mencapai target Net Zero Emission melalui inovasi teknologi pendingin dan manajemen energi.",
+    "history": "Didirikan dengan visi untuk memodernisasi infrastruktur energi industri, kami menggabungkan keahlian teknik dengan teknologi terbaru untuk mengurangi biaya operasional sekaligus menjaga lingkungan.",
+    "vision": "Menjadi mitra strategis utama bagi industri dalam transisi energi hijau di Asia Tenggara.",
+    "mission": "Menyediakan solusi HVAC dan EMS yang efisien, andal, dan terjangkau untuk skala industri besar."
+  },
+  "services": {
+    "title": "Layanan Unggulan Kami",
+    "hvac_t": "HVAC & Chiller",
+    "hvac_d": "Sistem pendingin skala industri dengan efisiensi tinggi untuk pabrik dan gedung komersial.",
+    "ems_t": "Energy Management",
+    "ems_d": "Audit energi dan sistem monitoring real-time untuk mengoptimalkan biaya operasional.",
+    "solar_t": "Solar Solutions",
+    "solar_d": "Implementasi panel surya industri untuk kemandirian energi dan pengurangan emisi karbon.",
+    "cta": "Selengkapnya"
+  },
+  "products": {
+    "title": "Katalog Produk",
+    "subtitle": "Teknologi kelas dunia yang dirancang untuk daya tahan maksimal dan efisiensi energi tinggi.",
+    "chiller_t": "Industrial Chillers",
+    "ems_t": "EMS Hardware",
+    "solar_t": "Solar Panels"
+  },
+  "portfolio": {
+    "title": "Rekam Jejak Kami",
+    "subtitle": "Bukti nyata implementasi solusi energi kami di berbagai sektor industri.",
+    "project_1": "Optimalisasi HVAC - Pabrik Makanan",
+    "project_2": "Sistem EMS Terpadu - Gedung Perkantoran",
+    "project_3": "Panel Surya Industri - Kawasan Industri"
+  },
+  "contact": {
+    "title": "Mulai Transformasi Energi Anda",
+    "subtitle": "Hubungi tim ahli kami untuk audit energi gratis atau permintaan penawaran harga.",
+    "form_name": "Nama Lengkap",
+    "form_email": "Email Perusahaan",
+    "form_company": "Nama Perusahaan",
+    "form_message": "Pesan / Kebutuhan Anda",
+    "form_submit": "Kirim Permintaan",
+    "success_msg": "Permintaan Anda telah terkirim! Tim kami akan segera menghubungi Anda.",
+    "map_title": "Lokasi Kami"
+  },
+  "blog": {
+    "title": "Wawasan Energi",
+    "subtitle": "Artikel terbaru mengenai efisiensi energi dan teknologi hijau industri.",
+    "read_more": "Baca Selengkapnya"
+  },
+  "faq": {
+    "title": "Pertanyaan Umum",
+    "subtitle": "Jawaban atas pertanyaan yang paling sering diajukan mengenai solusi BGE.",
+    "q1": "Berapa lama waktu pengembalian investasi (ROI) untuk panel surya?",
+    "a1": "Rata-rata ROI untuk skala industri adalah 3-5 tahun tergantung pada konsumsi energi dan subsidi pemerintah.",
+    "q2": "Apakah BGE menyediakan jasa pemeliharaan rutin?",
+    "a2": "Ya, kami menyediakan kontrak pemeliharaan preventif untuk memastikan efisiensi sistem HVAC dan EMS tetap optimal.",
+    "q3": "Bagaimana cara memulai audit energi?",
+    "a3": "Cukup hubungi kami melalui formulir kontak, dan tim ahli kami akan menjadwalkan kunjungan survei awal ke lokasi Anda."
+  },
+  "footer": {
+    "description": "Pemimpin dalam solusi energi hijau dan efisiensi industri di Indonesia. Membantu perusahaan bertransformasi menuju operasional yang berkelanjutan.",
+    "nav_title": "Navigasi",
+    "contact_title": "Kontak",
+    "rights": "All rights reserved."
+  }
+}

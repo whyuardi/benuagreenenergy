@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.git/
+*.log
+.env*
+qa-report-bge.md
+upgrade-heroes.py
+contact-submissions.jsonl
+tailwind.config.js
+tsconfig.tsbuildinfo
+public/
+images/
