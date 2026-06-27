@@ -2,300 +2,266 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ShieldIcon, AwardIcon, ClockIcon, ArrowRightIcon, ZapIcon, Building2Icon, LeafIcon, BarChartIcon, StarIcon } from '@/components/Icons'
-import { LogoSlider } from '@/components/LogoSlider'
 
-/* ─── Scroll Reveal Hook ─── */
-function useReveal(threshold = 0.08) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [v, setV] = useState(false)
-  useEffect(() => {
-    const el = ref.current; if (!el) return
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setV(true); io.disconnect() } }, { threshold })
-      io.observe(el); return () => io.disconnect()
-    } else { setV(true) }
-  }, [threshold])
-  return { ref, v }
+/* ─── Icon SVGs (inline, no component imports) ─── */
+function IconBuilding() {
+  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d5a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg>
+}
+function IconStar() {
+  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d5a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+}
+function IconClock() {
+  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d5a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+}
+function IconZap() {
+  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d5a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+}
+function IconArrowRight({ className = '' }: { className?: string }) {
+  return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 }
 
-function R({ children, d = 0, c = '' }: { children: React.ReactNode; d?: number; c?: string }) {
-  const { ref, v } = useReveal()
+function IntersectionReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(true)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); io.disconnect() } }, { threshold: 0.1 })
+      io.observe(el)
+      return () => io.disconnect()
+    } else { setVisible(true) }
+  }, [])
   return (
-    <div ref={ref} className={c} style={{
-      opacity: v ? 1 : 0, transform: v ? 'none' : 'translateY(48px) blur(8px)',
-      filter: v ? 'none' : 'blur(8px)',
-      transition: `opacity 1000ms cubic-bezier(0.16,1,0.3,1) ${d}ms, transform 1000ms cubic-bezier(0.16,1,0.3,1) ${d}ms, filter 1000ms cubic-bezier(0.16,1,0.3,1) ${d}ms`,
-      willChange: 'opacity, transform',
+    <div ref={ref} style={{
+      opacity: visible ? 1 : 0,
+      transform: visible ? 'translateY(0)' : 'translateY(24px)',
+      transition: `opacity 700ms cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 700ms cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
     }}>{children}</div>
   )
 }
+
+const stats = [
+  { value: '150+', label: 'Klien Industri', id: 'stat-1' },
+  { value: '500+', label: 'Proyek Selesai', id: 'stat-2' },
+  { value: '25+', label: 'Tahun Pengalaman', id: 'stat-3' },
+  { value: '40%', label: 'Penghematan Energi', id: 'stat-4' },
+]
+const statIcons = [IconBuilding, IconStar, IconClock, IconZap]
+
+const whyCards = [
+  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d5a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg>, title: 'Partner Resmi YORK', desc: 'Dealer resmi dengan garansi pabrik dan teknisi bersertifikat.' },
+  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d5a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, title: 'ISO 9001 Certified', desc: 'Sistem manajemen mutu internasional untuk jaminan kualitas.' },
+  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d5a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>, title: 'Garansi 5 Tahun', desc: 'Perlindungan jangka panjang untuk setiap instalasi kami.' },
+  { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d5a4a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, title: 'Dukungan 24/7', desc: 'Tim teknisi siap membantu kapan saja, di mana saja.' },
+]
+
+const services = [
+  { id: 's1', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5da383" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>, title: 'Sistem HVAC', desc: 'Sistem pendingin skala industri dengan efisiensi tinggi untuk pabrik dan gedung komersial.' },
+  { id: 's2', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5da383" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>, title: 'Manajemen Energi', desc: 'Audit energi, monitoring real-time, dan strategi optimasi untuk mengurangi biaya operasional.' },
+  { id: 's3', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5da383" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>, title: 'Sistem Solar', desc: 'Instalasi panel surya industri untuk kemandirian energi dan pengurangan emisi karbon.' },
+]
 
 export default function HomePage({ params }: { params: { lang: string } }) {
   const lang = params.lang === 'en' ? 'en' : 'id'
 
   return (
-    <div>
+    <>
+      {/* ═══ HERO ═══ */}
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: '#1a1a1a' }}>
+        {/* Grid overlay */}
+        <div className="absolute inset-0 opacity-[0.08]" style={{backgroundImage:'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize:'60px 60px'}} />
+        {/* Gradient orb */}
+        <div className="absolute top-[15%] left-[5%] w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{background:'radial-gradient(circle, #5da383, transparent 70%)'}} />
 
-      {/* ═══════ HERO — Editorial Dark ═══════ */}
-      <section className="section-dark min-h-screen relative overflow-hidden flex items-center">
-        {/* Ambient Orbs */}
-        <div className="absolute top-[8%] left-[3%] w-[600px] h-[600px] rounded-full opacity-[0.08] blur-3xl" style={{background:'radial-gradient(circle, var(--brand-bright), transparent 70%)', animation:'orb-drift 16s ease-in-out infinite'}} />
-        <div className="absolute bottom-[2%] right-[8%] w-[450px] h-[450px] rounded-full opacity-[0.06] blur-3xl" style={{background:'radial-gradient(circle, var(--brand-light), transparent 70%)', animation:'orb-drift 20s ease-in-out infinite 5s'}} />
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-28 sm:py-32 lg:py-40 w-full">
+          <div className="max-w-3xl">
+            <IntersectionReveal>
+              <span className="inline-flex items-center gap-1.5 text-[#5da383] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] mb-6 px-3 py-1.5 rounded-full border border-[#5da383]/30" style={{background:'rgba(93,163,131,0.1)'}}>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5da383] animate-pulse" />
+                Solusi Energi Terpercaya Sejak 1998
+              </span>
+            </IntersectionReveal>
 
-        {/* Grid + Noise */}
-        <div className="absolute inset-0 grid-overlay opacity-[0.25]" />
-        <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{backgroundImage:`url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,backgroundRepeat:'repeat'}} />
+            <IntersectionReveal delay={80}>
+              <h1 className="font-outfit text-[2.2rem] sm:text-[3.5rem] lg:text-[4.5rem] font-bold text-white leading-[1.05] tracking-[-0.02em] mb-5">
+                Solusi Energi Hijau untuk Industri Masa Depan
+              </h1>
+            </IntersectionReveal>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-44 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            {/* Left — Content */}
-            <div className="lg:col-span-6 xl:col-span-5">
-              <R>
-                <span className="eyebrow mb-8 inline-flex">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-bright)] animate-pulse mr-1" />
-                  {lang === 'id' ? 'Solusi Energi Terpercaya Sejak 1998' : 'Trusted Energy Solutions Since 1998'}
-                </span>
-              </R>
-              <R d={120}>
-                <h1 className="font-outfit text-[2.8rem] sm:text-[4rem] lg:text-[4.8rem] font-bold text-white mb-6 tracking-[-0.03em] leading-[1.02]">
-                  {lang === 'id' ? 'Solusi Energi Hijau untuk Industri Masa Depan' : 'Green Energy Solutions for Future Industry'}
-                </h1>
-              </R>
-              <R d={240}>
-                <p className="text-white/40 text-lg sm:text-xl max-w-md leading-relaxed mb-10">
-                  {lang === 'id' ? 'Mengoptimalkan efisiensi energi industri Anda melalui sistem HVAC, EMS, dan Solar Panel terintegrasi.' : 'Optimizing your industrial energy efficiency through integrated HVAC, EMS, and Solar Panel systems.'}
-                </p>
-              </R>
-              <R d={360}>
-                <div className="flex flex-wrap gap-4">
-                  <Link href={`/${lang}/contact`} className="btn-primary">
-                    {lang === 'id' ? 'Konsultasi Gratis' : 'Free Consultation'}
-                    <span className="btn-icon"><ArrowRightIcon size={15} /></span>
-                  </Link>
-                  <Link href={`/${lang}/portfolio`} className="btn-secondary">
-                    {lang === 'id' ? 'Lihat Proyek Kami' : 'See Our Projects'}
-                  </Link>
-                </div>
-              </R>
-            </div>
+            <IntersectionReveal delay={160}>
+              <p className="text-white/40 text-base sm:text-lg max-w-xl leading-relaxed mb-10">
+                Mengoptimalkan efisiensi energi industri Anda melalui sistem HVAC, EMS, dan Solar Panel terintegrasi.
+              </p>
+            </IntersectionReveal>
 
-            {/* Right — Double-Bezel Hero Image */}
-            <R d={480} c="hidden lg:block lg:col-span-6 xl:col-span-7 lg:pl-8">
-              <div className="relative">
-                {/* Double Bezel */}
-                <div className="rounded-[2.5rem] p-2 bg-white/[0.03] border border-white/[0.08]">
-                  <div className="relative aspect-[4/5] rounded-[calc(2.5rem-0.25rem)] overflow-hidden">
-                    <Image src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80" alt="Solar panels" fill className="object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--dark)] via-transparent to-transparent opacity-60" />
-                  </div>
-                </div>
-                {/* Floating Stat */}
-                <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white/[0.06] backdrop-blur-2xl border border-white/[0.1] px-6 py-4 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-bright)]/15 flex items-center justify-center">
-                    <ZapIcon size={22} className="text-[var(--brand-bright)]" />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold text-xl leading-none">40%</p>
-                    <p className="text-white/40 text-[13px] mt-0.5">{lang === 'id' ? 'Penghematan Energi' : 'Energy Savings'}</p>
-                  </div>
-                </div>
+            <IntersectionReveal delay={240}>
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                <Link href={`/${lang}/contact`}
+                  className="inline-flex items-center gap-2.5 px-6 py-3 sm:px-8 sm:py-3.5 rounded-full text-sm sm:text-[15px] font-semibold transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
+                  style={{background:'#2d5a4a', color:'white', boxShadow:'0 4px 20px rgba(45,90,74,0.3)'}}>
+                  Konsultasi Gratis
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center" style={{background:'rgba(0,0,0,0.15)'}}>
+                    <IconArrowRight />
+                  </span>
+                </Link>
+                <Link href={`/${lang}/portfolio`}
+                  className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-3.5 rounded-full text-sm sm:text-[15px] font-semibold transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
+                  style={{border:'1px solid rgba(255,255,255,0.12)', color:'white'}}>
+                  Lihat Proyek Kami
+                </Link>
               </div>
-            </R>
+            </IntersectionReveal>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 text-white/15">
-          <span className="text-[9px] tracking-[0.25em] uppercase font-medium">{lang === 'id' ? 'Gulir' : 'Scroll'}</span>
-          <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/15">
+          <span className="text-[8px] tracking-[0.25em] uppercase font-medium">Gulir</span>
+          <svg width="14" height="22" viewBox="0 0 16 24" fill="none" className="animate-bounce">
             <rect x="0.5" y="0.5" width="15" height="23" rx="7.5" stroke="currentColor" strokeOpacity="0.3"/>
             <circle cx="8" cy="8" r="2" fill="currentColor" fillOpacity="0.4"/>
           </svg>
         </div>
       </section>
 
-      {/* ═══════ TRUSTED BY — Marquee ═══════ */}
-      <section className="py-16 lg:py-20 bg-white border-b border-[var(--border)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <R>
-            <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--ink-muted)]/50 mb-10">
-              {lang === 'id' ? 'Dipercaya Oleh' : 'Trusted By'}
-            </p>
-          </R>
-          <R d={100}>
+      {/* ═══ TRUSTED BY ═══ */}
+      <section className="py-12 sm:py-16 bg-white border-b border-[#e8e4dd]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <IntersectionReveal>
+            <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-[#9b9b9b] mb-8">Dipercaya Oleh</p>
+          </IntersectionReveal>
+          <IntersectionReveal delay={80}>
             <div className="overflow-hidden">
-              <div className="flex w-max gap-12 sm:gap-20 animate-scroll-logo">
-                {['GarudaFood','Suntory Garuda','Kalbe Farma','Mayora Indah','Indofood','Unilever Indonesia',
-                  'GarudaFood','Suntory Garuda','Kalbe Farma','Mayora Indah','Indofood','Unilever Indonesia',
-                  'GarudaFood','Suntory Garuda','Kalbe Farma','Mayora Indah','Indofood','Unilever Indonesia',
-                ].map((name, i) => (
-                  <span key={i} className="text-lg sm:text-xl font-bold text-[var(--ink-subtle)]/30 hover:text-[var(--brand)]/40 transition-colors duration-500 uppercase tracking-widest whitespace-nowrap">
-                    {name}
-                  </span>
+              <div className="flex w-max animate-marquee">
+                {Array(3).fill(['GarudaFood','Suntory Garuda','Kalbe Farma','Mayora Indah','Indofood','Unilever Indonesia']).flat().map((name, i) => (
+                  <span key={i} className="text-base sm:text-lg font-bold text-[#9b9b9b]/30 hover:text-[#2d5a4a]/40 transition-colors whitespace-nowrap mx-8 sm:mx-14 uppercase tracking-widest">{name}</span>
                 ))}
               </div>
             </div>
-          </R>
+          </IntersectionReveal>
         </div>
       </section>
 
-      {/* ═══════ STATS ═══════ */}
-      <section className="section-surface py-24 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 grid-overlay opacity-[0.3]" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
-            {[
-              { value: '150+', label: lang === 'id' ? 'Klien Industri' : 'Industrial Clients', icon: <Building2Icon size={20} /> },
-              { value: '500+', label: lang === 'id' ? 'Proyek Selesai' : 'Projects Completed', icon: <StarIcon size={20} /> },
-              { value: '25+', label: lang === 'id' ? 'Tahun Pengalaman' : 'Years Experience', icon: <ClockIcon size={20} /> },
-              { value: '40%', label: lang === 'id' ? 'Penghematan Energi' : 'Energy Savings', icon: <ZapIcon size={20} /> },
-            ].map((stat, i) => (
-              <R key={i} d={i * 80}>
-                <div className="text-center group">
-                  <div className="inline-flex w-12 h-12 rounded-2xl bg-[var(--brand)]/10 text-[var(--brand)] items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-[var(--brand)]/15 transition-all duration-500">
-                    {stat.icon}
-                  </div>
-                  <p className="font-outfit text-[2.8rem] sm:text-[3.5rem] font-bold text-[var(--brand)] mb-2 tracking-[-0.03em] leading-none">{stat.value}</p>
-                  <p className="text-[var(--ink-muted)] text-sm font-medium">{stat.label}</p>
-                </div>
-              </R>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ WHY BGE — Asymmetric Editorial Split ═══════ */}
-      <section className="py-28 lg:py-40 bg-white relative overflow-hidden">
-        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[var(--border)] to-transparent opacity-40" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
-            {/* Sticky Text Panel */}
-            <div className="lg:col-span-5 lg:sticky lg:top-32">
-              <R>
-                <span className="eyebrow mb-6">{lang === 'id' ? 'Mengapa Kami' : 'Why Us'}</span>
-                <h2 className="font-outfit text-[2.2rem] sm:text-[3rem] lg:text-[3.5rem] font-bold text-[var(--ink)] mb-6 tracking-[-0.03em] leading-[1.08]">
-                  {lang === 'id' ? 'Mengapa BGE?' : 'Why BGE?'}
-                </h2>
-                <p className="text-[var(--ink-secondary)] text-lg leading-relaxed mb-5">
-                  {lang === 'id' ? 'Dengan pengalaman lebih dari 25 tahun, kami memberikan solusi energi yang terbukti menghemat biaya operasional hingga 40%.' : 'With over 25 years of experience, we deliver proven energy solutions that save up to 40% in operational costs.'}
-                </p>
-                <p className="text-[var(--ink-muted)] leading-relaxed">
-                  {lang === 'id' ? 'Kami adalah mitra terpercaya untuk industri-industri besar di Indonesia. Dari audit energi hingga instalasi sistem terintegrasi, BGE hadir untuk membantu Anda mencapai efisiensi maksimal.' : 'We are a trusted partner for major industries in Indonesia. From energy audits to integrated system installations, BGE is here to help you achieve maximum efficiency.'}
-                </p>
-              </R>
-            </div>
-
-            {/* Cards — Double Bezel */}
-            <div className="lg:col-span-7 space-y-6">
-              {[
-                { icon: <Building2Icon size={24} />, title: lang === 'id' ? 'Partner Resmi YORK' : 'Official YORK Partner', desc: lang === 'id' ? 'Dealer resmi dengan garansi pabrik dan teknisi bersertifikat.' : 'Authorized dealer with factory warranty and certified technicians.' },
-                { icon: <ShieldIcon size={24} />, title: 'ISO 9001 Certified', desc: lang === 'id' ? 'Sistem manajemen mutu internasional untuk jaminan kualitas.' : 'International quality management system for guaranteed quality.' },
-                { icon: <AwardIcon size={24} />, title: lang === 'id' ? 'Garansi 5 Tahun' : '5-Year Warranty', desc: lang === 'id' ? 'Perlindungan jangka panjang untuk setiap instalasi kami.' : 'Long-term protection for every installation we deliver.' },
-                { icon: <ClockIcon size={24} />, title: lang === 'id' ? 'Dukungan 24/7' : '24/7 Support', desc: lang === 'id' ? 'Tim teknisi siap membantu kapan saja, di mana saja.' : 'Technical team ready to assist anytime, anywhere.' },
-              ].map((item, i) => (
-                <R key={i} d={i * 60}>
-                  <div className="card-shell group">
-                    <div className="card-core p-7 sm:p-8">
-                      <div className="flex items-start gap-5">
-                        <div className="w-14 h-14 rounded-2xl bg-[var(--brand-pale)] text-[var(--brand)] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[var(--brand-bright)]/15 transition-all duration-500">
-                          {item.icon}
-                        </div>
-                        <div className="pt-1">
-                          <h3 className="font-outfit font-bold text-[var(--ink)] text-base mb-1.5">{item.title}</h3>
-                          <p className="text-[var(--ink-muted)] text-sm leading-relaxed">{item.desc}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </R>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ SERVICES — Dark Bento Grid ═══════ */}
-      <section className="section-dark py-28 lg:py-40 relative overflow-hidden">
-        <div className="absolute inset-0 grid-overlay opacity-[0.15]" />
-        <div className="absolute inset-0" style={{background:'radial-gradient(ellipse 800px 500px at 25% 50%, rgba(93,163,131,0.06) 0%, transparent 70%)'}} />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <R>
-            <span className="eyebrow mb-6">{lang === 'id' ? 'Layanan Kami' : 'Our Services'}</span>
-            <h2 className="font-outfit text-[2.2rem] sm:text-[3rem] lg:text-[3.5rem] font-bold text-white mb-4 tracking-[-0.03em] leading-[1.08]">
-              {lang === 'id' ? 'Solusi Energi Terintegrasi' : 'Integrated Energy Solutions'}
-            </h2>
-            <p className="text-white/40 text-lg mb-16 max-w-xl">
-              {lang === 'id' ? 'Solusi lengkap untuk efisiensi energi industri Anda.' : 'Complete solutions for your industrial energy efficiency.'}
-            </p>
-          </R>
-
-          {/* Asymmetric Bento Grid — 3 cards with varying sizes */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 mb-12">
-            {[
-              { icon: <ZapIcon size={28} />, title: lang === 'id' ? 'Sistem HVAC' : 'HVAC System', desc: lang === 'id' ? 'Sistem pendingin skala industri dengan efisiensi tinggi untuk pabrik dan gedung komersial.' : 'High-efficiency industrial cooling for factories and commercial buildings.' },
-              { icon: <BarChartIcon size={28} />, title: lang === 'id' ? 'Manajemen Energi' : 'Energy Management', desc: lang === 'id' ? 'Audit energi, monitoring real-time, dan strategi optimasi untuk mengurangi biaya operasional.' : 'Energy audits, real-time monitoring, and optimization strategies to reduce costs.' },
-              { icon: <LeafIcon size={28} />, title: lang === 'id' ? 'Sistem Solar' : 'Solar System', desc: lang === 'id' ? 'Instalasi panel surya industri untuk kemandirian energi dan pengurangan emisi karbon.' : 'Industrial solar panel installation for energy independence and carbon reduction.' },
-            ].map((svc, i) => {
-              const span = i === 1 ? 'md:col-span-5' : 'md:col-span-3'
+      {/* ═══ STATS ═══ */}
+      <section className="py-16 sm:py-24" style={{background:'#F5F2EC'}}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">
+            {stats.map((s, i) => {
+              const StatIcon = statIcons[i]
               return (
-                <R key={i} d={i * 100} c={span}>
-                  <Link href={`/${lang}/services`} className="group block h-full">
-                    <div className="card-shell-dark group h-full">
-                      <div className="card-core-dark p-8 h-full flex flex-col">
-                        <div className="w-14 h-14 rounded-2xl bg-[var(--brand-bright)]/12 text-[var(--brand-bright)] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[var(--brand-bright)]/20 transition-all duration-500">
-                          {svc.icon}
-                        </div>
-                        <h3 className="font-outfit text-xl font-bold text-white mb-3">{svc.title}</h3>
-                        <p className="text-white/35 text-sm leading-relaxed mb-8 flex-1">{svc.desc}</p>
-                        <span className="inline-flex items-center gap-2 text-[var(--brand-bright)] text-sm font-semibold group-hover:gap-3 transition-all duration-300">
-                          {lang === 'id' ? 'Selengkapnya' : 'Learn More'}
-                          <span className="w-7 h-7 rounded-full bg-[var(--brand-bright)]/10 flex items-center justify-center group-hover:translate-x-1 group-hover:scale-105 transition-all duration-300">
-                            <ArrowRightIcon size={13} />
-                          </span>
-                        </span>
-                      </div>
+                <IntersectionReveal key={s.id} delay={i * 60}>
+                  <div className="text-center group">
+                    <div className="inline-flex w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#2d5a4a]/10 text-[#2d5a4a] items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#2d5a4a]/15 transition-all duration-500">
+                      <StatIcon />
                     </div>
-                  </Link>
-                </R>
+                    <p className="font-outfit text-[2.2rem] sm:text-[2.8rem] font-bold text-[#2d5a4a] mb-1.5 leading-none tracking-[-0.02em]">{s.value}</p>
+                    <p className="text-[#6b6b6b] text-xs sm:text-sm font-medium">{s.label}</p>
+                  </div>
+                </IntersectionReveal>
               )
             })}
           </div>
+        </div>
+      </section>
 
-          <R d={300}>
+      {/* ═══ WHY BGE ═══ */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <IntersectionReveal>
+            <span className="inline-flex items-center text-[#2d5a4a] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] mb-4 px-3 py-1.5 rounded-full border border-[#2d5a4a]/30 bg-[#e8f3ee]">Mengapa Kami</span>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <div className="lg:col-span-5 lg:sticky lg:top-24 self-start">
+                <h2 className="font-outfit text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem] font-bold text-[#1a1a1a] mb-5 tracking-[-0.02em] leading-[1.08]">Mengapa BGE?</h2>
+                <p className="text-[#3d3d3d] text-base sm:text-lg leading-relaxed mb-4">Dengan pengalaman lebih dari 25 tahun, kami memberikan solusi energi yang terbukti menghemat biaya operasional hingga 40%.</p>
+                <p className="text-[#6b6b6b] leading-relaxed text-sm sm:text-base">Kami adalah mitra terpercaya untuk industri-industri besar di Indonesia. Dari audit energi hingga instalasi sistem terintegrasi, BGE hadir untuk membantu Anda mencapai efisiensi maksimal.</p>
+              </div>
+              <div className="lg:col-span-7 space-y-4">
+                {whyCards.map((card, i) => (
+                  <IntersectionReveal key={i} delay={i * 60}>
+                    <div className="p-5 sm:p-6 rounded-2xl border border-[#e8e4dd] bg-white hover:border-[#5da383]/30 hover:shadow-lg transition-all duration-300">
+                      <div className="flex items-start gap-4 sm:gap-5">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#e8f3ee] text-[#2d5a4a] flex items-center justify-center shrink-0">{card.icon}</div>
+                        <div className="pt-1">
+                          <h3 className="font-outfit font-bold text-sm sm:text-base text-[#1a1a1a] mb-1">{card.title}</h3>
+                          <p className="text-[#6b6b6b] text-xs sm:text-sm leading-relaxed">{card.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </IntersectionReveal>
+                ))}
+              </div>
+            </div>
+          </IntersectionReveal>
+        </div>
+      </section>
+
+      {/* ═══ SERVICES ═══ */}
+      <section className="py-16 sm:py-24" style={{background:'#1a1a1a'}}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <IntersectionReveal>
+            <span className="inline-flex items-center text-[#5da383] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] mb-4 px-3 py-1.5 rounded-full border border-[#5da383]/30" style={{background:'rgba(93,163,131,0.1)'}}>Layanan Kami</span>
+            <h2 className="font-outfit text-[2rem] sm:text-[2.8rem] font-bold text-white mb-6 tracking-[-0.02em] leading-[1.08]">Solusi Energi Terintegrasi</h2>
+            <p className="text-white/40 text-base sm:text-lg mb-12 max-w-lg">Solusi lengkap untuk efisiensi energi industri Anda.</p>
+          </IntersectionReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mb-10">
+            {services.map((svc, i) => (
+              <IntersectionReveal key={svc.id} delay={i * 80}>
+                <Link href={`/${lang}/services`} className="group block h-full">
+                  <div className="p-6 sm:p-8 rounded-2xl h-full transition-all duration-300 hover:-translate-y-1" style={{border:'1px solid rgba(255,255,255,0.06)', background:'rgba(255,255,255,0.03)'}}>
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#5da383]/12 text-[#5da383] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-[#5da383]/20 transition-all duration-500">
+                      {svc.icon}
+                    </div>
+                    <h3 className="font-outfit text-lg sm:text-xl font-bold text-white mb-3">{svc.title}</h3>
+                    <p className="text-white/35 text-sm leading-relaxed mb-6">{svc.desc}</p>
+                    <span className="inline-flex items-center gap-2 text-[#5da383] text-xs font-semibold group-hover:gap-3 transition-all duration-300">
+                      Selengkapnya
+                      <span className="w-6 h-6 rounded-full bg-[#5da383]/10 flex items-center justify-center group-hover:translate-x-1 transition-all duration-300">
+                        <IconArrowRight />
+                      </span>
+                    </span>
+                  </div>
+                </Link>
+              </IntersectionReveal>
+            ))}
+          </div>
+
+          <IntersectionReveal delay={240}>
             <div className="text-center">
-              <Link href={`/${lang}/services`} className="btn-secondary">
-                {lang === 'id' ? 'Semua Layanan' : 'All Services'}
-                <span className="btn-icon"><ArrowRightIcon size={15} /></span>
+              <Link href={`/${lang}/services`}
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
+                style={{border:'1px solid rgba(255,255,255,0.12)', color:'white'}}>
+                Semua Layanan
+                <span className="w-7 h-7 rounded-full flex items-center justify-center" style={{background:'rgba(255,255,255,0.06)'}}>
+                  <IconArrowRight />
+                </span>
               </Link>
             </div>
-          </R>
+          </IntersectionReveal>
         </div>
       </section>
 
-      {/* ═══════ CTA — Editorial Callout ═══════ */}
-      <section className="py-28 lg:py-40 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 600px 400px at 50% 50%, rgba(74,124,111,0.04) 0%, transparent 70%)'}} />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <R>
-            <span className="eyebrow mb-6">{lang === 'id' ? 'Siap Memulai?' : 'Ready to Get Started?'}</span>
-            <h2 className="font-outfit text-[2.2rem] sm:text-[3rem] lg:text-[3.5rem] font-bold text-[var(--ink)] mb-5 tracking-[-0.03em] leading-[1.08]">
-              {lang === 'id' ? 'Siap Menghemat Energi?' : 'Ready to Save Energy?'}
-            </h2>
-            <p className="text-[var(--ink-muted)] text-lg mb-10 max-w-lg mx-auto">
-              {lang === 'id' ? 'Hubungi kami untuk konsultasi gratis dan temukan solusi energi terbaik untuk bisnis Anda.' : 'Contact us for a free consultation and find the best energy solution for your business.'}
-            </p>
-          </R>
-          <R d={120}>
-            <Link href={`/${lang}/contact`} className="btn-primary">
-              {lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}
-              <span className="btn-icon"><ArrowRightIcon size={15} /></span>
+      {/* ═══ CTA ═══ */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <IntersectionReveal>
+            <span className="inline-flex items-center text-[#2d5a4a] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] mb-4 px-3 py-1.5 rounded-full border border-[#2d5a4a]/30 bg-[#e8f3ee]">Siap Memulai?</span>
+            <h2 className="font-outfit text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem] font-bold text-[#1a1a1a] mb-4 tracking-[-0.02em] leading-[1.08]">Siap Menghemat Energi?</h2>
+            <p className="text-[#6b6b6b] text-base sm:text-lg mb-10 max-w-md mx-auto">Hubungi kami untuk konsultasi gratis dan temukan solusi energi terbaik untuk bisnis Anda.</p>
+          </IntersectionReveal>
+          <IntersectionReveal delay={100}>
+            <Link href={`/${lang}/contact`}
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full text-[15px] font-semibold transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
+              style={{background:'#2d5a4a', color:'white', boxShadow:'0 4px 20px rgba(45,90,74,0.3)'}}>
+              Hubungi Kami
+              <span className="w-8 h-8 rounded-full flex items-center justify-center" style={{background:'rgba(0,0,0,0.15)'}}>
+                <IconArrowRight />
+              </span>
             </Link>
-          </R>
+          </IntersectionReveal>
         </div>
       </section>
-
-    </div>
+    </>
   )
 }
