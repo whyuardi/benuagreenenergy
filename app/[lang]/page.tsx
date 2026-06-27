@@ -16,7 +16,7 @@ function IconCheck() {
 /* ─── Intersection Reveal ─── */
 function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   useEffect(() => {
     const el = ref.current
     if (!el) return
@@ -376,84 +376,84 @@ const CONTENT = {
   id: {
     scroll: 'Gulir',
     hero: {
-      badge: 'Solusi Energi Terpercaya Sejak 1998',
-      title: 'Solusi Energi Hijau\nuntuk Industri',
-      sub: 'Mengoptimalkan efisiensi energi industri Anda melalui sistem HVAC, EMS, dan Solar Panel terintegrasi.',
-      cta: 'Konsultasi Gratis',
-      cta2: 'Lihat Proyek',
-      trustBadge: 'Dipercaya 150+ industri',
+      badge: 'BG Group — Solusi Energi Hijau',
+      title: 'Connecting The\\nGreen Energy Future',
+      sub: 'Kami menyediakan spektrum penuh layanan energi — dari konsultasi, instalasi, hingga perawatan — memastikan kebutuhan energi Anda terpenuhi secara efisien dan berkelanjutan.',
+      cta: 'Jelajahi Layanan',
+      cta2: 'Lihat Produk',
+      trustBadge: 'BG Group — Established 2000',
     },
     trusted: {
       title: 'Dipercaya Oleh',
     },
     why: {
-      badge: 'Mengapa Kami',
-      title: 'The BGE Difference',
-      desc1: 'Dengan pengalaman lebih dari 25 tahun, kami memberikan solusi energi yang terbukti menghemat biaya operasional hingga 40%.',
-      desc2: 'Dari audit energi hingga instalasi sistem terintegrasi, BGE hadir untuk membantu Anda mencapai efisiensi maksimal.',
-      quote: 'Kami tidak hanya menjual produk — kami membangun kemitraan jangka panjang untuk efisiensi energi yang berkelanjutan.',
+      badge: 'Tentang Kami',
+      title: 'BG Group — Mitra Energi Hijau Anda',
+      desc1: 'BG Group, didirikan tahun 2000 dengan HQ di Singapore dan Jakarta, adalah pelopor investasi energi hijau dan keberlanjutan. 10% dari pendapatan tahunan dialokasikan untuk R&D.',
+      desc2: 'Kami menyediakan sistem pendingin non-listrik (LiBr Absorption Chiller) bertenaga energi bersih dan terbarukan, serta refrigerant non-polutan.',
+      quote: 'Membantu pemerintah mengembangkan keberlanjutan ekonomi, energi, dan lingkungan melalui solusi energi inovatif.',
     },
     services: {
       badge: 'Layanan Kami',
       title: 'Solusi Energi Terintegrasi',
-      sub: 'Solusi lengkap untuk efisiensi energi industri Anda.',
+      sub: 'Spektrum penuh layanan energi — dari konsultasi hingga perawatan.',
       featured: {
-        title: 'Sistem HVAC',
-        desc: 'Sistem pendingin skala industri dengan efisiensi tinggi untuk pabrik dan gedung komersial. Didukung teknisi bersertifikat dan garansi resmi YORK.',
+        title: 'Jasa Instalasi & Komisioning',
+        desc: 'Solusi CCHP (Combined Cooling, Heat & Power) komprehensif — rekayasa, konsultasi, desain, instalasi, dan komisioning. Ditangani teknisi bersertifikat.',
         cta: 'Pelajari Lebih Lanjut',
       },
       secondary: [
-        { title: 'Manajemen Energi', desc: 'Audit energi & monitoring real-time untuk optimasi biaya operasional.' },
-        { title: 'Sistem Solar', desc: 'Panel surya industri untuk kemandirian energi & pengurangan emisi.' },
+        { title: 'Perawatan & Pemeliharaan', desc: 'Program perawatan preventif & korektif untuk memastikan performa optimal, keandalan, dan umur panjang peralatan Anda.' },
+        { title: 'EMS — Energy Management', desc: 'Sistem manajemen energi canggih untuk memonitor, mengoptimalkan, dan mengontrol performa peralatan CCHP secara real-time.' },
       ],
       allLink: 'Semua Layanan',
     },
     cta: {
       badge: 'Siap Memulai?',
       title: 'Siap Menghemat Energi?',
-      sub: 'Hubungi kami untuk konsultasi gratis dan temukan solusi energi terbaik untuk bisnis Anda.',
+      sub: 'Hubungi tim ahli kami untuk konsultasi gratis dan temukan solusi energi terbaik untuk bisnis Anda. Didukung garansi resmi YORK dan sertifikasi ISO 9001.',
       button: 'Hubungi Kami',
     },
   },
   en: {
     scroll: 'Scroll',
     hero: {
-      badge: 'Trusted Green Energy Since 1998',
-      title: 'Green Energy\nSolutions for Industry',
-      sub: 'Optimize your industrial energy efficiency through integrated HVAC, EMS, and Solar Panel systems.',
-      cta: 'Free Consultation',
-      cta2: 'View Projects',
-      trustBadge: 'Trusted by 150+ industries',
+      badge: 'BG Group — Green Energy Solutions',
+      title: 'Connecting The\\nGreen Energy Future',
+      sub: 'We provide a full spectrum of energy services — from consulting, installation, to maintenance — ensuring your energy needs are met efficiently and sustainably.',
+      cta: 'Explore Services',
+      cta2: 'View Products',
+      trustBadge: 'BG Group — Established 2000',
     },
     trusted: {
       title: 'Trusted By',
     },
     why: {
-      badge: 'Why Us',
-      title: 'The BGE Difference',
-      desc1: 'With over 25 years of experience, we deliver energy solutions proven to save operational costs up to 40%.',
-      desc2: 'From energy audits to integrated system installation, BGE is here to help you achieve maximum efficiency.',
-      quote: 'We don\'t just sell products — we build long-term partnerships for sustainable energy efficiency.',
+      badge: 'About Us',
+      title: 'BG Group — Your Green Energy Partner',
+      desc1: 'BG Group, established in 2000 with HQ in Singapore and Jakarta, is a leading advocate for green energy investment and sustainability. 10% of annual revenue is allocated to R&D.',
+      desc2: 'We provide non-electric air conditioning systems (LiBr Absorption Chiller) powered by clean and recyclable energies, using non-polluting refrigerants.',
+      quote: 'Helping governments develop economic, energy, and environmental sustainability through innovative energy solutions.',
     },
     services: {
       badge: 'Our Services',
       title: 'Integrated Energy Solutions',
-      sub: 'Complete solutions for your industrial energy efficiency.',
+      sub: 'Full spectrum of energy services — from consulting to maintenance.',
       featured: {
-        title: 'HVAC System',
-        desc: 'Industrial-scale cooling systems with high efficiency for factories and commercial buildings. Backed by certified technicians and YORK official warranty.',
+        title: 'Installation & Commissioning',
+        desc: 'Comprehensive CCHP (Combined Cooling, Heat & Power) solutions — engineering, consulting, design, installation, and commissioning. Handled by certified technicians.',
         cta: 'Learn More',
       },
       secondary: [
-        { title: 'Energy Management', desc: 'Energy audits & real-time monitoring for operational cost optimization.' },
-        { title: 'Solar System', desc: 'Industrial solar panels for energy independence & emission reduction.' },
+        { title: 'Maintenance & Repair', desc: 'Preventive & corrective maintenance programs ensuring optimal performance, reliability, and longevity of your equipment.' },
+        { title: 'EMS — Energy Management', desc: 'Advanced energy management systems for monitoring, optimizing, and controlling CCHP equipment performance in real-time.' },
       ],
       allLink: 'All Services',
     },
     cta: {
       badge: 'Get Started',
       title: 'Ready to Save Energy?',
-      sub: 'Contact us for a free consultation and find the best energy solution for your business.',
+      sub: 'Contact our expert team for a free consultation and find the best energy solution for your business. Backed by YORK official warranty and ISO 9001 certification.',
       button: 'Contact Us',
     },
   },

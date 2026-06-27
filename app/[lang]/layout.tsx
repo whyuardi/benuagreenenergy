@@ -12,22 +12,29 @@ const navData: Record<string, any> = {
       { href: '/services', label: 'Layanan' },
       { href: '/products', label: 'Produk' },
       { href: '/portfolio', label: 'Proyek' },
+      { href: '/ems', label: 'EMS' },
     ],
     extraLinks: [
       { href: '/faq', label: 'FAQ' },
       { href: '/contact', label: 'Kontak' },
     ],
     cta: 'Konsultasi Gratis',
-    footerDesc: 'Pemimpin dalam solusi energi hijau dan efisiensi industri di Indonesia sejak 1998.',
+    ctaWhatsapp: 'https://wa.me/628176779719',
+    footerDesc: 'BG Group, established in 2000 dengan HQ di Singapore dan Jakarta, adalah pelopor investasi energi hijau dan keberlanjutan.',
     navTitle: 'Navigasi',
     contactTitle: 'Kontak',
     productTitle: 'Produk',
     rights: 'All rights reserved.',
-    products: ['Chiller / HVAC', 'Cooling Tower', 'Steam Accessories', 'Solar Panel', 'BMS', 'Green Solution', 'High Efficiency Pump', 'PPR Pipe & Fittings'],
+    products: ['Chiller / HVAC', 'Cooling Tower', 'Steam Accessories', 'Solar Panel', 'BMS', 'Green Solution', 'High Efficiency Pump', 'PPR Pipe & Fittings', 'Solar Inverter Optimizer', 'Alkaline Water Ionizer'],
     contact: {
       phone: '(62-21) 5573 1123',
+      phone2: '+62 815-8816-259',
+      phone3: '+62 817-6779-719',
       email: 'jakarta@benuagreen.com',
-      location: 'Jl. Trocadero Office Park, Ruko Piazza De Europe Garnier No. 82, Lippo Karawaci, Tangerang 15139'
+      email2: 'sales@benuagreen.com',
+      location: 'Jl. Trocadero Office Park, Ruko Piazza De Europe Garnier No. 82, Lippo Karawaci, Tangerang 15139',
+      hours_weekday: 'Sen - Jum: 08:00 - 17:00',
+      hours_sat: 'Sabtu: 08:00 - 13:00'
     }
   },
   en: {
@@ -37,22 +44,29 @@ const navData: Record<string, any> = {
       { href: '/services', label: 'Services' },
       { href: '/products', label: 'Products' },
       { href: '/portfolio', label: 'Portfolio' },
+      { href: '/ems', label: 'EMS' },
     ],
     extraLinks: [
       { href: '/faq', label: 'FAQ' },
       { href: '/contact', label: 'Contact' },
     ],
     cta: 'Free Consultation',
-    footerDesc: 'Leader in green energy solutions and industrial efficiency in Indonesia since 1998.',
+    ctaWhatsapp: 'https://wa.me/628176779719',
+    footerDesc: 'BG Group, established in 2000 with HQ in Singapore and Jakarta, is a leading advocate for green energy investment and sustainability.',
     navTitle: 'Navigation',
     contactTitle: 'Contact',
     productTitle: 'Products',
     rights: 'All rights reserved.',
-    products: ['Chiller / HVAC', 'Cooling Tower', 'Steam Accessories', 'Solar Panel', 'BMS', 'Green Solution', 'High Efficiency Pump', 'PPR Pipe & Fittings'],
+    products: ['Chiller / HVAC', 'Cooling Tower', 'Steam Accessories', 'Solar Panel', 'BMS', 'Green Solution', 'High Efficiency Pump', 'PPR Pipe & Fittings', 'Solar Inverter Optimizer', 'Alkaline Water Ionizer'],
     contact: {
       phone: '(62-21) 5573 1123',
+      phone2: '+62 815-8816-259',
+      phone3: '+62 817-6779-719',
       email: 'jakarta@benuagreen.com',
-      location: 'Jl. Trocadero Office Park, Ruko Piazza De Europe Garnier No. 82, Lippo Karawaci, Tangerang 15139'
+      email2: 'sales@benuagreen.com',
+      location: 'Jl. Trocadero Office Park, Ruko Piazza De Europe Garnier No. 82, Lippo Karawaci, Tangerang 15139',
+      hours_weekday: 'Mon - Fri: 08:00 - 17:00',
+      hours_sat: 'Sat: 08:00 - 13:00'
     }
   }
 }
@@ -196,7 +210,7 @@ export default function LangLayout({ children, params }: { children: React.React
             <div className="lg:col-span-3">
               <h3 className="font-outfit text-white text-[11px] uppercase tracking-[0.15em] font-bold mb-5">{t.productTitle}</h3>
               <ul className="space-y-3">
-                {t.products.slice(0, 5).map((p: string) => (
+                {t.products.map((p: string) => (
                   <li key={p}><Link href={`/${lang}/products`} className="text-white/40 hover:text-white text-sm transition-colors">{p}</Link></li>
                 ))}
               </ul>
@@ -208,7 +222,14 @@ export default function LangLayout({ children, params }: { children: React.React
               <ul className="space-y-3">
                 <li className="text-white/40 text-sm leading-relaxed">{t.contact.location}</li>
                 <li><a href={`tel:${t.contact.phone}`} className="text-white/40 hover:text-white text-sm transition-colors">{t.contact.phone}</a></li>
+                <li><a href={`tel:${t.contact.phone2}`} className="text-white/40 hover:text-white text-sm transition-colors">{t.contact.phone2}</a></li>
                 <li><a href={`mailto:${t.contact.email}`} className="text-white/40 hover:text-white text-sm transition-colors">{t.contact.email}</a></li>
+                <li><a href={`mailto:${t.contact.email2}`} className="text-white/40 hover:text-white text-sm transition-colors">{t.contact.email2}</a></li>
+                <li className="text-white/30 text-xs leading-relaxed">
+                  {t.contact.hours_weekday}<br />
+                  {t.contact.hours_sat}<br />
+                  {lang === 'id' ? 'Minggu: Libur' : 'Sunday: Closed'}
+                </li>
               </ul>
             </div>
           </div>
