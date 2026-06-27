@@ -107,7 +107,7 @@ export default function LangLayout({ children, params }: { children: React.React
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {t.links.slice(0, 5).map((l: any) => (
+            {t.links.slice(0, 6).map((l: any) => (
               <Link key={l.href} href={`/${lang}${l.href}`}
                 className={`px-3 py-1.5 text-sm font-medium transition-colors rounded-lg ${scrolled ? 'text-[#6b6b6b] hover:text-[#1a1a1a] hover:bg-[#f5f2ec]' : 'text-white/80 hover:text-white hover:bg-white/10'}`}>
                 {l.label}
