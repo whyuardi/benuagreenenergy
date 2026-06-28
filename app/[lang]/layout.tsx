@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import RouteLoader from '@/components/RouteLoader'
 
 const navData: Record<string, any> = {
   id: {
@@ -196,8 +197,13 @@ export default function LangLayout({ children, params }: { children: React.React
         </div>
       )}
 
+      {/* ═══ ROUTE LOADER ═══ */}
+      <RouteLoader />
+
       {/* ═══ MAIN ═══ */}
-      <main className="flex-1">{children}</main>
+      <main className="flex-1">
+        {children}
+      </main>
 
       {/* ═══ FOOTER ═══ */}
       <footer style={{ background: '#1a1a1a' }}>

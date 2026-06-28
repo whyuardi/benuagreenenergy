@@ -3,6 +3,7 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  transpilePackages: ['framer-motion'],
   images: { 
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },

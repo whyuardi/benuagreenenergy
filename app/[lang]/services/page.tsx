@@ -95,10 +95,6 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
 
       {/* SECTION 1: HERO */}
       <section className="section-dark grid-overlay relative min-h-[50vh] flex items-end pb-20 pt-28 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 600px 400px at 70% 30%, rgba(64,145,108,0.15) 0%, transparent 70%)',
-        }} />
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-white/40 mb-8">
@@ -236,10 +232,6 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
 
       {/* SECTION 4: CTA */}
       <section className="section-dark grid-overlay py-16 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 500px 400px at 50% 50%, rgba(82,183,136,0.08) 0%, transparent 70%)',
-        }} />
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
           <AnimateIn>
             <p className="eyebrow text-[var(--brand-bright)] mb-4">

@@ -12,7 +12,6 @@ import {
   ClockIcon,
   PrinterIcon,
 } from '@/components/Icons'
-import { AnimatePresence, motion } from 'framer-motion'
 
 export default function ContactPage({ params }: { params: { lang: string } }) {
   const lang = params.lang === 'en' ? 'en' : 'id'
@@ -108,17 +107,9 @@ export default function ContactPage({ params }: { params: { lang: string } }) {
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(145deg, var(--dark) 0%, #112A1A 30%, #1B4332 60%, #0B1D13 100%)',
+            background: 'var(--dark)',
           }} />
-          <div className="absolute inset-0 grid-overlay opacity-40" />
-          {/* Ambient glow orbs */}
-          <div className="absolute inset-0 pointer-events-none" style={{
-            background: 'radial-gradient(ellipse 600px 400px at 30% 40%, rgba(82,183,136,0.08) 0%, transparent 70%), radial-gradient(ellipse 500px 500px at 70% 55%, rgba(64,145,108,0.06) 0%, transparent 60%)',
-          }} />
-          <div className="absolute top-1/4 right-[12%] w-72 h-72 rounded-full opacity-[0.03] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #52B788 0%, transparent 70%)' }} />
-          <div className="absolute bottom-1/3 left-[10%] w-52 h-52 rounded-full opacity-[0.04] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #40916C 0%, transparent 70%)' }} />
+          <div className="absolute inset-0 grid-overlay opacity-20" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-28 pb-20 md:pt-32 md:pb-28">
@@ -140,12 +131,8 @@ export default function ContactPage({ params }: { params: { lang: string } }) {
           </div>
         </div>
 
-        {/* Bottom gradient blend */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
-          style={{
-            background: 'linear-gradient(to bottom, transparent 0%, var(--surface) 100%)',
-          }}
-        />
+        {/* Bottom border separator */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
       </section>
 
       {/* ============================================
@@ -153,15 +140,9 @@ export default function ContactPage({ params }: { params: { lang: string } }) {
           ============================================ */}
       <section className="bg-[var(--surface)] py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <AnimatePresence mode="wait">
+          <div>
             {status !== 'success' ? (
-              <motion.div
-                key="form"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              >
+              <div key="form" className="animate-in fade-in duration-500">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
                   {/* Left: Contact Form (7 cols = ~60%) */}
                   <div className="lg:col-span-7">
@@ -170,13 +151,7 @@ export default function ContactPage({ params }: { params: { lang: string } }) {
                     </AnimateIn>
 
                     <AnimateIn delay={100}>
-                      <div className="glass-panel p-6 sm:p-8 md:p-10" style={{
-                        background: 'rgba(255,255,255,0.7)',
-                        backdropFilter: 'blur(20px) saturate(1.5)',
-                        WebkitBackdropFilter: 'blur(20px) saturate(1.5)',
-                        border: '1px solid rgba(255,255,255,0.5)',
-                        boxShadow: '0 8px 32px rgba(27,67,50,0.06), 0 1px 3px rgba(0,0,0,0.04)',
-                      }}>
+                      <div className="bg-white border border-[var(--border)] rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm">
                         <form className="space-y-5" method="post" action="/api/contact" onSubmit={handleSubmit}>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
@@ -228,10 +203,8 @@ export default function ContactPage({ params }: { params: { lang: string } }) {
                             }`}>
                             {status === 'sending' ? (
                               <span className="flex items-center gap-3">
-                                <motion.span
-                                  className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
-                                  animate={{ rotate: 360 }}
-                                  transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+                                <span
+                                  className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"
                                 />
                                 <span>{lang === 'id' ? 'Mengirim...' : 'Sending...'}</span>
                               </span>
@@ -336,46 +309,32 @@ export default function ContactPage({ params }: { params: { lang: string } }) {
                     </AnimateIn>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ) : (
-              <motion.div
+              <div
                 key="success"
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+                className="animate-in fade-in duration-500"
               >
                 <div className="text-center py-12 max-w-lg mx-auto">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
-                  >
+                  <AnimateIn direction="scale">
                     <div className="w-20 h-20 rounded-full bg-[var(--brand)]/10 flex items-center justify-center mx-auto mb-8">
                       <CheckCircleIcon size={40} className="text-[var(--brand)]" />
                     </div>
-                  </motion.div>
-                  <motion.h2
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="font-outfit text-2xl sm:text-3xl font-bold text-[var(--ink)] mb-4"
-                  >
-                    {t.success_msg}
-                  </motion.h2>
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                  >
+                  </AnimateIn>
+                  <AnimateIn delay={200}>
+                    <h2 className="font-outfit text-2xl sm:text-3xl font-bold text-[var(--ink)] mb-4">
+                      {t.success_msg}
+                    </h2>
+                  </AnimateIn>
+                  <AnimateIn delay={400}>
                     <button onClick={() => setStatus('idle')} className="btn-secondary mt-6">
                       {lang === 'id' ? 'Kirim Pesan Lain' : 'Send Another Message'}
                     </button>
-                  </motion.div>
+                  </AnimateIn>
                 </div>
-              </motion.div>
+              </div>
             )}
-          </AnimatePresence>
+          </div>
         </div>
       </section>
 

@@ -98,17 +98,9 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(145deg, var(--dark) 0%, #112A1A 30%, #1B4332 60%, #0B1D13 100%)',
+            background: 'var(--dark)',
           }} />
-          <div className="absolute inset-0 grid-overlay opacity-40" />
-          {/* Ambient glow orbs */}
-          <div className="absolute inset-0 pointer-events-none" style={{
-            background: 'radial-gradient(ellipse 600px 400px at 25% 40%, rgba(82,183,136,0.08) 0%, transparent 70%), radial-gradient(ellipse 500px 500px at 75% 60%, rgba(64,145,108,0.06) 0%, transparent 60%)',
-          }} />
-          <div className="absolute top-1/3 right-[15%] w-80 h-80 rounded-full opacity-[0.03] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #52B788 0%, transparent 70%)' }} />
-          <div className="absolute bottom-1/4 left-[8%] w-56 h-56 rounded-full opacity-[0.04] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #40916C 0%, transparent 70%)' }} />
+          <div className="absolute inset-0 grid-overlay opacity-20" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-28 pb-20 md:pt-32 md:pb-28">
@@ -130,12 +122,8 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
           </div>
         </div>
 
-        {/* Bottom gradient blend */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
-          style={{
-            background: 'linear-gradient(to bottom, transparent 0%, var(--surface) 100%)',
-          }}
-        />
+        {/* Bottom border separator */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
       </section>
 
       {/* ============================================
@@ -196,10 +184,7 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
           STATS ROW - Dark bg with glass panels
           ============================================ */}
       <section className="section-dark py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 grid-overlay opacity-30" />
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 800px 500px at 50% 50%, rgba(82,183,136,0.06) 0%, transparent 70%)',
-        }} />
+        <div className="absolute inset-0 grid-overlay opacity-20" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
@@ -209,7 +194,7 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
               { num: t.engineers, label: t.engineersLabel, desc: t.engineersDesc, icon: UsersIcon, delay: 200 },
             ].map((stat, i) => (
               <AnimateIn key={i} delay={stat.delay}>
-                <div className="glass-panel p-7 sm:p-8 h-full">
+                <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-7 sm:p-8 h-full hover:border-white/20 transition-colors duration-200">
                   <div className="w-11 h-11 rounded-lg bg-white/[0.06] flex items-center justify-center mb-5">
                     <stat.icon size={22} className="text-[var(--brand-bright)]" />
                   </div>
@@ -299,10 +284,7 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <AnimateIn delay={100}>
-              <div className="relative overflow-hidden rounded-2xl bg-[var(--dark)] p-8 sm:p-10 h-full">
-                <div className="absolute inset-0 pointer-events-none" style={{
-                  background: 'linear-gradient(135deg, rgba(82,183,136,0.08) 0%, transparent 60%)',
-                }} />
+              <div className="relative overflow-hidden rounded-2xl bg-[var(--dark)] p-8 sm:p-10 h-full border border-white/5">
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center mb-6">
                     <EyeIcon size={22} className="text-[var(--brand-bright)]" />
@@ -316,10 +298,7 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
             </AnimateIn>
 
             <AnimateIn delay={200}>
-              <div className="relative overflow-hidden rounded-2xl bg-[var(--brand)] p-8 sm:p-10 h-full">
-                <div className="absolute inset-0 pointer-events-none" style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%)',
-                }} />
+              <div className="relative overflow-hidden rounded-2xl bg-[var(--brand)] p-8 sm:p-10 h-full border border-white/10">
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-xl bg-white/[0.12] flex items-center justify-center mb-6">
                     <TargetIcon size={22} className="text-white" />

@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react'
 import { ExternalLinkIcon, SearchIcon, XIcon, LayoutGridIcon, ChevronLeftIcon, ChevronRightIcon, MessageCircleIcon, ArrowRightIcon } from '@/components/Icons'
-import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -217,11 +216,10 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
 
   return (
     <div className="page-enter">
-      {/* ===== Hero Banner ===== */}
       <section className="relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(135deg, #0D1B2A 0%, #1B2838 30%, #2C3E50 60%, #1A237E 100%)',
+            background: 'var(--dark)',
           }} />
           <div className="absolute inset-0 opacity-20">
             <LazyBg
@@ -230,19 +228,10 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
               fallbackClass=""
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0D1B2A]/40 to-[#0D1B2A]" />
-          <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{
-            backgroundImage: 'radial-gradient(circle at 30% 40%, #FFD700 0%, transparent 60%), radial-gradient(circle at 70% 60%, #4CAF50 0%, transparent 50%)',
-          }} />
-          {/* Hero noise texture */}
-          <div className="noise-texture opacity-50 pointer-events-none mix-blend-overlay absolute inset-0" />
+          <div className="absolute inset-0 grid-pattern opacity-20" />
         </div>
-        <div className="absolute inset-0 grid-pattern opacity-[0.04] pointer-events-none" />
 
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#2D5A27]/15 rounded-full blur-3xl animate-float pointer-events-none" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#1A237E]/10 rounded-full blur-3xl animate-float pointer-events-none" style={{animationDelay:'2s'}} />
-        <div className="absolute top-40 right-1/4 w-64 h-64 bg-[#4CAF50]/10 rounded-full blur-3xl animate-float pointer-events-none" style={{animationDelay:'4s'}} />
-<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full pb-24 md:pb-32">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full pb-24 md:pb-32">
           <div className="max-w-3xl">
             <Breadcrumb items={[{ label: lang === 'id' ? 'Produk' : 'Products' }]} lang={lang} />
             <AnimateIn>
@@ -253,12 +242,8 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
             </AnimateIn>
           </div>
         </div>
-        {/* Transition bridge */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
-          style={{
-            background: 'linear-gradient(to bottom, transparent 0%, rgba(13,27,42,0.3) 30%, rgba(253,251,247,0.6) 70%, #FDFBF7 100%)',
-          }}
-        />
+        {/* Bottom border separator */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
       </section>
 
       {/* Section Divider */}
@@ -357,25 +342,18 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
 
             {/* Products Grid — Bento Layout */}
             <div ref={gridRef} className="relative min-h-[400px]">
-              <AnimatePresence mode="wait">
+              <div>
                 {isLoading ? (
-                  <motion.div
+                  <div
                     key="skeleton"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.15 }}
+                    className="animate-in fade-in duration-300"
                   >
                     <SkeletonGrid count={ITEMS_PER_PAGE} />
-                  </motion.div>
+                  </div>
                 ) : paginatedItems.length > 0 ? (
-                  <motion.div
+                  <div
                     key={`${activeTab}-${currentPage}`}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 min-w-0"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 min-w-0 animate-in fade-in slide-in-from-bottom-4 duration-500"
                   >
                     {paginatedItems.map((item, i) => {
                       const catSlug = (item as any).categorySlug || activeCategory.slug
@@ -388,12 +366,10 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                       const isWide = i % 5 === 0
 
                       return (
-                        <motion.div
+                        <div
                           key={`${catSlug}-${itemSlug}`}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3, delay: i * 0.03, ease: [0.25, 0.1, 0.25, 1] }}
-                          className={isWide ? 'md:col-span-2' : ''}
+                          className={`${isWide ? 'md:col-span-2' : ''} animate-in fade-in slide-in-from-bottom-4 duration-500`}
+                          style={{ animationDelay: `${i * 30}ms`, animationFillMode: 'both' }}
                         >
                           {isWide ? (
                             /* ── WIDE BENTO CARD ── */
@@ -500,16 +476,14 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                               </div>
                             </a>
                           )}
-                        </motion.div>
+                        </div>
                       )
                     })}
-                  </motion.div>
+                  </div>
                 ) : (
-                  <motion.div
+                  <div
                     key="empty"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-center py-16 text-[#2C3E50]/50"
+                    className="text-center py-16 text-[#2C3E50]/50 animate-in fade-in duration-300"
                   >
                     <SearchIcon size={48} className="mx-auto mb-4 opacity-30" />
                     <p className="text-lg font-medium">{lang === 'id' ? 'Produk tidak ditemukan' : 'No products found'}</p>
@@ -527,9 +501,9 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                       <MessageCircleIcon size={16} />
                       {lang === 'id' ? 'Hubungi Kami untuk produk lain' : 'Contact Us for other products'}
                     </Link>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
+              </div>
             </div>
 
             {/* Pagination */}

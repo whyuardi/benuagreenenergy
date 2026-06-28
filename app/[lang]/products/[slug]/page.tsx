@@ -92,10 +92,9 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
     <div className="page-enter">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
 
-      {/* ─── HERO ─── */}
       <section className="relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #0D1B2A 0%, #1B2838 30%, #2C3E50 60%, #1A237E 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'var(--dark)' }} />
           <div className="absolute inset-0 opacity-[0.12]">
             <LazyBg
               src={productImg}
@@ -103,12 +102,7 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
               fallbackClass=""
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0D1B2A]/40 to-[#0D1B2A]" />
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" style={{backgroundImage:'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSI0Ii8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2YpIiBvcGFjaXR5PSIwIi8+PC9zdmc+)', backgroundRepeat:'repeat', backgroundSize:'200px 200px'}} />
-          <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{backgroundImage:'linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px)', backgroundSize:'60px 60px'}} />
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#2D5A27]/15 rounded-full blur-3xl animate-float pointer-events-none" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#1A237E]/10 rounded-full blur-3xl animate-float pointer-events-none" style={{animationDelay:'2s'}} />
-          <div className="absolute top-40 right-1/4 w-64 h-64 bg-[#4CAF50]/10 rounded-full blur-3xl animate-float pointer-events-none" style={{animationDelay:'4s'}} />
+          <div className="absolute inset-0 grid-pattern opacity-20" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pb-24 md:pb-32">
           <div className="max-w-3xl">
@@ -122,7 +116,7 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
               </Link>
             </AnimateIn>
             <AnimateIn delay={0.05}>
-              <span className="inline-block px-3 py-1 bg-white/15 text-white text-xs font-bold rounded-full mb-4 backdrop-blur-sm border border-white/10">
+              <span className="inline-block px-3 py-1 bg-white/10 text-white text-xs font-bold rounded-full mb-4 border border-white/10">
                 {category.name}
               </span>
             </AnimateIn>
@@ -136,24 +130,18 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
             )}
           </div>
         </div>
-        {/* Transition Bridge */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(13,27,42,0.3) 30%, rgba(253,251,247,0.6) 70%, #FDFBF7 100%)' }}
-        />
+        {/* Bottom border separator */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
       </section>
 
       {/* ─── CONTENT ─── */}
       <section className="py-20 md:py-28 px-6 bg-[#FDFBF7] relative">
-        {/* Noise overlay on content */}
-        <div className="absolute inset-0 opacity-[0.015] pointer-events-none" style={{backgroundImage:'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2YpIiBvcGFjaXR5PSIwIi8+PC9zdmc+)', backgroundRepeat:'repeat', backgroundSize:'200px 200px'}} />
-
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Product Image + Details Grid */}
           <div className="grid lg:grid-cols-2 gap-12 mb-20">
             {/* Image */}
             <AnimateIn delay={0.1}>
-              <div className="bg-white/70 backdrop-blur-xl rounded-3xl border border-white/20 shadow-lg flex items-center justify-center min-h-[400px] relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#2D5A27]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="bg-white rounded-3xl border border-[var(--border)] shadow-md flex items-center justify-center min-h-[400px] relative overflow-hidden group">
                 <div className="absolute inset-6">
                   <Image
                     src={productImg}
@@ -264,8 +252,7 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
 
           {/* ─── BOTTOM CTA ─── */}
           <AnimateIn delay={0.2}>
-            <div className="bg-gradient-to-br from-[#2D5A27] to-[#1A252F] p-10 md:p-14 rounded-3xl text-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" style={{backgroundImage:'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSI0Ii8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2YpIiBvcGFjaXR5PSIwIi8+PC9zdmc+)', backgroundRepeat:'repeat', backgroundSize:'200px 200px'}} />
+            <div className="bg-[var(--dark)] p-10 md:p-14 rounded-3xl text-center relative overflow-hidden border border-white/5">
               <div className="relative z-10">
                 <LeafIcon size={40} className="mx-auto text-white/20 mb-4" />
                 <h3 className="font-serif text-2xl md:text-3xl text-white mb-4">{t.needThis}</h3>
@@ -273,13 +260,13 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <Link
                     href={`/${lang}/contact?source=${encodeURIComponent(item.name)}`}
-                    className="bg-white text-[#1A252F] px-8 py-4 rounded-full font-bold hover:bg-[#2D5A27] hover:text-white transition-all shadow-lg hover:shadow-xl"
+                    className="bg-white text-[#1A252F] px-8 py-4 rounded-xl font-bold hover:bg-[var(--brand)] hover:text-white transition-all shadow-md"
                   >
                     {t.contactUs}
                   </Link>
                   <Link
                     href={`/${lang}/products`}
-                    className="text-white/80 hover:text-white px-6 py-4 rounded-full font-semibold border border-white/20 hover:border-white/40 transition-all flex items-center gap-2"
+                    className="text-white/80 hover:text-white px-6 py-4 rounded-xl font-semibold border border-white/20 hover:border-white/40 transition-all flex items-center gap-2"
                   >
                     <ChevronLeftIcon size={16} /> {t.allProducts}
                   </Link>
