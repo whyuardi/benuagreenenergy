@@ -12,7 +12,6 @@ const navData: Record<string, any> = {
       { href: '/services', label: 'Layanan' },
       { href: '/products', label: 'Produk' },
       { href: '/portfolio', label: 'Proyek' },
-      { href: '/ems', label: 'EMS' },
     ],
     extraLinks: [
       { href: '/faq', label: 'FAQ' },
@@ -20,12 +19,23 @@ const navData: Record<string, any> = {
     ],
     cta: 'Konsultasi Gratis',
     ctaWhatsapp: 'https://wa.me/628176779719',
-    footerDesc: 'BG Group, established in 2000 dengan HQ di Singapore dan Jakarta, adalah pelopor investasi energi hijau dan keberlanjutan.',
+    footerDesc: 'BG Group, didirikan tahun 2000 dengan HQ di Singapore dan Jakarta, adalah pelopor investasi energi hijau dan keberlanjutan. 10% dari pendapatan tahunan dialokasikan untuk R&D.',
     navTitle: 'Navigasi',
     contactTitle: 'Kontak',
     productTitle: 'Produk',
     rights: 'All rights reserved.',
-    products: ['Chiller / HVAC', 'Cooling Tower', 'Steam Accessories', 'Solar Panel', 'BMS', 'Green Solution', 'High Efficiency Pump', 'PPR Pipe & Fittings', 'Solar Inverter Optimizer', 'Alkaline Water Ionizer'],
+    products: [
+      { name: 'Chiller / HVAC', slug: 'absorption-chiller' },
+      { name: 'Cooling Tower', slug: 'cooling-tower' },
+      { name: 'Steam Accessories', slug: 'steam-accessories' },
+      { name: 'Solar Panel', slug: 'solar-panel' },
+      { name: 'Building Management System', slug: 'bms' },
+      { name: 'Green Solution', slug: 'green-solution' },
+      { name: 'High Efficiency Pump', slug: 'high-efficiency-pump' },
+      { name: 'PPR Pipe & Fittings', slug: 'ppr-pipe' },
+      { name: 'Solar Inverter Optimizer', slug: 'solar-panel' },
+      { name: 'Alkaline Water Ionizer', slug: 'alkaline-water-ionizer' },
+    ],
     contact: {
       phone: '(62-21) 5573 1123',
       phone2: '+62 815-8816-259',
@@ -57,7 +67,18 @@ const navData: Record<string, any> = {
     contactTitle: 'Contact',
     productTitle: 'Products',
     rights: 'All rights reserved.',
-    products: ['Chiller / HVAC', 'Cooling Tower', 'Steam Accessories', 'Solar Panel', 'BMS', 'Green Solution', 'High Efficiency Pump', 'PPR Pipe & Fittings', 'Solar Inverter Optimizer', 'Alkaline Water Ionizer'],
+    products: [
+      { name: 'Chiller / HVAC', slug: 'absorption-chiller' },
+      { name: 'Cooling Tower', slug: 'cooling-tower' },
+      { name: 'Steam Accessories', slug: 'steam-accessories' },
+      { name: 'Solar Panel', slug: 'solar-panel' },
+      { name: 'Building Management System', slug: 'bms' },
+      { name: 'Green Solution', slug: 'green-solution' },
+      { name: 'High Efficiency Pump', slug: 'high-efficiency-pump' },
+      { name: 'PPR Pipe & Fittings', slug: 'ppr-pipe' },
+      { name: 'Solar Inverter Optimizer', slug: 'solar-panel' },
+      { name: 'Alkaline Water Ionizer', slug: 'alkaline-water-ionizer' },
+    ],
     contact: {
       phone: '(62-21) 5573 1123',
       phone2: '+62 815-8816-259',
@@ -85,7 +106,7 @@ export default function LangLayout({ children, params }: { children: React.React
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => { document.title = lang === 'en' ? 'Benua Green Energy — Green Energy Industrial Solutions' : 'Benua Green Energy — Solusi Energi Hijau Industri' }, [lang])
+  useEffect(() => { document.title = lang === 'en' ? 'Benua Green Energy - Green Energy Industrial Solutions' : 'Benua Green Energy - Solusi Energi Hijau Industri' }, [lang])
 
   const switchLang = (l: string) => router.push(pathname.replace(/^\/(en|id)/, `/${l}`))
   const closeMenu = () => setMenuOpen(false)
@@ -95,19 +116,22 @@ export default function LangLayout({ children, params }: { children: React.React
       {/* ═══ NAVBAR ═══ */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#e8e4dd]' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-[72px] flex items-center justify-between gap-4">
-          <Link href={`/${lang}`} className="flex items-center gap-2.5 shrink-0">
-            <div className="relative w-8 h-8 sm:w-9 sm:h-9">
-              <Image src="/logo-bge.jpg" alt="BGE" fill className="object-contain rounded-full" priority />
-            </div>
-            <div className="hidden sm:flex flex-col leading-none">
-              <span className={`font-outfit font-bold text-[10px] uppercase tracking-tight ${scrolled ? 'text-[#1a1a1a]' : 'text-white'}`}>Benua Green</span>
-              <span className={`font-outfit font-bold text-[10px] uppercase tracking-tight text-[#5da383]`}>Energy</span>
+          <Link href={`/${lang}`} className="flex items-center shrink-0">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white">
+              <Image
+                src="/images/bge-logo-nav.png"
+                alt="BGE"
+                width={44}
+                height={44}
+                className="object-contain w-full h-full"
+                priority
+              />
             </div>
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {t.links.slice(0, 6).map((l: any) => (
+            {t.links.slice(0, 5).map((l: any) => (
               <Link key={l.href} href={`/${lang}${l.href}`}
                 className={`px-3 py-1.5 text-sm font-medium transition-colors rounded-lg ${scrolled ? 'text-[#6b6b6b] hover:text-[#1a1a1a] hover:bg-[#f5f2ec]' : 'text-white/80 hover:text-white hover:bg-white/10'}`}>
                 {l.label}
@@ -182,7 +206,9 @@ export default function LangLayout({ children, params }: { children: React.React
             {/* Brand */}
             <div className="sm:col-span-2 lg:col-span-4">
               <div className="flex items-center gap-3 mb-5">
-                <div className="relative w-10 h-10"><Image src="/logo-bge.jpg" alt="BGE" fill className="object-contain rounded-full" /></div>
+                <div className="relative w-10 h-10 shrink-0">
+                  <Image src="/logo-bge.jpg" alt="BGE" fill sizes="40px" className="object-contain rounded-full" loading="lazy" />
+                </div>
                 <div className="flex flex-col leading-none">
                   <span className="font-outfit font-bold text-sm text-white">Benua Green</span>
                   <span className="font-outfit font-bold text-[11px] text-[#5da383]">Energy</span>
@@ -200,7 +226,7 @@ export default function LangLayout({ children, params }: { children: React.React
             <div className="lg:col-span-2">
               <h3 className="font-outfit text-white text-[11px] uppercase tracking-[0.15em] font-bold mb-5">{t.navTitle}</h3>
               <ul className="space-y-3">
-                {[...t.links, ...t.extraLinks].map((l: any) => (
+                {[...t.links, ...t.extraLinks].filter((l: any) => l.href !== '/ems').map((l: any) => (
                   <li key={l.href}><Link href={`/${lang}${l.href}`} className="text-white/40 hover:text-white text-sm transition-colors">{l.label}</Link></li>
                 ))}
               </ul>
@@ -210,8 +236,8 @@ export default function LangLayout({ children, params }: { children: React.React
             <div className="lg:col-span-3">
               <h3 className="font-outfit text-white text-[11px] uppercase tracking-[0.15em] font-bold mb-5">{t.productTitle}</h3>
               <ul className="space-y-3">
-                {t.products.map((p: string) => (
-                  <li key={p}><Link href={`/${lang}/products`} className="text-white/40 hover:text-white text-sm transition-colors">{p}</Link></li>
+                {t.products.map((p: { name: string; slug: string }) => (
+                  <li key={p.slug}><Link href={`/${lang}/products?tab=${p.slug}`} className="text-white/40 hover:text-white text-sm transition-colors">{p.name}</Link></li>
                 ))}
               </ul>
             </div>

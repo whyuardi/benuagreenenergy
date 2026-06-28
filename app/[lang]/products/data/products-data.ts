@@ -102,7 +102,7 @@ export const productCatalog: ProductCategory[] = [
     name: 'Cooling Tower',
     slug: 'cooling-tower',
     items: [
-      { name: 'Counter-Flow Closed Cooling Tower', img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800', specs: ['Counter-Flow', 'Closed Circuit', 'High Efficiency'] },
+      { name: 'Counter-Flow Closed Cooling Tower', img: '/images/hero/bg.jpg', specs: ['Counter-Flow', 'Closed Circuit', 'High Efficiency'] },
       { name: 'Cross-Flow Closed Cooling Tower', specs: ['Cross-Flow', 'Closed Circuit', 'Low Maintenance'] },
     ]
   },
@@ -126,7 +126,7 @@ export const productCatalog: ProductCategory[] = [
     name: 'BMS (Building Management System)',
     slug: 'bms',
     items: [
-      { name: 'E1000 BLDC FCU Thermostat YORK', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800', specs: ['BLDC', 'FCU Thermostat', 'YORK'] },
+      { name: 'E1000 BLDC FCU Thermostat YORK', img: '/images/hero/tech-bg.jpg', specs: ['BLDC', 'FCU Thermostat', 'YORK'] },
       { name: 'EasyIO FC-20 Controller', specs: ['IO Expansion', 'Controller'] },
       { name: 'EasyIO FD-20i Input Modbus', specs: ['FD-20i', 'Modbus', 'IO Module'] },
       { name: 'EasyIO FS-32 Controller IP', specs: ['FS-32', 'IP Controller', 'Building Management System'] },

@@ -134,11 +134,12 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
             <AnimateIn className="lg:col-span-3" delay={0}>
               <div className="relative aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&h=500&q=80"
+                  src="/images/services/hvac.jpg"
                   alt="Professional HVAC Installation"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 60vw"
+                  loading="lazy"
                 />
               </div>
             </AnimateIn>

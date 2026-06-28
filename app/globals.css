@@ -292,3 +292,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 @media (max-width: 480px) {
   .reveal-up { animation-duration: 800ms; }
 }
+
+/* ── Skeleton shimmer ── */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.animate-shimmer,
+.shimmer {
+  animation: shimmer 1.8s ease-in-out infinite;
+  will-change: transform;
+}

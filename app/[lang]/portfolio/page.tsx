@@ -85,6 +85,7 @@ export default function PortfolioPage({ params }: { params: { lang: string } }) 
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        loading="lazy"
                       />
                       {/* Category badge overlay */}
                       <div className="absolute top-4 left-4">

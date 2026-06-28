@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeftIcon, MapPinIcon, ClockIcon, Building2Icon, CheckCircle2Icon } from '@/components/Icons'
 import { getProject } from '@/lib/portfolio-data'
 import { AnimateIn } from '@/components/AnimateIn'
-
+import { LazyBg } from '@/lib/lazy-bg'
 export function generateStaticParams() {
   return []
 }
@@ -31,11 +31,13 @@ export default async function ProjectDetail({
           <div className="absolute inset-0" style={{
             background: 'linear-gradient(145deg, #0a1628 0%, #0D1B2A 25%, #132637 50%, #1a3348 75%, #0D1B2A 100%)',
           }} />
-          <div className="absolute inset-0 opacity-15 hero-zoom" style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }} />
+          <div className="absolute inset-0 opacity-15 hero-zoom">
+            <LazyBg
+              src="/images/services/office.jpg"
+              style={{ backgroundSize: 'cover', backgroundPosition: 'center' }}
+              fallbackClass=""
+            />
+          </div>
           <div className="absolute inset-0 grid-pattern opacity-40" />
           <div className="absolute inset-0" style={{
             background: 'linear-gradient(180deg, rgba(10,22,40,0.3) 0%, rgba(13,27,42,0.6) 40%, rgba(13,27,42,0.85) 70%, rgba(13,27,42,1) 100%)',

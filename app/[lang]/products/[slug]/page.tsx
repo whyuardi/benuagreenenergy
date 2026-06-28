@@ -4,6 +4,7 @@ import { ArrowLeftIcon, ExternalLinkIcon, CheckCircleIcon, PackageIcon, ChevronL
 import Link from 'next/link'
 import Image from 'next/image'
 import { AnimateIn } from '@/components/AnimateIn'
+import { LazyBg } from '@/lib/lazy-bg'
 import { productCatalog, slugify, getProductBySlug, categoryDefaultImages } from '@/lib/products-data'
 
 export default function ProductDetailPage({ params }: { params: { lang: string; slug: string } }) {
@@ -63,26 +64,26 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
     )
   }
 
-  const { product, category } = result
-  const productImg = product.img || categoryDefaultImages[category.slug] || 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800'
+  const { item, category } = result
+  const productImg = item.img || categoryDefaultImages[category.slug] || '/images/hero/bg.jpg'
 
   // Dynamic page title
   useEffect(() => {
-    document.title = `${product.name} | Benua Green Energy`
-  }, [product.name])
+    document.title = `${item.name} | Benua Green Energy`
+  }, [item.name])
 
   // Product JSON-LD
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: product.name,
+    name: item.name,
     image: [productImg],
-    description: product.desc || '',
+    description: item.desc || '',
     brand: { '@type': 'Brand', name: category.name || 'Benua Green Energy' },
   }
 
   // Related products from the same category
-  const related = category.items.filter(item => item.name !== product.name).slice(0, 4)
+  const related = category.items.filter(item => item.name !== item.name).slice(0, 4)
 
   // Derived features from specs for richer display
   const specIcons = [ZapIcon, ThermometerIcon, DropletsIcon, CpuIcon, GaugeIcon, ShieldIcon, LeafIcon]
@@ -95,7 +96,13 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
       <section className="relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #0D1B2A 0%, #1B2838 30%, #2C3E50 60%, #1A237E 100%)' }} />
-          <div className="absolute inset-0 opacity-[0.12]" style={{ backgroundImage: `url(${productImg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'overlay' }} />
+          <div className="absolute inset-0 opacity-[0.12]">
+            <LazyBg
+              src={productImg}
+              style={{ backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'overlay' }}
+              fallbackClass=""
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0D1B2A]/40 to-[#0D1B2A]" />
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" style={{backgroundImage:'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSI0Ii8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2YpIiBvcGFjaXR5PSIwIi8+PC9zdmc+)', backgroundRepeat:'repeat', backgroundSize:'200px 200px'}} />
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{backgroundImage:'linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px)', backgroundSize:'60px 60px'}} />
@@ -120,11 +127,11 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
               </span>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <h1 className="font-serif text-4xl md:text-6xl text-white mb-4 leading-tight">{product.name}</h1>
+              <h1 className="font-serif text-4xl md:text-6xl text-white mb-4 leading-tight">{item.name}</h1>
             </AnimateIn>
-            {product.desc && (
+            {item.desc && (
               <AnimateIn delay={0.2}>
-                <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed">{product.desc}</p>
+                <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed">{item.desc}</p>
               </AnimateIn>
             )}
           </div>
@@ -150,10 +157,11 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                 <div className="absolute inset-6">
                   <Image
                     src={productImg}
-                    alt={product.name}
+                    alt={item.name}
                     fill
                     className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                   />
                 </div>
               </div>
@@ -162,22 +170,22 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
             {/* Details */}
             <AnimateIn delay={0.2}>
               <div className="sticky top-28">
-                {product.desc && (
+                {item.desc && (
                   <div className="mb-8">
                     <h2 className="font-serif text-2xl text-[#1A252F] mb-4">{t.overview}</h2>
-                    <p className="text-lg text-[#2C3E50]/70 leading-relaxed">{product.desc}</p>
+                    <p className="text-lg text-[#2C3E50]/70 leading-relaxed">{item.desc}</p>
                   </div>
                 )}
 
                 {/* Specs */}
-                {product.specs && product.specs.length > 0 && (
+                {item.specs && item.specs.length > 0 && (
                   <div className="mb-8">
                     <h3 className="font-bold text-sm text-[#1A252F] mb-5 uppercase tracking-wider flex items-center gap-2">
                       <CpuIcon size={16} className="text-[#2D5A27]" />
                       {t.specs}
                     </h3>
                     <div className="space-y-3">
-                      {product.specs.map((spec, i) => {
+                      {item.specs.map((spec, i) => {
                         const SpecIcon = specIcons[i % specIcons.length]
                         return (
                           <div key={i} className="flex items-center gap-3 px-5 py-3.5 bg-white/70 backdrop-blur-xl rounded-xl border border-white/20 shadow-lg hover:shadow-xl hover:border-[#2D5A27]/30 transition-all">
@@ -191,14 +199,14 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                 )}
 
                 {/* Features derived from specs */}
-                {product.specs && product.specs.length > 0 && product.specs.length >= 3 && (
+                {item.specs && item.specs.length > 0 && item.specs.length >= 3 && (
                   <div className="mb-8">
                     <h3 className="font-bold text-sm text-[#1A252F] mb-5 uppercase tracking-wider flex items-center gap-2">
                       <ShieldIcon size={16} className="text-[#2D5A27]" />
                       {t.features}
                     </h3>
                     <div className="grid grid-cols-2 gap-3">
-                      {product.specs.slice(0, 6).map((spec, i) => (
+                      {item.specs.slice(0, 6).map((spec, i) => (
                         <div key={i} className="flex items-center gap-2 px-4 py-3 bg-[#2D5A27]/5 rounded-xl border border-[#2D5A27]/10">
                           <CheckCircleIcon size={14} className="text-[#2D5A27] shrink-0" />
                           <span className="text-xs text-[#2C3E50]/70 font-medium">{spec}</span>
@@ -210,7 +218,7 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
 
                 {/* CTA Button */}
                 <Link
-                  href={`/${lang}/contact?source=${encodeURIComponent(product.name)}`}
+                  href={`/${lang}/contact?source=${encodeURIComponent(item.name)}`}
                   className="inline-flex items-center gap-3 px-8 py-4 bg-[#2D5A27] text-white rounded-xl font-semibold hover:bg-[#1A3A1A] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
                   {t.getQuote}
@@ -228,7 +236,7 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                   {related.map((item, i) => {
                     const itemSlug = slugify(item.name)
-                    const itemImg = item.img || categoryDefaultImages[category.slug] || 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600'
+                    const itemImg = item.img || categoryDefaultImages[category.slug] || '/images/hero/bg.jpg'
                     return (
                       <Link
                         key={i}
@@ -237,7 +245,7 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                       >
                         <div className="aspect-[4/3] bg-[#FAFAFA] flex items-center justify-center relative overflow-hidden">
                           <div className="absolute inset-2">
-                            <Image src={itemImg} alt={item.name} fill className="object-contain transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 640px) 50vw, 25vw" />
+                            <Image src={itemImg} alt={item.name} fill className="object-contain transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 640px) 50vw, 25vw" loading="lazy" />
                           </div>
                         </div>
                         <div className="p-4">
@@ -264,7 +272,7 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                 <p className="text-white/60 mb-8 max-w-lg mx-auto leading-relaxed">{t.needThisDesc}</p>
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <Link
-                    href={`/${lang}/contact?source=${encodeURIComponent(product.name)}`}
+                    href={`/${lang}/contact?source=${encodeURIComponent(item.name)}`}
                     className="bg-white text-[#1A252F] px-8 py-4 rounded-full font-bold hover:bg-[#2D5A27] hover:text-white transition-all shadow-lg hover:shadow-xl"
                   >
                     {t.contactUs}

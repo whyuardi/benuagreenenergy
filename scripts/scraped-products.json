@@ -1,0 +1,62 @@
+[
+  { "category": "Dongle", "products": ["RMS Dongle"] },
+  { "category": "Pumps", "products": [
+    "SDW Waste Water Pumps",
+    "End-Suction Lon Coupled Pumps",
+    "Sero Vertical Multistage Pumps",
+    "SSEG Waste Water Pumps",
+    "NSP Non Self-Priming Pumps",
+    "SVX Waste Water Pumps",
+    "Horizontal Split Case Pumps",
+    "Hydropneumatic Booster Systems",
+    "Openwell Pumps",
+    "Openwell SHOS CA/SA Series",
+    "Megh Self-Priming Pumps",
+    "Pressure Booster Pumps SH/SHI/SHIN",
+    "End-Suction Single Shaft Pumps",
+    "Openwell Pumps SOMB Series",
+    "Fire Pumps",
+    "Submersible Pumps & Motors",
+    "SCR SCRN High Head Pressure Booster",
+    "CRP Self-Priming Pumps",
+    "Solar Open Well Pumps",
+    "4 Inch Premium Plug & Play Pumps",
+    "RO Pumps",
+    "Positive Displacement Pumps",
+    "Domestic Water Pressure Booster Pumps",
+    "Vertical Multi Stage Centrifugal Pumps",
+    "Solar DC Pump",
+    "Immersible Pumps SMTR",
+    "Shallow Well Pumps",
+    "Micro Surface Pumpset",
+    "End-Suction Closed Couple Pumps",
+    "Pressure Booster"
+  ]},
+  { "category": "Others", "products": [
+    "Nandi Universal Drive",
+    "Solar SIMHA Drive",
+    "Lotus Universal Drive",
+    "DU/DT Filter"
+  ]},
+  { "category": "PPR", "products": [
+    "Flat Drip Irrigation",
+    "Pipes",
+    "Plain Drip Irrigation",
+    "Round Drip Irrigation"
+  ]},
+  { "category": "Inverter", "products": [
+    "Grid Tie Inverter",
+    "Hybrid Inverter",
+    "Home Inverter S1000"
+  ]},
+  { "category": "Starter", "products": [
+    "A1 Smart Starter",
+    "Elite Soft Starter"
+  ]},
+  { "category": "Controller", "products": [
+    "Universal Solar Pump Controller"
+  ]},
+  { "category": "Cable", "products": [
+    "Cable"
+  ]}
+]

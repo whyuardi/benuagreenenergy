@@ -45,7 +45,7 @@ const whyFeatures = [
   { title: 'Partner Resmi YORK', desc: 'Dealer resmi dengan garansi pabrik dan teknisi bersertifikat internasional.' },
   { title: 'ISO 9001 Certified', desc: 'Sistem manajemen mutu terstandar global untuk jaminan kualitas setiap proyek.' },
   { title: 'Garansi 5 Tahun', desc: 'Perlindungan jangka panjang untuk setiap instalasi yang kami kerjakan.' },
-  { title: 'Dukungan 24/7', desc: 'Tim teknisi siaga — kapan pun Anda butuh, kami siap.' },
+  { title: 'Dukungan 24/7', desc: 'Tim teknisi siaga - kapan pun Anda butuh, kami siap.' },
 ]
 
 export default function HomePage({ params }: { params: { lang: string } }) {
@@ -107,10 +107,6 @@ export default function HomePage({ params }: { params: { lang: string } }) {
             {/* Right: Floating stat cards */}
             <div className="lg:col-span-5 hidden lg:block">
               <div className="relative">
-                {/* Decorative number */}
-                <div className="font-outfit text-[12rem] font-bold leading-[0.8] text-white/3 select-none absolute -top-16 -right-8 tracking-[-0.06em]">
-                  25
-                </div>
                 <Reveal delay={120}>
                   <div className="glass-panel-strong p-6 sm:p-7 mb-4 max-w-xs ml-auto">
                     <p className="font-outfit text-4xl font-bold text-white mb-1">{stats[2].value}</p>
@@ -376,19 +372,19 @@ const CONTENT = {
   id: {
     scroll: 'Gulir',
     hero: {
-      badge: 'BG Group — Solusi Energi Hijau',
-      title: 'Connecting The\\nGreen Energy Future',
-      sub: 'Kami menyediakan spektrum penuh layanan energi — dari konsultasi, instalasi, hingga perawatan — memastikan kebutuhan energi Anda terpenuhi secara efisien dan berkelanjutan.',
+      badge: 'BG Group - Solusi Energi Hijau',
+      title: 'Menghubungkan Masa Depan\nEnergi Hijau',
+      sub: 'Kami menyediakan spektrum penuh layanan energi - dari konsultasi, instalasi, hingga perawatan - memastikan kebutuhan energi Anda terpenuhi secara efisien dan berkelanjutan.',
       cta: 'Jelajahi Layanan',
       cta2: 'Lihat Produk',
-      trustBadge: 'BG Group — Established 2000',
+      trustBadge: 'Berdiri Sejak 2000',
     },
     trusted: {
       title: 'Dipercaya Oleh',
     },
     why: {
       badge: 'Tentang Kami',
-      title: 'BG Group — Mitra Energi Hijau Anda',
+      title: 'BG Group - Mitra Energi Hijau Anda',
       desc1: 'BG Group, didirikan tahun 2000 dengan HQ di Singapore dan Jakarta, adalah pelopor investasi energi hijau dan keberlanjutan. 10% dari pendapatan tahunan dialokasikan untuk R&D.',
       desc2: 'Kami menyediakan sistem pendingin non-listrik (LiBr Absorption Chiller) bertenaga energi bersih dan terbarukan, serta refrigerant non-polutan.',
       quote: 'Membantu pemerintah mengembangkan keberlanjutan ekonomi, energi, dan lingkungan melalui solusi energi inovatif.',
@@ -396,15 +392,15 @@ const CONTENT = {
     services: {
       badge: 'Layanan Kami',
       title: 'Solusi Energi Terintegrasi',
-      sub: 'Spektrum penuh layanan energi — dari konsultasi hingga perawatan.',
+      sub: 'Spektrum penuh layanan energi - dari konsultasi hingga perawatan.',
       featured: {
         title: 'Jasa Instalasi & Komisioning',
-        desc: 'Solusi CCHP (Combined Cooling, Heat & Power) komprehensif — rekayasa, konsultasi, desain, instalasi, dan komisioning. Ditangani teknisi bersertifikat.',
+        desc: 'Solusi CCHP (Combined Cooling, Heat & Power) komprehensif - rekayasa, konsultasi, desain, instalasi, dan komisioning. Ditangani teknisi bersertifikat.',
         cta: 'Pelajari Lebih Lanjut',
       },
       secondary: [
         { title: 'Perawatan & Pemeliharaan', desc: 'Program perawatan preventif & korektif untuk memastikan performa optimal, keandalan, dan umur panjang peralatan Anda.' },
-        { title: 'EMS — Energy Management', desc: 'Sistem manajemen energi canggih untuk memonitor, mengoptimalkan, dan mengontrol performa peralatan CCHP secara real-time.' },
+        { title: 'EMS - Manajemen Energi', desc: 'Sistem manajemen energi canggih untuk memonitor, mengoptimalkan, dan mengontrol performa peralatan CCHP secara real-time.' },
       ],
       allLink: 'Semua Layanan',
     },

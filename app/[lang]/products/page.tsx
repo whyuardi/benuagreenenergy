@@ -8,6 +8,7 @@ import { useSearchParams } from 'next/navigation'
 import { productCatalog, slugify, categoryDefaultImages } from '@/lib/products-data'
 import { AnimateIn, SectionHeading } from '@/components/AnimateIn'
 import Breadcrumb from '@/components/Breadcrumb'
+import { LazyBg } from '@/lib/lazy-bg'
 
 const ITEMS_PER_PAGE = 12
 
@@ -155,7 +156,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
           cat.name.toLowerCase().includes(search.toLowerCase())
         )
       : cat.items
-  })).filter(cat => cat.items.length > 0)
+  }))
 
   const filteredAllProducts = search.trim()
     ? allProducts.filter(item =>
@@ -168,7 +169,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
 
   const activeCategory = activeTab === 'all'
     ? allTabDisplay
-    : (filteredCatalog.find(c => c.slug === activeTab) || filteredCatalog[0])
+    : (filteredCatalog.find(c => c.slug === activeTab) || productCatalog.find(c => c.slug === activeTab) || filteredCatalog[0])
 
   const visibleCount = activeCategory?.items.length || 0
   const totalPages = Math.ceil(visibleCount / ITEMS_PER_PAGE)
@@ -222,12 +223,13 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
           <div className="absolute inset-0" style={{
             background: 'linear-gradient(135deg, #0D1B2A 0%, #1B2838 30%, #2C3E50 60%, #1A237E 100%)',
           }} />
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2000)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundBlendMode: 'overlay',
-          }} />
+          <div className="absolute inset-0 opacity-20">
+            <LazyBg
+              src="/images/hero/bg.jpg"
+              style={{ backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'overlay' }}
+              fallbackClass=""
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0D1B2A]/40 to-[#0D1B2A]" />
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{
             backgroundImage: 'radial-gradient(circle at 30% 40%, #FFD700 0%, transparent 60%), radial-gradient(circle at 70% 60%, #4CAF50 0%, transparent 50%)',
@@ -319,7 +321,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                   <span className="ml-0.5 text-xs opacity-60">{filteredAllProducts.length}</span>
                 </button>
 
-                {filteredCatalog.map(cat => (
+                {filteredCatalog.filter(cat => cat.items.length > 0).map(cat => (
                   <button
                     key={cat.slug}
                     data-tab={cat.slug}
@@ -377,7 +379,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                   >
                     {paginatedItems.map((item, i) => {
                       const catSlug = (item as any).categorySlug || activeCategory.slug
-                      const itemImg = item.img || categoryDefaultImages[catSlug] || 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600'
+                      const itemImg = item.img || categoryDefaultImages[catSlug] || '/images/hero/bg.jpg'
                       const itemSlug = item.slug || slugify(item.name)
                       const hasSpecs = item.specs && item.specs.length > 0
                       const hasImage = !!item.img
@@ -407,7 +409,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                                     </span>
                                   )}
                                   <div className="absolute inset-3">
-                                    <Image src={itemImg} alt={item.name} fill className="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 40vw" />
+                                    <Image src={itemImg} alt={item.name} fill className="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 40vw" loading="lazy" />
                                   </div>
                                   {/* Gradient overlay bottom */}
                                   <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/60 to-transparent md:hidden" />
@@ -469,7 +471,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                                 )}
                                 {hasImage && (
                                   <div className="absolute inset-3">
-                                    <Image src={itemImg} alt={item.name} fill className="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
+                                    <Image src={itemImg} alt={item.name} fill className="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" loading="lazy" />
                                   </div>
                                 )}
                                 {/* Specs badge on card corner */}
