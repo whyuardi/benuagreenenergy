@@ -8,5 +8,4 @@ upgrade-heroes.py
 contact-submissions.jsonl
 tailwind.config.js
 tsconfig.tsbuildinfo
-images/
 .vercel
