@@ -169,7 +169,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
               </Reveal>
 
               <Reveal delay={350}>
-                <p className="text-white/40 text-base sm:text-lg max-w-xl leading-relaxed mb-10">
+                <p className="text-white/65 text-base sm:text-lg max-w-xl leading-relaxed mb-10">
                   {content.hero.sub}
                 </p>
               </Reveal>
@@ -197,7 +197,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
                     <p className="font-outfit text-4xl font-bold text-white mb-1">
                       <AnimCounter value={stats[2].value} suffix={stats[2].suffix} />
                     </p>
-                    <p className="text-white/40 text-sm">{stats[2].label}</p>
+                    <p className="text-white/60 text-sm">{stats[2].label}</p>
                     <div className="mt-4 w-full h-[2px] bg-white/10 rounded-full overflow-hidden">
                       <div className="h-full w-3/4 bg-[var(--brand)] rounded-full" />
                     </div>
@@ -208,7 +208,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
                     <p className="font-outfit text-4xl font-bold text-white mb-1">
                       <AnimCounter value={stats[3].value} suffix={stats[3].suffix} duration={1500} />
                     </p>
-                    <p className="text-white/40 text-sm">{stats[3].label}</p>
+                    <p className="text-white/60 text-sm">{stats[3].label}</p>
                     <div className="mt-4 w-full h-[2px] bg-white/10 rounded-full overflow-hidden">
                       <div className="h-full w-[40%] bg-[var(--accent)] rounded-full" />
                     </div>
@@ -362,7 +362,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
             <h2 className="font-outfit text-[2rem] sm:text-[2.8rem] font-bold text-white mb-3 tracking-[-0.02em] leading-[1.08]">
               {content.services.title}
             </h2>
-            <p className="text-white/30 text-base sm:text-lg mb-14 max-w-lg">
+            <p className="text-white/50 text-base sm:text-lg mb-14 max-w-lg">
               {content.services.sub}
             </p>
           </Reveal>
@@ -382,7 +382,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
                       </div>
                       <div className="pt-1">
                         <h3 className="font-outfit text-xl sm:text-2xl font-bold text-white mb-2">{content.services.featured.title}</h3>
-                        <p className="text-white/35 text-sm sm:text-base leading-relaxed max-w-lg">{content.services.featured.desc}</p>
+                        <p className="text-white/55 text-sm sm:text-base leading-relaxed max-w-lg">{content.services.featured.desc}</p>
                       </div>
                     </div>
                     <div className="mt-6 flex items-center gap-2 text-[#5fe0a0] text-xs font-semibold group-hover:gap-3 transition-all duration-300">
@@ -410,7 +410,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
                         }
                       </div>
                       <h3 className="font-outfit font-bold text-white text-base sm:text-lg mb-2 group-hover:text-[#5fe0a0] transition-colors duration-300">{svc.title}</h3>
-                      <p className="text-white/30 text-xs sm:text-sm leading-relaxed">{svc.desc}</p>
+                      <p className="text-white/50 text-xs sm:text-sm leading-relaxed">{svc.desc}</p>
                     </div>
                   </Link>
                 </Reveal>
@@ -444,7 +444,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
             </h2>
           </Reveal>
           <Reveal delay={200}>
-            <p className="text-white/40 text-base sm:text-lg mb-10 max-w-md mx-auto">
+            <p className="text-white/65 text-base sm:text-lg mb-10 max-w-md mx-auto">
               {content.cta.sub}
             </p>
           </Reveal>

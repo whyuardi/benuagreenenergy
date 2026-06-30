@@ -97,12 +97,12 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
       <section className="section-dark grid-overlay relative min-h-[50vh] flex items-end pb-20 pt-28 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-sm text-white/40 mb-8">
-            <Link href={`/${lang}`} className="hover:text-white/70 transition-colors">
+          <nav className="flex items-center gap-2 text-sm text-white/60 mb-8">
+            <Link href={`/${lang}`} className="hover:text-white/80 transition-colors">
               <HomeIcon size={14} />
             </Link>
             <ChevronRightIcon size={12} />
-            <span className="text-white/70">{lang === 'id' ? 'Layanan' : 'Services'}</span>
+            <span className="text-white/80">{lang === 'id' ? 'Layanan' : 'Services'}</span>
           </nav>
 
           <AnimateIn>
@@ -114,7 +114,7 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
                 ? 'Solusi Energi Komprehensif'
                 : 'Comprehensive Energy Solutions'}
             </h1>
-            <p className="text-white/50 text-lg max-w-2xl">
+<p className="text-white/70 text-lg max-w-2xl">
               {lang === 'id'
                 ? 'Dari instalasi hingga pemeliharaan, kami menyediakan layanan lengkap untuk efisiensi energi Anda.'
                 : 'From installation to maintenance, we provide complete services for your energy efficiency.'}
@@ -242,7 +242,7 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
                 ? 'Hubungi Tim Teknis Kami Sekarang'
                 : 'Contact Our Technical Team Now'}
             </h2>
-            <p className="text-white/50 text-lg mb-8 max-w-xl mx-auto">
+<p className="text-white/70 text-lg max-w-2xl">
               {lang === 'id'
                 ? 'Tim kami siap membantu dari konsultasi hingga eksekusi.'
                 : 'Our team is ready to help from consultation to execution.'}

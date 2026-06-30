@@ -256,10 +256,19 @@ export default function LangLayout({ children, params }: { children: React.React
                   <span className="font-outfit font-bold text-[11px] text-[#5da383]">Energy</span>
                 </div>
               </div>
-              <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-6">{t.footerDesc}</p>
+              <p className="text-white/60 text-sm leading-relaxed max-w-xs mb-6">{t.footerDesc}</p>
               <div className="flex gap-2">
-                {['FB', 'IG', 'TW', 'YT'].map(s => (
-                  <a key={s} href="#" className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 border border-white/[0.06] flex items-center justify-center text-white/30 hover:text-white transition-colors text-[9px] font-bold">{s}</a>
+                {[
+                  { label: 'FB', href: 'https://facebook.com/benuagreenenergy', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> },
+                  { label: 'IG', href: 'https://instagram.com/benuagreenenergy', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
+                  { label: 'TW', href: 'https://twitter.com/benuagreenenergy', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
+                  { label: 'YT', href: 'https://youtube.com/@benuagreenenergy', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg> },
+                ].map(s => (
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/[0.18] border border-white/[0.08] flex items-center justify-center text-white/60 hover:text-white transition-all"
+                    aria-label={s.label}>
+                    {s.icon}
+                  </a>
                 ))}
               </div>
             </div>
@@ -269,7 +278,7 @@ export default function LangLayout({ children, params }: { children: React.React
               <h3 className="font-outfit text-white text-[11px] uppercase tracking-[0.15em] font-bold mb-5">{t.navTitle}</h3>
               <ul className="space-y-3">
                 {[...t.links, ...t.extraLinks].filter((l: any) => l.href !== '/ems').map((l: any) => (
-                  <li key={l.href}><Link href={`/${lang}${l.href}`} className="text-white/40 hover:text-white text-sm transition-colors">{l.label}</Link></li>
+                  <li key={l.href}><Link href={`/${lang}${l.href}`} className="text-white/60 hover:text-white text-sm transition-colors">{l.label}</Link></li>
                 ))}
               </ul>
             </div>
@@ -279,7 +288,7 @@ export default function LangLayout({ children, params }: { children: React.React
               <h3 className="font-outfit text-white text-[11px] uppercase tracking-[0.15em] font-bold mb-5">{t.productTitle}</h3>
               <ul className="space-y-3">
                 {t.products.map((p: { name: string; slug: string }) => (
-                  <li key={p.slug}><Link href={`/${lang}/products?tab=${p.slug}`} className="text-white/40 hover:text-white text-sm transition-colors">{p.name}</Link></li>
+                  <li key={p.slug}><Link href={`/${lang}/products?tab=${p.slug}`} className="text-white/60 hover:text-white text-sm transition-colors">{p.name}</Link></li>
                 ))}
               </ul>
             </div>
@@ -288,12 +297,12 @@ export default function LangLayout({ children, params }: { children: React.React
             <div className="lg:col-span-3">
               <h3 className="font-outfit text-white text-[11px] uppercase tracking-[0.15em] font-bold mb-5">{t.contactTitle}</h3>
               <ul className="space-y-3">
-                <li className="text-white/40 text-sm leading-relaxed">{t.contact.location}</li>
-                <li><a href={`tel:${t.contact.phone}`} className="text-white/40 hover:text-white text-sm transition-colors">{t.contact.phone}</a></li>
-                <li><a href={`tel:${t.contact.phone2}`} className="text-white/40 hover:text-white text-sm transition-colors">{t.contact.phone2}</a></li>
-                <li><a href={`mailto:${t.contact.email}`} className="text-white/40 hover:text-white text-sm transition-colors">{t.contact.email}</a></li>
-                <li><a href={`mailto:${t.contact.email2}`} className="text-white/40 hover:text-white text-sm transition-colors">{t.contact.email2}</a></li>
-                <li className="text-white/30 text-xs leading-relaxed">
+                <li className="text-white/60 text-sm leading-relaxed">{t.contact.location}</li>
+                <li><a href={`tel:${t.contact.phone}`} className="text-white/60 hover:text-white text-sm transition-colors">{t.contact.phone}</a></li>
+                <li><a href={`tel:${t.contact.phone2}`} className="text-white/60 hover:text-white text-sm transition-colors">{t.contact.phone2}</a></li>
+                <li><a href={`mailto:${t.contact.email}`} className="text-white/60 hover:text-white text-sm transition-colors">{t.contact.email}</a></li>
+                <li><a href={`mailto:${t.contact.email2}`} className="text-white/60 hover:text-white text-sm transition-colors">{t.contact.email2}</a></li>
+                <li className="text-white/50 text-xs leading-relaxed">
                   {t.contact.hours_weekday}<br />
                   {t.contact.hours_sat}<br />
                   {lang === 'id' ? 'Minggu: Libur' : 'Sunday: Closed'}
@@ -304,10 +313,10 @@ export default function LangLayout({ children, params }: { children: React.React
 
           {/* Bottom */}
           <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/20 text-xs">© {new Date().getFullYear()} PT. Benua Green Energy. {t.rights}</p>
+            <p className="text-white/50 text-xs">© {new Date().getFullYear()} PT. Benua Green Energy. {t.rights}</p>
             <div className="flex gap-6">
-              <Link href={`/${lang}/privacy`} className="text-white/20 hover:text-white/40 text-xs transition-colors">Privacy</Link>
-              <Link href={`/${lang}/terms`} className="text-white/20 hover:text-white/40 text-xs transition-colors">Terms</Link>
+              <Link href={`/${lang}/privacy`} className="text-white/50 hover:text-white/70 text-xs transition-colors">Privacy</Link>
+              <Link href={`/${lang}/terms`} className="text-white/50 hover:text-white/70 text-xs transition-colors">Terms</Link>
             </div>
           </div>
         </div>
