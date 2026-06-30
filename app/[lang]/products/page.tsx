@@ -257,8 +257,11 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
           </div>
         </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
+        {/* Bottom fade into surface */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, var(--surface) 100%)',
+          }} />
       </section>
 
       {/* ═══════════════════════════════════════

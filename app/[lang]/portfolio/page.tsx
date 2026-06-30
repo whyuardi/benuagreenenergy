@@ -20,7 +20,7 @@ export default function PortfolioPage({ params }: { params: { lang: string } }) 
   return (
     <div>
       {/* ═══════════════════════════════════════
-          HERO — Dark + green glow ambiance
+          HERO — Dark + green gradient
           ═══════════════════════════════════════ */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -46,12 +46,12 @@ export default function PortfolioPage({ params }: { params: { lang: string } }) 
               </p>
             </AnimateIn>
             <AnimateIn delay={100}>
-              <h1 className="font-outfit text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.08]">
+              <h1 className="font-outfit text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 tracking-tight leading-[1.08]">
                 {t.title}
               </h1>
             </AnimateIn>
             <AnimateIn delay={200}>
-              <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
+              <p className="text-sm xs:text-base sm:text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
                 {t.subtitle}
               </p>
             </AnimateIn>
@@ -66,23 +66,23 @@ export default function PortfolioPage({ params }: { params: { lang: string } }) 
       </section>
 
       {/* ═══════════════════════════════════════
-          PROJECT GRID — Masonry
+          PROJECT GRID — Responsive Masonry
           ═══════════════════════════════════════ */}
-      <section className="bg-[var(--surface)] py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <section className="bg-[var(--surface)] py-12 sm:py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Quick stats strip */}
           <AnimateIn>
-            <div className="flex flex-wrap gap-4 mb-12 pb-8 border-b border-[var(--border)]">
-              <div className="flex items-center gap-3 px-5 py-3 rounded-xl bg-[var(--brand-pale)]">
-                <span className="font-outfit text-xl font-bold text-[var(--brand)]">{projectList.length}</span>
-                <span className="text-sm text-[var(--ink-muted)]">
-                  {lang === 'id' ? 'Proyek Selesai' : 'Completed Projects'}
+            <div className="flex flex-col xs:flex-row xs:items-center gap-3 sm:gap-4 mb-10 sm:mb-12 pb-6 sm:pb-8 border-b border-[var(--border)]">
+              <div className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[var(--brand-pale)] shrink-0">
+                <span className="font-outfit text-lg sm:text-xl font-bold text-[var(--brand)]">{projectList.length}</span>
+                <span className="text-xs sm:text-sm text-[var(--ink-muted)]">
+                  {lang === 'id' ? 'Proyek' : 'Projects'}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap gap-2">
                 {Array.from(new Set(projectList.map(p => p.category))).map(cat => (
-                  <span key={cat} className="px-3 py-1.5 rounded-full text-xs font-medium bg-[var(--surface-alt)] text-[var(--ink-muted)]">
+                  <span key={cat} className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium bg-[var(--surface-alt)] text-[var(--ink-muted)]">
                     {cat}
                   </span>
                 ))}
@@ -90,56 +90,57 @@ export default function PortfolioPage({ params }: { params: { lang: string } }) 
             </div>
           </AnimateIn>
 
-          <StaggerContainer className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" staggerDelay={80}>
+          <StaggerContainer className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-5 space-y-4 sm:space-y-5" staggerDelay={80}>
             {projectList.map((project, i) => {
               const isLarge = i % 5 === 0
               return (
                 <div key={project.slug} className="break-inside-avoid">
                   <Link href={`/${lang}/portfolio/${project.slug}`} className="block group card-corporate !p-0 overflow-hidden">
-                    {/* Image */}
-                    <div className={`overflow-hidden relative ${isLarge ? 'h-72 sm:h-80' : 'h-56 sm:h-64'}`}>
+
+                    {/* Image — responsive heights */}
+                    <div className={`overflow-hidden relative ${isLarge ? 'h-48 xs:h-56 sm:h-72 md:h-80' : 'h-40 xs:h-48 sm:h-56 md:h-64'}`}>
                       <SkeletonImage
                         src={project.img}
                         alt={project.title}
                         fill
                         wrapperClass="absolute inset-0"
                         imgClass="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        sizes="(max-width: 480px) 100vw, (max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       {/* Category badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className="badge badge-dark !text-[10px]">
+                      <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                        <span className="badge badge-dark !text-[9px] sm:!text-[10px]">
                           {project.category}
                         </span>
                       </div>
                     </div>
 
-                    {/* Content */}
-                    <div className="p-6 sm:p-7">
-                      <h3 className="font-outfit text-xl sm:text-[22px] font-bold text-[var(--ink)] mb-3 group-hover:text-[var(--brand)] transition-colors leading-snug">
+                    {/* Content — responsive padding */}
+                    <div className="p-4 sm:p-5 md:p-6">
+                      <h3 className="font-outfit text-base sm:text-lg md:text-xl font-bold text-[var(--ink)] mb-2 sm:mb-3 group-hover:text-[var(--brand)] transition-colors leading-snug">
                         {project.title}
                       </h3>
-                      <p className="text-[var(--ink-secondary)] text-sm leading-relaxed mb-5 line-clamp-3">
+                      <p className="text-[var(--ink-secondary)] text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
                         {project.desc}
                       </p>
 
-                      {/* Key result pills */}
-                      <div className="flex flex-wrap gap-2 mb-5">
+                      {/* Key result pills — stack on very small screens */}
+                      <div className="flex flex-col xs:flex-row flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                         {project.results.slice(0, 2).map((r, ri) => (
                           <span
                             key={ri}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-[var(--brand-pale)] text-[var(--brand)]"
+                            className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold bg-[var(--brand-pale)] text-[var(--brand)]"
                           >
                             <span className="font-bold">{r.value}</span>
-                            <span className="text-[var(--ink-muted)]">{r.metric}</span>
+                            <span className="text-[var(--ink-muted)] hidden xs:inline">{r.metric}</span>
                           </span>
                         ))}
                       </div>
 
                       {/* CTA */}
-                      <span className="inline-flex items-center gap-2 text-[var(--brand)] font-semibold text-sm group-hover:gap-3 transition-all">
+                      <span className="inline-flex items-center gap-1.5 sm:gap-2 text-[var(--brand)] font-semibold text-xs sm:text-sm group-hover:gap-2.5 sm:group-hover:gap-3 transition-all">
                         {t.viewDetail}
-                        <ArrowRightIcon size={15} className="transition-transform group-hover:translate-x-0.5" />
+                        <ArrowRightIcon size={13} className="transition-transform group-hover:translate-x-0.5" />
                       </span>
                     </div>
                   </Link>
