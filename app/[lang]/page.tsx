@@ -148,6 +148,10 @@ export default function HomePage({ params }: { params: { lang: string } }) {
         />
         <div className="hero-image-overlay" />
 
+        {/* Green glow ambiance */}
+        <div className="green-glow -top-20 -right-40 opacity-60" />
+        <div className="green-glow -bottom-40 -left-40 opacity-30" />
+
         {/* Grid */}
         <div className="absolute inset-0 grid-pattern opacity-20" />
 
@@ -195,32 +199,32 @@ export default function HomePage({ params }: { params: { lang: string } }) {
             <div className="lg:col-span-5 hidden lg:block">
               <div className="relative">
                 <Reveal delay={300} direction="right">
-                  <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-7 mb-4 max-w-xs ml-auto hover:border-white/20 transition-all duration-300">
+                  <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-7 mb-4 max-w-xs ml-auto hover:border-[#3daf7a]/30 transition-all duration-500 group">
                     <p className="font-outfit text-4xl font-bold text-white mb-1">
                       <AnimCounter value={stats[2].value} suffix={stats[2].suffix} />
                     </p>
                     <p className="text-white/60 text-sm">{stats[2].label}</p>
                     <div className="mt-4 w-full h-[2px] bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full w-3/4 bg-[var(--brand)] rounded-full" />
+                      <div className="h-full w-3/4 bg-[var(--brand-light)] rounded-full group-hover:w-full transition-all duration-700" />
                     </div>
                   </div>
                 </Reveal>
                 <Reveal delay={450} direction="right">
-                  <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-7 max-w-xs ml-12 hover:border-white/20 transition-all duration-300">
+                  <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-7 max-w-xs ml-12 hover:border-[#3daf7a]/30 transition-all duration-500 group">
                     <p className="font-outfit text-4xl font-bold text-white mb-1">
                       <AnimCounter value={stats[3].value} suffix={stats[3].suffix} duration={1500} />
                     </p>
                     <p className="text-white/60 text-sm">{stats[3].label}</p>
                     <div className="mt-4 w-full h-[2px] bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full w-[40%] bg-[var(--accent)] rounded-full" />
+                      <div className="h-full w-[40%] bg-[var(--accent)] rounded-full group-hover:w-[60%] transition-all duration-700" />
                     </div>
                   </div>
                 </Reveal>
                 {/* Small badge */}
                 <Reveal delay={600} direction="scale">
-                  <div className="absolute -bottom-4 -left-4 bg-white/[0.04] border border-white/10 p-3 rounded-xl flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-[#3daf7a]/20 flex items-center justify-center"><IconCheck /></span>
-                    <span className="text-white/60 text-xs font-medium whitespace-nowrap">{content.hero.trustBadge}</span>
+                  <div className="absolute -bottom-4 -left-4 bg-[#3daf7a]/10 border border-[#3daf7a]/20 p-3 rounded-xl flex items-center gap-2 backdrop-blur-sm">
+                    <span className="w-6 h-6 rounded-full bg-[#3daf7a]/30 flex items-center justify-center"><IconCheck /></span>
+                    <span className="text-white/70 text-xs font-medium whitespace-nowrap">{content.hero.trustBadge}</span>
                   </div>
                 </Reveal>
               </div>
@@ -287,6 +291,56 @@ export default function HomePage({ params }: { params: { lang: string } }) {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+           SUSTAINABILITY IMPACT — Green Stats Block
+           ════════════════════════════════════════════ */}
+      <section className="section-green py-16 sm:py-20 relative overflow-hidden">
+        <div className="green-glow -top-40 -right-40 opacity-40" />
+        <div className="green-glow -bottom-40 -left-40 opacity-20" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <Reveal direction="left">
+              <div>
+                <span className="badge badge-dark bg-white/10 border-white/10 text-white/80 mb-5">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Dampak Lingkungan
+                </span>
+                <h2 className="font-outfit text-[2rem] sm:text-[2.8rem] font-bold text-white mb-4 tracking-[-0.02em] leading-[1.08] text-balance">
+                  Komitmen Kami pada <span className="text-[var(--brand-bright)]">Keberlanjutan</span>
+                </h2>
+                <p className="text-white/60 text-base sm:text-lg leading-relaxed max-w-lg mb-6">
+                  Setiap proyek yang kami kerjakan berkontribusi langsung pada pengurangan emisi karbon dan efisiensi energi industri di Indonesia.
+                </p>
+                <Link href={`/${lang}/about`} className="inline-flex items-center gap-2 text-[var(--brand-bright)] text-sm font-semibold hover:gap-3 transition-all duration-300 group">
+                  Pelajari Lebih Lanjut
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 transition-transform duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal direction="right" className="flex flex-col gap-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+                  <p className="stat-number-light text-3xl sm:text-4xl">112M+</p>
+                  <p className="text-white/60 text-xs sm:text-sm mt-1">Pounds CO2 Terhindarkan</p>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+                  <p className="stat-number-light text-3xl sm:text-4xl">500+</p>
+                  <p className="text-white/60 text-xs sm:text-sm mt-1">Proyek Green Energy</p>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+                  <p className="stat-number-light text-3xl sm:text-4xl">25+</p>
+                  <p className="text-white/60 text-xs sm:text-sm mt-1">Tahun Inovasi Hijau</p>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+                  <p className="stat-number-light text-3xl sm:text-4xl">40%</p>
+                  <p className="text-white/60 text-xs sm:text-sm mt-1">Efisiensi Energi Rata-Rata</p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
