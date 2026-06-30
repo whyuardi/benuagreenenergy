@@ -220,10 +220,19 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
       {/* ═══════════════════════════════════════
           HERO — Dark with grid + green glow
           ═══════════════════════════════════════ */}
-      <section className="section-dark relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
-        {/* Green glow */}
-        <div className="green-glow top-[-150px] right-[-100px] opacity-40" />
-        <div className="green-glow bottom-[-200px] left-[-150px] opacity-30" />
+      <section className="relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(145deg, var(--dark) 0%, #112A1A 30%, #1B4332 60%, #0B1D13 100%)',
+          }} />
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse 600px 400px at 30% 35%, rgba(82,183,136,0.08) 0%, transparent 70%), radial-gradient(ellipse 500px 500px at 70% 65%, rgba(64,145,108,0.06) 0%, transparent 60%)',
+          }} />
+          <div className="absolute top-1/4 right-[12%] w-72 h-72 rounded-full opacity-[0.05] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #52B788 0%, transparent 70%)' }} />
+          <div className="absolute bottom-1/3 left-[10%] w-52 h-52 rounded-full opacity-[0.06] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #40916C 0%, transparent 70%)' }} />
+        </div>
 
         <div className="absolute inset-0 grid-pattern opacity-20" />
 
