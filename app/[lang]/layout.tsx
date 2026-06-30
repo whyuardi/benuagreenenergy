@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import SkeletonImage from '@/components/SkeletonImage'
 import { motion, AnimatePresence } from 'framer-motion'
 import RouteLoader from '@/components/RouteLoader'
 import PageTransition from '@/components/PageTransition'
@@ -120,13 +121,14 @@ export default function LangLayout({ children, params }: { children: React.React
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#e8e4dd]' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-[72px] flex items-center justify-between gap-4">
           <Link href={`/${lang}`} className="flex items-center shrink-0">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white">
-              <Image
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden">
+              <SkeletonImage
                 src="/images/bge-logo-nav.png"
                 alt="BGE"
                 width={44}
                 height={44}
-                className="object-contain w-full h-full"
+                wrapperClass="w-full h-full"
+                imgClass="object-contain w-full h-full"
                 priority
               />
             </div>
@@ -249,7 +251,7 @@ export default function LangLayout({ children, params }: { children: React.React
             <div className="sm:col-span-2 lg:col-span-4">
               <div className="flex items-center gap-3 mb-5">
                 <div className="relative w-10 h-10 shrink-0">
-                  <Image src="/logo-bge.jpg" alt="BGE" fill sizes="40px" className="object-contain rounded-full" loading="lazy" />
+                  <SkeletonImage src="/logo-bge.jpg" alt="BGE" fill sizes="40px" imgClass="object-contain rounded-full" loading="lazy" />
                 </div>
                 <div className="flex flex-col leading-none">
                   <span className="font-outfit font-bold text-sm text-white">Benua Green</span>

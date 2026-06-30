@@ -3,6 +3,7 @@ import { AnimateIn } from '@/components/AnimateIn'
 import { ShieldCheckIcon, BarChartIcon, SettingsIcon, SparklesIcon, SearchIcon, WrenchIcon, HardHatIcon, ArrowRightIcon, HomeIcon, ChevronRightIcon } from '@/components/Icons'
 import Link from 'next/link'
 import Image from 'next/image'
+import SkeletonImage from '@/components/SkeletonImage'
 
 const servicesData = [
   {
@@ -129,11 +130,12 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
             <AnimateIn className="lg:col-span-3" delay={0}>
               <div className="relative aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden">
-                <Image
+                <SkeletonImage
                   src="/images/services/hvac.jpg"
                   alt="Professional HVAC Installation"
                   fill
-                  className="object-cover"
+                  wrapperClass="absolute inset-0"
+                  imgClass="object-cover"
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   loading="lazy"
                 />

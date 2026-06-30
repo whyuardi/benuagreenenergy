@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
+import SkeletonImage from '@/components/SkeletonImage'
 import { AnimateIn, StaggerContainer } from '@/components/AnimateIn'
 import { ArrowRightIcon } from '@/components/Icons'
 import Breadcrumb from '@/components/Breadcrumb'
@@ -79,13 +80,13 @@ export default function PortfolioPage({ params }: { params: { lang: string } }) 
                   <Link href={`/${lang}/portfolio/${project.slug}`} className="block group card-corporate !p-0 overflow-hidden">
                     {/* Image */}
                     <div className={`overflow-hidden relative ${isLarge ? 'h-72 sm:h-80' : 'h-56 sm:h-64'}`}>
-                      <Image
+                      <SkeletonImage
                         src={project.img}
                         alt={project.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        loading="lazy"
+                        wrapperClass="absolute inset-0"
+                        imgClass="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       {/* Category badge overlay */}
                       <div className="absolute top-4 left-4">

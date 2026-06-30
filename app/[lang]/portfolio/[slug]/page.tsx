@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import SkeletonImage from '@/components/SkeletonImage'
 import { notFound } from 'next/navigation'
 import { ArrowLeftIcon, MapPinIcon, ClockIcon, Building2Icon, CheckCircle2Icon } from '@/components/Icons'
 import { getProject } from '@/lib/portfolio-data'
@@ -96,13 +97,14 @@ export default async function ProjectDetail({
           <AnimateIn delay={0.1}>
             <div className="relative h-72 md:h-96 rounded-3xl overflow-hidden mb-10 shadow-lg"
               style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.1)' }}>
-              <Image
+              <SkeletonImage
                 src={project.img}
                 alt={project.title}
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 896px"
+                wrapperClass="absolute inset-0"
+                imgClass="object-cover"
                 priority
+                sizes="100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>

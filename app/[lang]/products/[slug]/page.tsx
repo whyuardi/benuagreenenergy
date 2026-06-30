@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { ArrowLeftIcon, ExternalLinkIcon, CheckCircleIcon, PackageIcon, ChevronLeftIcon, ShieldIcon, ZapIcon, ThermometerIcon, DropletsIcon, CpuIcon, GaugeIcon, LeafIcon } from '@/components/Icons'
 import Link from 'next/link'
 import Image from 'next/image'
+import SkeletonImage from '@/components/SkeletonImage'
 import { AnimateIn } from '@/components/AnimateIn'
 import { LazyBg } from '@/lib/lazy-bg'
 import { productCatalog, slugify, getProductBySlug, categoryDefaultImages } from '@/lib/products-data'
@@ -143,14 +144,15 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
             <AnimateIn delay={0.1}>
               <div className="bg-white rounded-3xl border border-[var(--border)] shadow-md flex items-center justify-center min-h-[400px] relative overflow-hidden group">
                 <div className="absolute inset-6">
-                  <Image
-                    src={productImg}
-                    alt={item.name}
-                    fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
+              <SkeletonImage
+                src={productImg}
+                alt={item.name}
+                fill
+                wrapperClass="absolute inset-0"
+                imgClass="object-contain"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
                 </div>
               </div>
             </AnimateIn>
@@ -233,7 +235,7 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                       >
                         <div className="aspect-[4/3] bg-[#FAFAFA] flex items-center justify-center relative overflow-hidden">
                           <div className="absolute inset-2">
-                            <Image src={itemImg} alt={item.name} fill className="object-contain transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 640px) 50vw, 25vw" loading="lazy" />
+                            <SkeletonImage src={itemImg} alt={item.name} fill wrapperClass="absolute inset-0" imgClass="object-contain transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 640px) 50vw, 25vw" loading="lazy" />
                           </div>
                         </div>
                         <div className="p-4">

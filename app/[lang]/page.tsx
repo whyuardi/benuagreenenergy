@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import SkeletonImage from '@/components/SkeletonImage'
 
 /* ─── Inline SVG Icons ─── */
 function IconArrowRight({ className = '' }: { className?: string }) {
@@ -135,12 +136,13 @@ export default function HomePage({ params }: { params: { lang: string } }) {
            ════════════════════════════════════════════ */}
       <section className="section-dark relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image */}
-        <Image
+        <SkeletonImage
           src="/images/hero/bg.jpg"
           alt=""
           fill
           priority
-          className="object-cover"
+          wrapperClass="absolute inset-0"
+          imgClass="object-cover"
           sizes="100vw"
           quality={80}
         />

@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react'
 import { ExternalLinkIcon, SearchIcon, XIcon, LayoutGridIcon, ChevronLeftIcon, ChevronRightIcon, MessageCircleIcon, ArrowRightIcon } from '@/components/Icons'
 import Image from 'next/image'
+import SkeletonImage from '@/components/SkeletonImage'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { productCatalog, slugify, categoryDefaultImages } from '@/lib/products-data'
@@ -385,7 +386,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                                     </span>
                                   )}
                                   <div className="absolute inset-3">
-                                    <Image src={itemImg} alt={item.name} fill className="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 40vw" loading="lazy" />
+                                    <SkeletonImage src={itemImg} alt={item.name} fill wrapperClass="absolute inset-0" imgClass="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 40vw" loading="lazy" />
                                   </div>
                                   {/* Gradient overlay bottom */}
                                   <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/60 to-transparent md:hidden" />
@@ -447,7 +448,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                                 )}
                                 {hasImage && (
                                   <div className="absolute inset-3">
-                                    <Image src={itemImg} alt={item.name} fill className="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" loading="lazy" />
+                                    <SkeletonImage src={itemImg} alt={item.name} fill wrapperClass="absolute inset-0" imgClass="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" loading="lazy" />
                                   </div>
                                 )}
                                 {/* Specs badge on card corner */}

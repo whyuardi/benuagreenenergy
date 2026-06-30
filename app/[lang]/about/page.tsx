@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
+import SkeletonImage from '@/components/SkeletonImage'
 import { AnimateIn } from '@/components/AnimateIn'
 import Breadcrumb from '@/components/Breadcrumb'
 import {
