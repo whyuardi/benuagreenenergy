@@ -127,7 +127,7 @@ export default function LangLayout({ children, params }: { children: React.React
                 alt="BGE"
                 width={44}
                 height={44}
-                wrapperClass="w-full h-full"
+                wrapperClass="w-full h-full relative"
                 imgClass="object-contain w-full h-full"
                 priority
               />
@@ -251,7 +251,7 @@ export default function LangLayout({ children, params }: { children: React.React
             <div className="sm:col-span-2 lg:col-span-4">
               <div className="flex items-center gap-3 mb-5">
                 <div className="relative w-10 h-10 shrink-0">
-                  <SkeletonImage src="/logo-bge.jpg" alt="BGE" fill sizes="40px" imgClass="object-contain rounded-full" loading="lazy" />
+                  <SkeletonImage src="/logo-bge.jpg" alt="BGE" fill sizes="40px" wrapperClass="absolute inset-0" imgClass="object-contain rounded-full" loading="lazy" />
                 </div>
                 <div className="flex flex-col leading-none">
                   <span className="font-outfit font-bold text-sm text-white">Benua Green</span>
