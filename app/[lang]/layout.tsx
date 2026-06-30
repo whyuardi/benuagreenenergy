@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 import RouteLoader from '@/components/RouteLoader'
+import PageTransition from '@/components/PageTransition'
 
 const navData: Record<string, any> = {
   id: {
@@ -167,42 +169,76 @@ export default function LangLayout({ children, params }: { children: React.React
         </div>
       </header>
 
-      {/* ═══ MOBILE MENU ═══ */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-[60] md:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={closeMenu} />
-          <div className="absolute top-0 right-0 bottom-0 w-72 max-w-[80vw] bg-white p-6 shadow-2xl">
-            <div className="flex items-center justify-between mb-8">
-              <span className="font-outfit font-bold text-lg">Menu</span>
-              <button onClick={closeMenu} className="p-2 rounded-lg hover:bg-[#f5f2ec] transition-colors">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              </button>
-            </div>
-            <nav className="space-y-1">
-              {[...t.links, ...t.extraLinks].map((l: any) => (
-                <Link key={l.href} href={`/${lang}${l.href}`} onClick={closeMenu}
-                  className="block px-4 py-3 text-[#6b6b6b] hover:text-[#1a1a1a] hover:bg-[#f5f2ec] rounded-xl font-medium text-sm transition-colors">
-                  {l.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="mt-8 pt-6 border-t border-[#e8e4dd] space-y-3">
-              <button onClick={() => { switchLang(lang === 'id' ? 'en' : 'id'); closeMenu() }}
-                className="w-full flex items-center gap-2 px-4 py-3 text-[#6b6b6b] hover:text-[#1a1a1a] hover:bg-[#f5f2ec] rounded-xl text-sm font-medium transition-colors">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                {lang === 'id' ? 'English' : 'Bahasa Indonesia'}
-              </button>
-            </div>
+      {/* ═══ MOBILE MENU (ANIMATED) ═══ */}
+      <AnimatePresence>
+        {menuOpen && (
+          <div className="fixed inset-0 z-[60] md:hidden">
+            <motion.div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={closeMenu}
+            />
+            <motion.div
+              className="absolute top-0 right-0 bottom-0 w-72 max-w-[80vw] bg-white p-6 shadow-2xl"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 28, stiffness: 260, mass: 0.8 }}
+            >
+              <div className="flex items-center justify-between mb-8">
+                <motion.span
+                  className="font-outfit font-bold text-lg"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.12, duration: 0.3 }}
+                >Menu</motion.span>
+                <button onClick={closeMenu} className="p-2 rounded-lg hover:bg-[#f5f2ec] transition-colors">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <nav className="space-y-1">
+                {[...t.links, ...t.extraLinks].map((l: any, i: number) => (
+                  <motion.div
+                    key={l.href}
+                    initial={{ opacity: 0, x: 16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.08 + i * 0.04, duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <Link key={l.href} href={`/${lang}${l.href}`} onClick={closeMenu}
+                      className="block px-4 py-3 text-[#6b6b6b] hover:text-[#1a1a1a] hover:bg-[#f5f2ec] rounded-xl font-medium text-sm transition-colors">
+                      {l.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+              <motion.div
+                className="mt-8 pt-6 border-t border-[#e8e4dd] space-y-3"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <button onClick={() => { switchLang(lang === 'id' ? 'en' : 'id'); closeMenu() }}
+                  className="w-full flex items-center gap-2 px-4 py-3 text-[#6b6b6b] hover:text-[#1a1a1a] hover:bg-[#f5f2ec] rounded-xl text-sm font-medium transition-colors">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  {lang === 'id' ? 'English' : 'Bahasa Indonesia'}
+                </button>
+              </motion.div>
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
 
       {/* ═══ ROUTE LOADER ═══ */}
       <RouteLoader />
 
       {/* ═══ MAIN ═══ */}
       <main className="flex-1">
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
       </main>
 
       {/* ═══ FOOTER ═══ */}
