@@ -51,15 +51,28 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
   if (!result) {
     return (
       <div className="page-enter">
-        <section className="relative min-h-[70vh] flex items-center pt-20 overflow-hidden bg-[#FDFBF7]">
-          <div className="max-w-4xl mx-auto px-6 text-center w-full">
-            <PackageIcon size={64} className="mx-auto text-[#2C3E50]/20 mb-6" />
-            <h1 className="font-serif text-4xl text-[#1A252F] mb-4">{t.notFound}</h1>
-            <p className="text-lg text-[#2C3E50]/60 mb-8">{t.notFoundDesc}</p>
-            <Link href={`/${lang}/products`} className="inline-flex items-center gap-2 px-6 py-3 bg-[#2D5A27] text-white rounded-xl hover:bg-[#1A3A1A] transition-all">
+        <section className="relative min-h-[70vh] flex items-center pt-20 overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0" style={{
+              background: 'linear-gradient(145deg, var(--dark) 0%, #112A1A 30%, #1B4332 60%, #0B1D13 100%)',
+            }} />
+            <div className="absolute inset-0" style={{
+              background: 'radial-gradient(ellipse 600px 400px at 30% 35%, rgba(82,183,136,0.08) 0%, transparent 70%), radial-gradient(ellipse 500px 500px at 70% 65%, rgba(64,145,108,0.06) 0%, transparent 60%)',
+            }} />
+          </div>
+          <div className="relative z-10 max-w-4xl mx-auto px-6 text-center w-full">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white/[0.06] flex items-center justify-center">
+              <PackageIcon size={40} className="text-white/20" />
+            </div>
+            <h1 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">{t.notFound}</h1>
+            <p className="text-base sm:text-lg text-white/50 mb-8">{t.notFoundDesc}</p>
+            <Link href={`/${lang}/products`} className="btn-primary inline-flex">
               {t.viewAll} <ArrowLeftIcon size={16} />
             </Link>
           </div>
+          {/* Bottom fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent 0%, var(--surface) 100%)' }} />
         </section>
       </div>
     )
@@ -68,12 +81,10 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
   const { item, category } = result
   const productImg = item.img || categoryDefaultImages[category.slug] || '/images/hero/bg.jpg'
 
-  // Dynamic page title
   useEffect(() => {
     document.title = `${item.name} | Benua Green Energy`
   }, [item.name])
 
-  // Product JSON-LD
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -83,19 +94,29 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
     brand: { '@type': 'Brand', name: category.name || 'Benua Green Energy' },
   }
 
-  // Related products from the same category
-  const related = category.items.filter(item => item.name !== item.name).slice(0, 4)
-
-  // Derived features from specs for richer display
+  const related = category.items.filter(r => r.name !== item.name).slice(0, 4)
   const specIcons = [ZapIcon, ThermometerIcon, DropletsIcon, CpuIcon, GaugeIcon, ShieldIcon, LeafIcon]
 
   return (
     <div className="page-enter">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
 
+      {/* ═══════════════════════════════════════
+          HERO — Dark + green gradient
+          ═══════════════════════════════════════ */}
       <section className="relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0" style={{ background: 'var(--dark)' }} />
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(145deg, var(--dark) 0%, #112A1A 30%, #1B4332 60%, #0B1D13 100%)',
+          }} />
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse 600px 400px at 30% 35%, rgba(82,183,136,0.08) 0%, transparent 70%), radial-gradient(ellipse 500px 500px at 70% 65%, rgba(64,145,108,0.06) 0%, transparent 60%)',
+          }} />
+          <div className="absolute top-1/4 right-[12%] w-72 h-72 rounded-full opacity-[0.05] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #52B788 0%, transparent 70%)' }} />
+          <div className="absolute bottom-1/3 left-[10%] w-52 h-52 rounded-full opacity-[0.06] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #40916C 0%, transparent 70%)' }} />
+          {/* Product image bg blend */}
           <div className="absolute inset-0 opacity-[0.12]">
             <LazyBg
               src={productImg}
@@ -103,9 +124,10 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
               fallbackClass=""
             />
           </div>
-          <div className="absolute inset-0 grid-pattern opacity-20" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pb-24 md:pb-32">
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pb-24 md:pb-32">
           <div className="max-w-3xl">
             <AnimateIn>
               <Link
@@ -117,70 +139,75 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
               </Link>
             </AnimateIn>
             <AnimateIn delay={0.05}>
-              <span className="inline-block px-3 py-1 bg-white/10 text-white text-xs font-bold rounded-full mb-4 border border-white/10">
+              <span className="badge badge-green mb-4">
                 {category.name}
               </span>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <h1 className="font-serif text-4xl md:text-6xl text-white mb-4 leading-tight">{item.name}</h1>
+              <h1 className="font-outfit text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-[1.08]">{item.name}</h1>
             </AnimateIn>
             {item.desc && (
               <AnimateIn delay={0.2}>
-                <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed">{item.desc}</p>
+                <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">{item.desc}</p>
               </AnimateIn>
             )}
           </div>
         </div>
-        {/* Bottom border separator */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
+
+        {/* Bottom fade into surface */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 z-10 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, transparent 0%, var(--surface) 100%)' }} />
       </section>
 
-      {/* ─── CONTENT ─── */}
-      <section className="py-20 md:py-28 px-6 bg-[#FDFBF7] relative">
+      {/* ═══════════════════════════════════════
+          CONTENT
+          ═══════════════════════════════════════ */}
+      <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-[var(--surface)] relative">
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Product Image + Details Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 mb-20">
             {/* Image */}
             <AnimateIn delay={0.1}>
-              <div className="bg-white rounded-3xl border border-[var(--border)] shadow-md flex items-center justify-center min-h-[400px] relative overflow-hidden group">
-                <div className="absolute inset-6">
-              <SkeletonImage
-                src={productImg}
-                alt={item.name}
-                fill
-                wrapperClass="absolute inset-0"
-                imgClass="object-contain"
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+              <div className="bg-white rounded-[var(--radius-card)] border border-[var(--border)] shadow-sm flex items-center justify-center min-h-[320px] sm:min-h-[400px] relative overflow-hidden group">
+                <div className="absolute inset-4 sm:inset-6">
+                  <SkeletonImage
+                    src={productImg}
+                    alt={item.name}
+                    fill
+                    wrapperClass="absolute inset-0"
+                    imgClass="object-contain transition-transform duration-500 group-hover:scale-105"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
               </div>
             </AnimateIn>
 
             {/* Details */}
             <AnimateIn delay={0.2}>
-              <div className="sticky top-28">
+              <div className="lg:sticky lg:top-28">
                 {item.desc && (
                   <div className="mb-8">
-                    <h2 className="font-serif text-2xl text-[#1A252F] mb-4">{t.overview}</h2>
-                    <p className="text-lg text-[#2C3E50]/70 leading-relaxed">{item.desc}</p>
+                    <p className="eyebrow text-[var(--brand)] mb-3">{t.overview}</p>
+                    <h2 className="font-outfit text-2xl sm:text-3xl font-bold text-[var(--ink)] mb-4 tracking-tight">{item.name}</h2>
+                    <p className="text-base sm:text-lg text-[var(--ink-secondary)] leading-relaxed">{item.desc}</p>
                   </div>
                 )}
 
                 {/* Specs */}
                 {item.specs && item.specs.length > 0 && (
                   <div className="mb-8">
-                    <h3 className="font-bold text-sm text-[#1A252F] mb-5 uppercase tracking-wider flex items-center gap-2">
-                      <CpuIcon size={16} className="text-[#2D5A27]" />
+                    <h3 className="font-outfit font-bold text-sm text-[var(--ink)] mb-5 uppercase tracking-wider flex items-center gap-2">
+                      <CpuIcon size={16} className="text-[var(--brand)]" />
                       {t.specs}
                     </h3>
                     <div className="space-y-3">
                       {item.specs.map((spec, i) => {
                         const SpecIcon = specIcons[i % specIcons.length]
                         return (
-                          <div key={i} className="flex items-center gap-3 px-5 py-3.5 bg-white/70 backdrop-blur-xl rounded-xl border border-white/20 shadow-lg hover:shadow-xl hover:border-[#2D5A27]/30 transition-all">
-                            <SpecIcon size={16} className="text-[#2D5A27] shrink-0" />
-                            <span className="text-sm text-[#2C3E50]/80 font-medium">{spec}</span>
+                          <div key={i} className="flex items-center gap-3 px-5 py-3.5 bg-white rounded-[var(--radius-card)] border border-[var(--border)] shadow-sm hover:shadow-md hover:border-[var(--brand)]/30 transition-all">
+                            <SpecIcon size={16} className="text-[var(--brand)] shrink-0" />
+                            <span className="text-sm text-[var(--ink-secondary)] font-medium">{spec}</span>
                           </div>
                         )
                       })}
@@ -188,18 +215,18 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                   </div>
                 )}
 
-                {/* Features derived from specs */}
-                {item.specs && item.specs.length > 0 && item.specs.length >= 3 && (
+                {/* Features */}
+                {item.specs && item.specs.length >= 3 && (
                   <div className="mb-8">
-                    <h3 className="font-bold text-sm text-[#1A252F] mb-5 uppercase tracking-wider flex items-center gap-2">
-                      <ShieldIcon size={16} className="text-[#2D5A27]" />
+                    <h3 className="font-outfit font-bold text-sm text-[var(--ink)] mb-5 uppercase tracking-wider flex items-center gap-2">
+                      <ShieldIcon size={16} className="text-[var(--brand)]" />
                       {t.features}
                     </h3>
                     <div className="grid grid-cols-2 gap-3">
                       {item.specs.slice(0, 6).map((spec, i) => (
-                        <div key={i} className="flex items-center gap-2 px-4 py-3 bg-[#2D5A27]/5 rounded-xl border border-[#2D5A27]/10">
-                          <CheckCircleIcon size={14} className="text-[#2D5A27] shrink-0" />
-                          <span className="text-xs text-[#2C3E50]/70 font-medium">{spec}</span>
+                        <div key={i} className="flex items-center gap-2 px-4 py-3 bg-[var(--brand-pale)] rounded-xl border border-[var(--border-green)]">
+                          <CheckCircleIcon size={14} className="text-[var(--brand)] shrink-0" />
+                          <span className="text-xs text-[var(--ink-secondary)] font-medium leading-snug">{spec}</span>
                         </div>
                       ))}
                     </div>
@@ -209,10 +236,10 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
                 {/* CTA Button */}
                 <Link
                   href={`/${lang}/contact?source=${encodeURIComponent(item.name)}`}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#2D5A27] text-white rounded-xl font-semibold hover:bg-[#1A3A1A] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                  className="btn-primary w-full sm:w-auto sm:inline-flex"
                 >
                   {t.getQuote}
-                  <ExternalLinkIcon size={18} />
+                  <ExternalLinkIcon size={16} />
                 </Link>
               </div>
             </AnimateIn>
@@ -221,26 +248,27 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
           {/* Related Products */}
           {related.length > 0 && (
             <AnimateIn delay={0.3}>
-              <div className="border-t border-[#2C3E50]/10 pt-12 mb-20">
-                <h2 className="font-serif text-2xl text-[#1A252F] mb-8">{t.related}</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                  {related.map((item, i) => {
-                    const itemSlug = slugify(item.name)
-                    const itemImg = item.img || categoryDefaultImages[category.slug] || '/images/hero/bg.jpg'
+              <div className="border-t border-[var(--border)] pt-12 mb-20">
+                <p className="eyebrow text-[var(--brand)] mb-3">{t.related}</p>
+                <h2 className="font-outfit text-2xl sm:text-3xl font-bold text-[var(--ink)] mb-8 tracking-tight">{t.related}</h2>
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                  {related.map((r, i) => {
+                    const itemSlug = slugify(r.name)
+                    const itemImg = r.img || categoryDefaultImages[category.slug] || '/images/hero/bg.jpg'
                     return (
                       <Link
                         key={i}
                         href={`/${lang}/products/${itemSlug}`}
-                        className="group bg-white/70 backdrop-blur-xl rounded-xl overflow-hidden border border-white/20 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+                        className="group card-corporate !p-0 overflow-hidden"
                       >
-                        <div className="aspect-[4/3] bg-[#FAFAFA] flex items-center justify-center relative overflow-hidden">
+                        <div className="aspect-[4/3] bg-[var(--surface-alt)] flex items-center justify-center relative overflow-hidden">
                           <div className="absolute inset-2">
-                            <SkeletonImage src={itemImg} alt={item.name} fill wrapperClass="absolute inset-0" imgClass="object-contain transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 640px) 50vw, 25vw" loading="lazy" />
+                            <SkeletonImage src={itemImg} alt={r.name} fill wrapperClass="absolute inset-0" imgClass="object-contain transition-transform duration-300 group-hover:scale-105" sizes="(max-width: 640px) 50vw, 25vw" loading="lazy" />
                           </div>
                         </div>
                         <div className="p-4">
-                          <h3 className="font-semibold text-xs text-[#1A252F] mb-2 line-clamp-2">{item.name}</h3>
-                          <span className="text-[#2D5A27] text-[10px] font-semibold flex items-center gap-1">
+                          <h3 className="font-outfit font-semibold text-xs text-[var(--ink)] mb-2 line-clamp-2">{r.name}</h3>
+                          <span className="text-[var(--brand)] text-[10px] font-semibold flex items-center gap-1">
                             {t.detail} <ArrowLeftIcon size={10} className="rotate-180" />
                           </span>
                         </div>
@@ -254,21 +282,24 @@ export default function ProductDetailPage({ params }: { params: { lang: string; 
 
           {/* ─── BOTTOM CTA ─── */}
           <AnimateIn delay={0.2}>
-            <div className="bg-[var(--dark)] p-10 md:p-14 rounded-3xl text-center relative overflow-hidden border border-white/5">
+            <div className="section-dark rounded-[var(--radius-card)] p-8 sm:p-10 md:p-14 text-center relative overflow-hidden border border-white/5">
+              <div className="green-glow top-[-80px] right-[-60px] opacity-30" />
               <div className="relative z-10">
-                <LeafIcon size={40} className="mx-auto text-white/20 mb-4" />
-                <h3 className="font-serif text-2xl md:text-3xl text-white mb-4">{t.needThis}</h3>
-                <p className="text-white/60 mb-8 max-w-lg mx-auto leading-relaxed">{t.needThisDesc}</p>
-                <div className="flex flex-wrap items-center justify-center gap-4">
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-white/[0.06] flex items-center justify-center">
+                  <LeafIcon size={28} className="text-white/30" />
+                </div>
+                <h3 className="font-outfit text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">{t.needThis}</h3>
+                <p className="text-white/50 mb-8 max-w-lg mx-auto leading-relaxed">{t.needThisDesc}</p>
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                   <Link
                     href={`/${lang}/contact?source=${encodeURIComponent(item.name)}`}
-                    className="bg-white text-[#1A252F] px-8 py-4 rounded-xl font-bold hover:bg-[var(--brand)] hover:text-white transition-all shadow-md"
+                    className="btn-accent"
                   >
                     {t.contactUs}
                   </Link>
                   <Link
                     href={`/${lang}/products`}
-                    className="text-white/80 hover:text-white px-6 py-4 rounded-xl font-semibold border border-white/20 hover:border-white/40 transition-all flex items-center gap-2"
+                    className="btn-outline"
                   >
                     <ChevronLeftIcon size={16} /> {t.allProducts}
                   </Link>
