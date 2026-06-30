@@ -94,8 +94,14 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
   return (
     <div className="page-enter">
 
-      {/* SECTION 1: HERO */}
-      <section className="section-dark grid-overlay relative min-h-[50vh] flex items-end pb-20 pt-28 overflow-hidden">
+      {/* ═══════════════════════════════════════
+          HERO — Dark + green glow
+          ═══════════════════════════════════════ */}
+      <section className="section-dark relative min-h-[50vh] flex items-end pb-20 pt-28 overflow-hidden">
+        <div className="green-glow top-[-200px] right-[-50px] opacity-40" />
+        <div className="green-glow bottom-[-200px] left-[20%] opacity-30" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-sm text-white/60 mb-8">
@@ -110,24 +116,29 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
             <p className="eyebrow text-[var(--brand-bright)] mb-4">
               {lang === 'id' ? 'Layanan Kami' : 'Our Services'}
             </p>
-            <h1 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            <h1 className="font-outfit text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight leading-[1.08]">
               {lang === 'id'
                 ? 'Solusi Energi Komprehensif'
                 : 'Comprehensive Energy Solutions'}
             </h1>
-<p className="text-white/70 text-lg max-w-2xl">
+            <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed">
               {lang === 'id'
                 ? 'Dari instalasi hingga pemeliharaan, kami menyediakan layanan lengkap untuk efisiensi energi Anda.'
                 : 'From installation to maintenance, we provide complete services for your energy efficiency.'}
             </p>
           </AnimateIn>
         </div>
+
+        {/* Bottom border */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
       </section>
 
-      {/* SECTION 2: FEATURED SERVICE - Installation */}
-      <section className="white py-24">
+      {/* ═══════════════════════════════════════
+          FEATURED — Installation
+          ═══════════════════════════════════════ */}
+      <section className="bg-[var(--surface)] py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
             <AnimateIn className="lg:col-span-3" delay={0}>
               <div className="relative aspect-[16/10] rounded-[var(--radius-card)] overflow-hidden">
                 <SkeletonImage
@@ -144,11 +155,11 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
 
             <AnimateIn className="lg:col-span-2" delay={100}>
               <div>
-                <p className="eyebrow mb-4">{lang === 'id' ? 'Layanan Utama' : 'Featured Service'}</p>
-                <h2 className="font-outfit text-2xl sm:text-3xl font-bold text-[var(--ink)] mb-4 tracking-tight">
+                <p className="eyebrow text-[var(--brand)] mb-4">{lang === 'id' ? 'Layanan Utama' : 'Featured Service'}</p>
+                <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-[var(--ink)] mb-4 tracking-tight">
                   {lang === 'id' ? 'Instalasi Profesional' : 'Professional Installation'}
                 </h2>
-                <p className="text-[var(--ink-secondary)] leading-relaxed mb-6">
+                <p className="text-[var(--ink-secondary)] leading-relaxed text-base sm:text-lg mb-6">
                   {lang === 'id' ? installationData.descId : installationData.descEn}
                 </p>
                 <ul className="space-y-3 mb-8">
@@ -174,24 +185,26 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
         </div>
       </section>
 
-      {/* SECTION 3: SERVICE GRID */}
-      <section className="section-surface py-24">
+      {/* ═══════════════════════════════════════
+          SERVICE GRID
+          ═══════════════════════════════════════ */}
+      <section className="section-surface py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <AnimateIn>
-            <p className="eyebrow mb-3">
+            <p className="eyebrow text-[var(--brand)] mb-3">
               {lang === 'id' ? 'Semua Layanan' : 'All Services'}
             </p>
-            <h2 className="font-outfit text-2xl sm:text-3xl font-bold text-[var(--ink)] mb-3 tracking-tight">
+            <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-[var(--ink)] mb-3 tracking-tight">
               {lang === 'id' ? 'Layanan Lainnya' : 'Additional Services'}
             </h2>
-            <p className="text-[var(--ink-muted)] text-base mb-12 max-w-2xl">
+            <p className="text-[var(--ink-muted)] text-base sm:text-lg mb-12 max-w-2xl leading-relaxed">
               {lang === 'id'
                 ? 'Kami menyediakan berbagai layanan untuk memastikan sistem energi Anda beroperasi pada kinerja optimal.'
                 : 'We provide a range of services to ensure your energy systems operate at peak performance.'}
             </p>
           </AnimateIn>
 
-          {/* Row 1: 2 columns */}
+          {/* Row 1: 2 columns asymmetric */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-6">
             <div className="md:col-span-3">
               <ServiceCard service={servicesData[0]} lang={lang} delay={0} />
@@ -208,7 +221,7 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
             ))}
           </div>
 
-          {/* Repair & Maintenance - full width */}
+          {/* Row 3: Repair & Maintenance - full width card */}
           <div className="mt-6">
             <AnimateIn delay={100}>
               <Link href={`/${lang}/services/${servicesData[5].slug}`} className="group block">
@@ -232,24 +245,36 @@ export default function ServicesPage({ params }: { params: { lang: string } }) {
         </div>
       </section>
 
-      {/* SECTION 4: CTA */}
-      <section className="section-dark grid-overlay py-16 relative overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+      {/* ═══════════════════════════════════════
+          CTA — Green section
+          ═══════════════════════════════════════ */}
+      <section className="section-green py-16 md:py-20 relative overflow-hidden">
+        <div className="green-glow top-[-200px] right-[-100px] opacity-30" />
+        <div className="green-glow bottom-[-150px] left-[-150px] opacity-20" />
+        <div className="absolute inset-0 grid-pattern opacity-[0.04]" />
+
+        <div className="relative z-10 max-w-3xl mx-auto text-center px-4 sm:px-6">
           <AnimateIn>
-            <p className="eyebrow text-[var(--brand-bright)] mb-4">
+            <p className="eyebrow text-[var(--brand-bright)]/80 mb-4">
               {lang === 'id' ? 'Siap Memulai?' : 'Ready to Get Started?'}
             </p>
-            <h2 className="font-outfit text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+          </AnimateIn>
+          <AnimateIn delay={100}>
+            <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
               {lang === 'id'
                 ? 'Hubungi Tim Teknis Kami Sekarang'
                 : 'Contact Our Technical Team Now'}
             </h2>
-<p className="text-white/70 text-lg max-w-2xl">
+          </AnimateIn>
+          <AnimateIn delay={150}>
+            <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto leading-relaxed">
               {lang === 'id'
                 ? 'Tim kami siap membantu dari konsultasi hingga eksekusi.'
                 : 'Our team is ready to help from consultation to execution.'}
             </p>
-            <Link href={`/${lang}/contact`} className="btn-primary">
+          </AnimateIn>
+          <AnimateIn delay={200}>
+            <Link href={`/${lang}/contact`} className="btn-accent inline-flex">
               <span>{lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}</span>
               <ArrowRightIcon size={16} />
             </Link>

@@ -14,11 +14,11 @@ const ITEMS_PER_PAGE = 12
 
 function ProductSkeleton() {
   return (
-    <div className="bg-white/70 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg overflow-hidden">
-      <div className="h-48 shimmer aspect-[4/3]" />
+    <div className="card-corporate overflow-hidden !p-0">
+      <div className="h-48 skeleton-shimmer aspect-[4/3]" />
       <div className="p-5 space-y-3">
-        <div className="h-4 shimmer rounded w-3/4" />
-        <div className="h-3 shimmer rounded w-1/3" />
+        <div className="h-4 skeleton-shimmer rounded w-3/4" />
+        <div className="h-3 skeleton-shimmer rounded w-1/3" />
       </div>
     </div>
   )
@@ -65,7 +65,7 @@ function Pagination({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="flex items-center gap-1 px-2 sm:px-3 py-2 rounded-xl text-sm font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed text-[#2C3E50]/60 hover:text-[#2C3E50] hover:bg-white border border-transparent hover:border-[#2C3E50]/10"
+        className="flex items-center gap-1 px-2 sm:px-3 py-2 rounded-xl text-sm font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed text-[var(--ink-muted)] hover:text-[var(--ink)] hover:bg-white border border-transparent hover:border-[var(--border)]"
       >
         <ChevronLeftIcon size={16} />
         <span className="hidden sm:inline">{lang === 'id' ? 'Sebelumnya' : 'Prev'}</span>
@@ -74,15 +74,15 @@ function Pagination({
       <div className="flex gap-1">
         {pages.map((page, i) =>
           page === '...' ? (
-            <span key={`ellipsis-${i}`} className="px-1 sm:px-2 py-2 text-sm text-[#2C3E50]/30">...</span>
+            <span key={`ellipsis-${i}`} className="px-1 sm:px-2 py-2 text-sm text-[var(--ink-subtle)]">...</span>
           ) : (
             <button
               key={page}
               onClick={() => onPageChange(page)}
               className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-sm font-medium transition-all ${
                 page === currentPage
-                  ? 'bg-[#2D5A27] text-white shadow-md'
-                  : 'text-[#2C3E50]/60 hover:bg-white hover:text-[#2C3E50] border border-transparent hover:border-[#2C3E50]/10'
+                  ? 'bg-[var(--brand)] text-white shadow-md'
+                  : 'text-[var(--ink-muted)] hover:bg-white hover:text-[var(--ink)] border border-transparent hover:border-[var(--border)]'
               }`}
             >
               {page}
@@ -94,7 +94,7 @@ function Pagination({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="flex items-center gap-1 px-2 sm:px-3 py-2 rounded-xl text-sm font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed text-[#2C3E50]/60 hover:text-[#2C3E50] hover:bg-white border border-transparent hover:border-[#2C3E50]/10"
+        className="flex items-center gap-1 px-2 sm:px-3 py-2 rounded-xl text-sm font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed text-[var(--ink-muted)] hover:text-[var(--ink)] hover:bg-white border border-transparent hover:border-[var(--border)]"
       >
         <span className="hidden sm:inline">{lang === 'id' ? 'Selanjutnya' : 'Next'}</span>
         <ChevronRightIcon size={16} />
@@ -217,89 +217,91 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
 
   return (
     <div className="page-enter">
-      <section className="relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0" style={{
-            background: 'var(--dark)',
-          }} />
-          <div className="absolute inset-0 opacity-20">
-            <LazyBg
-              src="/images/hero/bg.jpg"
-              style={{ backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'overlay' }}
-              fallbackClass=""
-            />
-          </div>
-          <div className="absolute inset-0 grid-pattern opacity-20" />
-        </div>
+      {/* ═══════════════════════════════════════
+          HERO — Dark with grid + green glow
+          ═══════════════════════════════════════ */}
+      <section className="section-dark relative min-h-[50vh] flex items-center pt-20 overflow-hidden">
+        {/* Green glow */}
+        <div className="green-glow top-[-150px] right-[-100px] opacity-40" />
+        <div className="green-glow bottom-[-200px] left-[-150px] opacity-30" />
+
+        <div className="absolute inset-0 grid-pattern opacity-20" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full pb-24 md:pb-32">
           <div className="max-w-3xl">
             <Breadcrumb items={[{ label: lang === 'id' ? 'Produk' : 'Products' }]} lang={lang} />
             <AnimateIn>
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white mb-6 mt-8">{t.title}</h1>
+              <p className="eyebrow text-[var(--brand-bright)] mb-4 mt-6">
+                {lang === 'id' ? 'Katalog Lengkap' : 'Complete Catalog'}
+              </p>
             </AnimateIn>
-            <AnimateIn delay={0.2}>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/70 max-w-2xl">{t.subtitle}</p>
+            <AnimateIn delay={100}>
+              <h1 className="font-outfit text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.08]">
+                {t.title}
+              </h1>
+            </AnimateIn>
+            <AnimateIn delay={200}>
+              <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
+                {totalProducts}+ {t.subtitle}
+              </p>
             </AnimateIn>
           </div>
         </div>
-        {/* Bottom border separator */}
+
+        {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
       </section>
 
-      {/* Section Divider */}
-      <div className="section-divider" />
-
-      {/* ===== Products Content ===== */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto bg-[#FDFBF7] relative">
-        {/* Noise texture overlay */}
-        <div className="noise-texture opacity-50 pointer-events-none mix-blend-overlay absolute inset-0" />
-
+      {/* ═══════════════════════════════════════
+          PRODUCTS CONTENT
+          ═══════════════════════════════════════ */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto bg-[var(--surface)] relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="min-w-0">
 
-            {/* Header */}
+            {/* ── Header ── */}
             <div className="text-center mb-8">
-              <h1 className="font-serif text-4xl md:text-5xl text-[#1A252F] mb-3">{t.title}</h1>
-              <div className="flex items-center justify-center gap-3">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#2D5A27]/10 rounded-full">
-                  <span className="text-sm font-bold text-[#2D5A27]">{totalProducts}</span>
-                  <span className="text-sm text-[#2D5A27]/70">{t.items}</span>
+              <p className="eyebrow text-[var(--brand)] mb-3">
+                {lang === 'id' ? 'Produk & Solusi' : 'Products & Solutions'}
+              </p>
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <div className="badge badge-green">
+                  <span className="font-bold">{totalProducts}</span>
+                  <span className="opacity-70">{t.items}</span>
                 </div>
               </div>
-              <p className="text-base text-[#2C3E50]/60 max-w-2xl mx-auto mt-3">{t.subtitle}</p>
             </div>
 
-            {/* Search Bar */}
+            {/* ── Search Bar ── */}
             <div className="relative max-w-md mx-auto mb-6 w-full">
-              <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-[#2C3E50]/40" size={18} />
+              <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--ink-subtle)]" size={18} />
               <input
                 type="text"
                 placeholder={t.search}
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-12 pr-10 py-3 bg-white rounded-xl border border-[#2C3E50]/10 focus:outline-none focus:ring-2 focus:ring-[#2D5A27]/30 focus:border-[#2D5A27] transition-all text-sm"
+                className="w-full pl-12 pr-10 py-3 bg-white rounded-xl border border-[var(--border)] focus:outline-none focus:ring-2 focus:ring-[var(--brand)]/30 focus:border-[var(--brand)] transition-all text-sm text-[var(--ink)] placeholder:text-[var(--ink-subtle)]"
               />
               {search && (
                 <button
                   onClick={() => setSearch('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#2C3E50]/40 hover:text-[#2C3E50]"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--ink-subtle)] hover:text-[var(--ink)]"
                 >
                   <XIcon size={16} />
                 </button>
               )}
             </div>
 
-            {/* Category Tabs */}
+            {/* ── Category Tabs ── */}
             <div className="mb-4">
-              <div ref={tabsRef} className="overflow-x-auto flex gap-3 pb-2 scrollbar-hide bg-white rounded-2xl p-2 border border-[#2C3E50]/10 shadow-sm">
+              <div ref={tabsRef} className="overflow-x-auto flex gap-3 pb-2 scrollbar-hide bg-white glass-panel p-2">
                 <button
                   data-tab="all"
                   onClick={() => handleTabClick('all')}
                   className={`whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-medium transition-all shrink-0 flex items-center gap-2 ${
                     activeTab === 'all'
-                      ? 'bg-[#2D5A27] text-white shadow-md'
-                      : 'text-[#2C3E50]/60 hover:bg-[#F1F5F9] hover:text-[#2C3E50]'
+                      ? 'bg-[var(--brand)] text-white shadow-md'
+                      : 'text-[var(--ink-muted)] hover:bg-[var(--surface-alt)] hover:text-[var(--ink)]'
                   }`}
                 >
                   <LayoutGridIcon size={14} />
@@ -314,8 +316,8 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                     onClick={() => handleTabClick(cat.slug)}
                     className={`whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-medium transition-all shrink-0 ${
                       activeTab === cat.slug
-                        ? 'bg-[#2D5A27] text-white shadow-md'
-                        : 'text-[#2C3E50]/60 hover:bg-[#F1F5F9] hover:text-[#2C3E50]'
+                        ? 'bg-[var(--brand)] text-white shadow-md'
+                        : 'text-[var(--ink-muted)] hover:bg-[var(--surface-alt)] hover:text-[var(--ink)]'
                     }`}
                   >
                     {cat.name}
@@ -325,30 +327,27 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
               </div>
             </div>
 
-            {/* Filter status + page info */}
+            {/* ── Filter status ── */}
             <div className="flex items-center justify-between mb-6 min-h-[20px]">
               {visibleCount < totalProducts ? (
-                <p className="text-sm text-[#2C3E50]/50">
+                <p className="text-sm text-[var(--ink-subtle)]">
                   {t.showing} {visibleCount} {t.of} {totalProducts} {t.items}
                 </p>
               ) : (
                 <span />
               )}
               {totalPages > 1 && !isLoading && (
-                <p className="text-xs text-[#2C3E50]/40">
-                  {startItem}&#8211;{endItem} {t.of} {visibleCount}
+                <p className="text-xs text-[var(--ink-subtle)]">
+                  {startItem}&ndash;{endItem} {t.of} {visibleCount}
                 </p>
               )}
             </div>
 
-            {/* Products Grid — Bento Layout */}
+            {/* ── Products Grid — Bento Layout ── */}
             <div ref={gridRef} className="relative min-h-[400px]">
               <div>
                 {isLoading ? (
-                  <div
-                    key="skeleton"
-                    className="animate-in fade-in duration-300"
-                  >
+                  <div key="skeleton" className="animate-in fade-in duration-300">
                     <SkeletonGrid count={ITEMS_PER_PAGE} />
                   </div>
                 ) : paginatedItems.length > 0 ? (
@@ -363,7 +362,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                       const hasSpecs = item.specs && item.specs.length > 0
                       const hasImage = !!item.img
 
-                      // Bento pattern: every 5th card is wide (cols 1-2), others standard width
+                      // Bento pattern: every 5th card is wide
                       const isWide = i % 5 === 0
 
                       return (
@@ -374,71 +373,68 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                         >
                           {isWide ? (
                             /* ── WIDE BENTO CARD ── */
-                            <a
+                            <Link
                               href={`/${lang}/products/${itemSlug}`}
-                              className="group bg-white/70 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover-glow transition-all block h-full overflow-hidden"
+                              className="group card-corporate !p-0 overflow-hidden h-full flex flex-col md:flex-row"
                             >
-                              <div className="flex flex-col md:flex-row h-full">
-                                <div className="md:w-2/5 aspect-[4/3] md:aspect-auto bg-[#FAFAFA] relative overflow-hidden">
-                                  {activeTab === 'all' && (item as any).categoryName && (
-                                    <span className="absolute top-2 right-2 z-10 px-2.5 py-1 bg-white/90 backdrop-blur-sm text-[#2D5A27] text-[10px] font-bold rounded-full shadow-sm border border-[#2D5A27]/20">
-                                      {(item as any).categoryName}
-                                    </span>
-                                  )}
-                                  <div className="absolute inset-3">
-                                    <SkeletonImage src={itemImg} alt={item.name} fill wrapperClass="absolute inset-0" imgClass="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 40vw" loading="lazy" />
-                                  </div>
-                                  {/* Gradient overlay bottom */}
-                                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/60 to-transparent md:hidden" />
-                                </div>
-                                <div className="p-5 md:p-6 flex-1 flex flex-col justify-center">
-                                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#2D5A27]/10 text-[#2D5A27] text-[10px] font-bold uppercase tracking-wider mb-3 w-fit">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-[#2D5A27]" />
-                                    {lang === 'id' ? 'Produk Unggulan' : 'Featured Product'}
-                                  </div>
-                                  <h3 className="font-bold text-base md:text-lg text-[#1A252F] mb-2 line-clamp-2">{item.name}</h3>
-                                  {hasSpecs && (
-                                    <div className="flex flex-wrap gap-1.5 mb-3">
-                                      {item.specs!.slice(0, 4).map((s, si) => (
-                                        <span key={si} className="px-2.5 py-0.5 bg-[#2D5A27]/5 text-[#2D5A27] text-[10px] font-medium rounded-full border border-[#2D5A27]/10">
-                                          {s}
-                                        </span>
-                                      ))}
-                                      {item.specs!.length > 4 && (
-                                        <span className="px-2.5 py-0.5 text-[#2C3E50]/40 text-[10px] font-medium">
-                                          +{item.specs!.length - 4}
-                                        </span>
-                                      )}
-                                    </div>
-                                  )}
-                                  <span className="text-[#2D5A27] text-xs font-semibold flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                                    {t.detail} <ExternalLinkIcon size={12} />
-                                  </span>
-                                </div>
-                              </div>
-                            </a>
-                          ) : (
-                            /* ── STANDARD BENTO CARD ── */
-                            <a
-                              href={`/${lang}/products/${itemSlug}`}
-                              className="group bg-white/70 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover-glow transition-all block h-full overflow-hidden"
-                            >
-                              <div className="aspect-[4/3] bg-[#FAFAFA] flex items-center justify-center relative overflow-hidden">
+                              <div className="md:w-2/5 aspect-[4/3] md:aspect-auto bg-[var(--surface-alt)] relative overflow-hidden">
                                 {activeTab === 'all' && (item as any).categoryName && (
-                                  <span className="absolute top-2 right-2 z-10 px-2.5 py-1 bg-white/90 backdrop-blur-sm text-[#2D5A27] text-[10px] font-bold rounded-full shadow-sm border border-[#2D5A27]/20">
+                                  <span className="badge badge-green absolute top-3 right-3 z-10 !text-[10px]">
                                     {(item as any).categoryName}
                                   </span>
                                 )}
-                                {/* Specs pills overlay on image for cards without native image */}
+                                <div className="absolute inset-3">
+                                  <SkeletonImage src={itemImg} alt={item.name} fill wrapperClass="absolute inset-0" imgClass="object-contain group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 40vw" loading="lazy" />
+                                </div>
+                                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/60 to-transparent md:hidden" />
+                              </div>
+                              <div className="p-5 md:p-6 flex-1 flex flex-col justify-center">
+                                <div className="badge badge-green !text-[10px] mb-3 w-fit">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand)]" />
+                                  {lang === 'id' ? 'Produk Unggulan' : 'Featured Product'}
+                                </div>
+                                <h3 className="font-outfit font-bold text-base md:text-lg text-[var(--ink)] mb-2 line-clamp-2">{item.name}</h3>
+                                {hasSpecs && (
+                                  <div className="flex flex-wrap gap-1.5 mb-3">
+                                    {item.specs!.slice(0, 4).map((s, si) => (
+                                      <span key={si} className="px-2.5 py-0.5 bg-[var(--brand-pale)] text-[var(--brand)] text-[10px] font-medium rounded-full border border-[var(--border-green)]">
+                                        {s}
+                                      </span>
+                                    ))}
+                                    {item.specs!.length > 4 && (
+                                      <span className="px-2.5 py-0.5 text-[var(--ink-subtle)] text-[10px] font-medium">
+                                        +{item.specs!.length - 4}
+                                      </span>
+                                    )}
+                                  </div>
+                                )}
+                                <span className="text-[var(--brand)] text-xs font-semibold flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                                  {t.detail} <ExternalLinkIcon size={12} />
+                                </span>
+                              </div>
+                            </Link>
+                          ) : (
+                            /* ── STANDARD BENTO CARD ── */
+                            <Link
+                              href={`/${lang}/products/${itemSlug}`}
+                              className="group card-corporate !p-0 overflow-hidden h-full"
+                            >
+                              <div className="aspect-[4/3] bg-[var(--surface-alt)] flex items-center justify-center relative overflow-hidden">
+                                {activeTab === 'all' && (item as any).categoryName && (
+                                  <span className="badge badge-green absolute top-3 right-3 z-10 !text-[10px]">
+                                    {(item as any).categoryName}
+                                  </span>
+                                )}
+                                {/* Specs pills overlay for cards without native image */}
                                 {!hasImage && hasSpecs && (
                                   <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="text-center px-4">
-                                      <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-[#2D5A27]/10 flex items-center justify-center">
-                                        <LayoutGridIcon size={20} className="text-[#2D5A27]/40" />
+                                      <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-[var(--brand-pale)] flex items-center justify-center">
+                                        <LayoutGridIcon size={20} className="text-[var(--brand)]/40" />
                                       </div>
                                       <div className="flex flex-wrap justify-center gap-1.5 max-w-[200px]">
                                         {item.specs!.slice(0, 3).map((s, si) => (
-                                          <span key={si} className="px-2 py-0.5 bg-[#2D5A27]/5 text-[#2D5A27] text-[9px] font-medium rounded-full border border-[#2D5A27]/10">
+                                          <span key={si} className="px-2 py-0.5 bg-[var(--brand-pale)] text-[var(--brand)] text-[9px] font-medium rounded-full border border-[var(--border-green)]">
                                             {s}
                                           </span>
                                         ))}
@@ -448,57 +444,54 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
                                 )}
                                 {hasImage && (
                                   <div className="absolute inset-3">
-                                    <SkeletonImage src={itemImg} alt={item.name} fill wrapperClass="absolute inset-0" imgClass="object-contain group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" loading="lazy" />
+                                    <SkeletonImage src={itemImg} alt={item.name} fill wrapperClass="absolute inset-0" imgClass="object-contain group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" loading="lazy" />
                                   </div>
                                 )}
-                                {/* Specs badge on card corner */}
                                 {i % 4 === 1 && hasSpecs && (
-                                  <span className="absolute bottom-2 left-2 z-10 px-2 py-0.5 bg-[#2D5A27]/90 text-white text-[8px] font-bold rounded-full">
+                                  <span className="absolute bottom-2 left-2 z-10 px-2 py-0.5 bg-[var(--brand)]/90 text-white text-[8px] font-bold rounded-full">
                                     {item.specs!.length} {lang === 'id' ? 'spesifikasi' : 'specs'}
                                   </span>
                                 )}
                               </div>
                               <div className="p-5">
-                                {/* Specs tags below title for some cards */}
                                 {i % 4 === 2 && hasSpecs && (
                                   <div className="flex flex-wrap gap-1 mb-2">
                                     {item.specs!.slice(0, 2).map((s, si) => (
-                                      <span key={si} className="px-2 py-0.5 bg-[#2D5A27]/5 text-[#2D5A27] text-[9px] font-medium rounded-full border border-[#2D5A27]/10">
+                                      <span key={si} className="px-2 py-0.5 bg-[var(--brand-pale)] text-[var(--brand)] text-[9px] font-medium rounded-full border border-[var(--border-green)]">
                                         {s}
                                       </span>
                                     ))}
                                   </div>
                                 )}
-                                <h3 className="font-semibold text-sm text-[#1A252F] mb-3 line-clamp-2">{item.name}</h3>
-                                <div className="flex items-center gap-1.5 text-[#2D5A27] text-xs font-semibold">
+                                <h3 className="font-outfit font-semibold text-sm text-[var(--ink)] mb-3 line-clamp-2">{item.name}</h3>
+                                <div className="flex items-center gap-1.5 text-[var(--brand)] text-xs font-semibold">
                                   {t.detail}
                                   <ExternalLinkIcon size={12} />
                                 </div>
                               </div>
-                            </a>
+                            </Link>
                           )}
                         </div>
                       )
                     })}
                   </div>
                 ) : (
-                  <div
-                    key="empty"
-                    className="text-center py-16 text-[#2C3E50]/50 animate-in fade-in duration-300"
-                  >
-                    <SearchIcon size={48} className="mx-auto mb-4 opacity-30" />
-                    <p className="text-lg font-medium">{lang === 'id' ? 'Produk tidak ditemukan' : 'No products found'}</p>
-                    <p className="text-sm mt-1 mb-6">{lang === 'id' ? 'Coba kata kunci atau kategori lain.' : 'Try a different search or category.'}</p>
+                  <div key="empty" className="text-center py-16 animate-in fade-in duration-300">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[var(--surface-alt)] flex items-center justify-center">
+                      <SearchIcon size={32} className="text-[var(--ink-subtle)]" />
+                    </div>
+                    <p className="text-lg font-outfit font-bold text-[var(--ink)]">{lang === 'id' ? 'Produk tidak ditemukan' : 'No products found'}</p>
+                    <p className="text-sm text-[var(--ink-muted)] mt-1 mb-6">{lang === 'id' ? 'Coba kata kunci atau kategori lain.' : 'Try a different search or category.'}</p>
                     <div className="flex flex-wrap justify-center gap-2 mb-6">
                       {['Chiller','Cooling Tower','Solar Panel','Heat Pump','Boiler'].map(cat => (
                         <button key={cat} onClick={() => { setSearch(''); setActiveTab(cat.toLowerCase().replace(/\s+/g, '-')) }}
-                          className="px-4 py-2 rounded-full bg-gray-100 text-sm text-[#2C3E50]/70 hover:bg-[#2D5A27]/10 hover:text-[#2D5A27] transition-all font-medium"
+                          className="px-4 py-2 rounded-full bg-[var(--surface-alt)] text-sm text-[var(--ink-muted)] hover:bg-[var(--brand-pale)] hover:text-[var(--brand)] transition-all font-medium"
                         >
                           {cat}
                         </button>
                       ))}
                     </div>
-                    <Link href={`/${lang}/contact`} className="inline-flex items-center gap-2 px-6 py-3 bg-[#2D5A27] text-white rounded-xl text-sm font-semibold hover:bg-[#1E3B1A] transition-all">
+                    <Link href={`/${lang}/contact`} className="btn-primary">
                       <MessageCircleIcon size={16} />
                       {lang === 'id' ? 'Hubungi Kami untuk produk lain' : 'Contact Us for other products'}
                     </Link>
@@ -507,7 +500,7 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
               </div>
             </div>
 
-            {/* Pagination */}
+            {/* ── Pagination ── */}
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
@@ -515,27 +508,40 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
               lang={lang}
             />
 
-          </div>{/* End Main Content */}
-        </div>{/* End max-w-7xl */}
+          </div>
+        </div>
       </section>
 
-      {/* ===== Bottom CTA ===== */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 bg-[#0D1B2A] relative overflow-hidden">
-        <div className="noise-texture opacity-50 pointer-events-none mix-blend-overlay absolute inset-0" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2D5A27]/50 to-transparent" />
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="font-serif text-3xl md:text-5xl text-white mb-6">
-            {lang === 'id' ? 'Tidak Menemukan Produk?' : "Can't Find a Product?"}
-          </h2>
-          <p className="text-white/50 text-lg mb-8">
-            {lang === 'id' ? 'Hubungi tim kami untuk informasi produk dan ketersediaan.' : 'Contact our team for product information and availability.'}
-          </p>
-          <Link
-            href={`/${lang}/contact`}
-            className="bg-white text-[#1A252F] px-10 py-4 rounded-full text-base font-bold hover:bg-[#2D5A27] hover:text-white transition-all inline-block shadow-2xl"
-          >
-            {lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}
-          </Link>
+      {/* ═══════════════════════════════════════
+          BOTTOM CTA — Green section
+          ═══════════════════════════════════════ */}
+      <section className="section-green py-16 md:py-20 relative overflow-hidden">
+        <div className="green-glow top-[-200px] right-[-100px] opacity-30" />
+        <div className="green-glow bottom-[-150px] left-[-150px] opacity-20" />
+        <div className="absolute inset-0 grid-pattern opacity-[0.04]" />
+
+        <div className="relative z-10 max-w-3xl mx-auto text-center px-4 sm:px-6">
+          <AnimateIn>
+            <p className="eyebrow text-[var(--brand-bright)]/80 mb-4">
+              {lang === 'id' ? 'Butuh Bantuan?' : 'Need Help?'}
+            </p>
+          </AnimateIn>
+          <AnimateIn delay={100}>
+            <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+              {lang === 'id' ? 'Tidak Menemukan Produk?' : "Can't Find a Product?"}
+            </h2>
+          </AnimateIn>
+          <AnimateIn delay={150}>
+            <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
+              {lang === 'id' ? 'Hubungi tim kami untuk informasi produk dan ketersediaan.' : 'Contact our team for product information and availability.'}
+            </p>
+          </AnimateIn>
+          <AnimateIn delay={200}>
+            <Link href={`/${lang}/contact`} className="btn-accent inline-flex">
+              {lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}
+              <ArrowRightIcon size={16} />
+            </Link>
+          </AnimateIn>
         </div>
       </section>
     </div>
@@ -544,7 +550,15 @@ function ProductsPageContent({ lang, params }: { lang: string, params: { lang: s
 
 export default function ProductsPage({ params }: { params: { lang: string } }) {
   return (
-    <Suspense fallback={<div className="pt-28 pb-20 text-center text-[#6B5C4B]/60">Loading...</div>}>
+    <Suspense fallback={
+      <div className="section-dark min-h-screen flex items-center justify-center">
+        <div className="premium-spinner w-8 h-8">
+          <svg viewBox="0 0 50 50" className="w-full h-full">
+            <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" strokeWidth="4" className="text-white/30" />
+          </svg>
+        </div>
+      </div>
+    }>
       <ProductsPageContent params={params} lang={params.lang} />
     </Suspense>
   )

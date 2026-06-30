@@ -93,22 +93,20 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
 
   return (
     <div>
-      {/* ============================================
-          HERO SECTION
-          ============================================ */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0" style={{
-            background: 'var(--dark)',
-          }} />
-          <div className="absolute inset-0 grid-overlay opacity-20" />
-        </div>
+      {/* ═══════════════════════════════════════
+          HERO
+          ═══════════════════════════════════════ */}
+      <section className="section-dark relative min-h-[60vh] flex items-center overflow-hidden">
+        {/* Green glow */}
+        <div className="green-glow top-[-200px] right-[-100px] opacity-40" />
+        <div className="green-glow bottom-[-250px] left-[-100px] opacity-30" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-28 pb-20 md:pt-32 md:pb-28">
           <Breadcrumb items={[{ label: t.title }]} lang={lang} />
           <div className="max-w-3xl mt-6">
             <AnimateIn>
-              <p className="eyebrow mb-4">{lang === 'id' ? 'Profil Perusahaan' : 'Company Profile'}</p>
+              <p className="eyebrow text-[var(--brand-bright)] mb-4">{lang === 'id' ? 'Profil Perusahaan' : 'Company Profile'}</p>
             </AnimateIn>
             <AnimateIn delay={100}>
               <h1 className="font-outfit text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.08]">
@@ -123,13 +121,12 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
           </div>
         </div>
 
-        {/* Bottom border separator */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
       </section>
 
-      {/* ============================================
-          HISTORY SECTION - Asymmetric 2-col
-          ============================================ */}
+      {/* ═══════════════════════════════════════
+          HISTORY — Asymmetric 2-col
+          ═══════════════════════════════════════ */}
       <section className="bg-[var(--surface)] py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -166,7 +163,7 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
               ].map((stat, i) => (
                 <AnimateIn key={i} delay={stat.delay} direction="right">
                   <div className="card-corporate flex items-center gap-5">
-                    <div className="w-12 h-12 rounded-xl bg-[var(--brand)]/8 flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-[var(--brand-pale)] flex items-center justify-center shrink-0">
                       <stat.icon size={22} className="text-[var(--brand)]" />
                     </div>
                     <div>
@@ -181,11 +178,12 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
         </div>
       </section>
 
-      {/* ============================================
-          STATS ROW - Dark bg with glass panels
-          ============================================ */}
+      {/* ═══════════════════════════════════════
+          STATS ROW — Dark with green glow
+          ═══════════════════════════════════════ */}
       <section className="section-dark py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 grid-overlay opacity-20" />
+        <div className="green-glow top-[-150px] right-[20%] opacity-30" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
@@ -195,11 +193,11 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
               { num: t.engineers, label: t.engineersLabel, desc: t.engineersDesc, icon: UsersIcon, delay: 200 },
             ].map((stat, i) => (
               <AnimateIn key={i} delay={stat.delay}>
-                <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-7 sm:p-8 h-full hover:border-white/20 transition-colors duration-200">
+                <div className="glass-panel-dark p-7 sm:p-8 h-full hover:border-white/20 transition-all duration-300">
                   <div className="w-11 h-11 rounded-lg bg-white/[0.06] flex items-center justify-center mb-5">
                     <stat.icon size={22} className="text-[var(--brand-bright)]" />
                   </div>
-                  <p className="font-outfit text-3xl sm:text-4xl font-bold text-white tracking-tight mb-1">
+                  <p className="stat-number-light mb-1">
                     {stat.num}
                   </p>
                   <p className="text-xs font-semibold uppercase tracking-widest text-[var(--brand-bright)] mb-3">
@@ -215,9 +213,9 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
         </div>
       </section>
 
-      {/* ============================================
-          CERTIFICATIONS - Asymmetric grid
-          ============================================ */}
+      {/* ═══════════════════════════════════════
+          CERTIFICATIONS — Asymmetric grid
+          ═══════════════════════════════════════ */}
       <section className="bg-[var(--surface)] py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="mb-14">
@@ -236,21 +234,20 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
             </AnimateIn>
           </div>
 
-          {/* Asymmetric 4-col grid: 2+2 with varied heights */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {t.certs.map((c: any, i: number) => {
               const certIcons = [ShieldCheckIcon, ShieldIcon, AwardIcon, SparklesIcon]
               const CertIcon = certIcons[i]
-              const isFeatured = i === 0 || i === 3
+              const iconBgColors = [
+                'bg-[var(--brand)] text-white',
+                'bg-[var(--brand-pale)] text-[var(--brand)]',
+                'bg-[var(--surface-alt)] text-[var(--brand-light)]',
+                'bg-[var(--brand)] text-white'
+              ]
               return (
                 <AnimateIn key={i} delay={100 + i * 80}>
-                  <div className={`card-corporate h-full ${isFeatured ? 'sm:row-span-1' : ''}`}>
-                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 ${
-                      i === 0 ? 'bg-[var(--brand)] text-white' :
-                      i === 1 ? 'bg-[var(--brand)]/10 text-[var(--brand)]' :
-                      i === 2 ? 'bg-[var(--surface-alt)] text-[var(--brand-light)]' :
-                      'bg-[var(--brand)] text-white'
-                    }`}>
+                  <div className="card-corporate h-full">
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 ${iconBgColors[i]}`}>
                       <CertIcon size={20} />
                     </div>
                     <h3 className="font-outfit font-bold text-[var(--ink)] text-base mb-2">
@@ -267,14 +264,14 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
         </div>
       </section>
 
-      {/* ============================================
+      {/* ═══════════════════════════════════════
           VISION & MISSION
-          ============================================ */}
-      <section className="bg-[var(--surface-alt)] py-20 md:py-28">
+          ═══════════════════════════════════════ */}
+      <section className="section-green-pale py-20 md:py-28 relative">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="mb-14">
             <AnimateIn>
-              <p className="eyebrow mb-4">{lang === 'id' ? 'Arah Strategis' : 'Strategic Direction'}</p>
+              <p className="eyebrow text-[var(--brand)] mb-4">{lang === 'id' ? 'Arah Strategis' : 'Strategic Direction'}</p>
             </AnimateIn>
             <AnimateIn delay={100}>
               <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--ink)] tracking-tight">
@@ -285,7 +282,8 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <AnimateIn delay={100}>
-              <div className="relative overflow-hidden rounded-2xl bg-[var(--dark)] p-8 sm:p-10 h-full border border-white/5">
+              <div className="relative overflow-hidden rounded-2xl section-dark p-8 sm:p-10 h-full border border-white/5">
+                <div className="green-glow top-[-100px] right-[-80px] opacity-30" />
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center mb-6">
                     <EyeIcon size={22} className="text-[var(--brand-bright)]" />
@@ -299,7 +297,8 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
             </AnimateIn>
 
             <AnimateIn delay={200}>
-              <div className="relative overflow-hidden rounded-2xl bg-[var(--brand)] p-8 sm:p-10 h-full border border-white/10">
+              <div className="relative overflow-hidden rounded-2xl section-green p-8 sm:p-10 h-full border border-white/10">
+                <div className="green-glow top-[-100px] right-[-80px] opacity-40" />
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-xl bg-white/[0.12] flex items-center justify-center mb-6">
                     <TargetIcon size={22} className="text-white" />
@@ -318,7 +317,7 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
   )
 }
 
-/* Inline icon to avoid extra import - Building outline for stat cards */
+/* Building icon for stat cards */
 function Building2Icon({ size = 24, className = '' }: { size?: number; className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
