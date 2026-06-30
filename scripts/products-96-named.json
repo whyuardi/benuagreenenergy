@@ -1,0 +1,402 @@
+{
+  "Solar Panel": [
+    {
+      "url": "/product/tiger-neo-78hc-bdv/",
+      "name": "tiger-neo-78hc-bdv"
+    },
+    {
+      "url": "/product/tiger-neo-72hc-bdv/",
+      "name": "tiger-neo-72hc-bdv"
+    },
+    {
+      "url": "/product/solar-dc-submersible-surface-pumps/",
+      "name": "solar-dc-submersible-surface-pumps"
+    },
+    {
+      "url": "/product/solar-open-well-pumps-dcsop-series/",
+      "name": "solar-open-well-pumps-dcsop-series"
+    },
+    {
+      "url": "/product/solar-drive/",
+      "name": "solar-drive"
+    },
+    {
+      "url": "/product/universal-solar-pump-controller/",
+      "name": "universal-solar-pump-controller"
+    }
+  ],
+  "Chiller / HVAC": [
+    {
+      "url": "/product/steam-absorption-chiller/",
+      "name": "steam-absorption-chiller"
+    },
+    {
+      "url": "/product/ycae-285tr/",
+      "name": "ycae-285tr"
+    },
+    {
+      "url": "/product/ycae-37tr/",
+      "name": "ycae-37tr"
+    },
+    {
+      "url": "/product/ycae-185tr/",
+      "name": "ycae-185tr"
+    },
+    {
+      "url": "/product/chiller-ycwe-32tr/",
+      "name": "chiller-ycwe-32tr"
+    },
+    {
+      "url": "/product/chiller-ycwe-42tr/",
+      "name": "chiller-ycwe-42tr"
+    },
+    {
+      "url": "/product/chiller-ycwe-21tr/",
+      "name": "chiller-ycwe-21tr"
+    },
+    {
+      "url": "/product/double-effect-direct-fired-chiller-150tr/",
+      "name": "double-effect-direct-fired-chiller-150tr"
+    },
+    {
+      "url": "/product/double-effect-direct-fired-chiller-300tr/",
+      "name": "double-effect-direct-fired-chiller-300tr"
+    },
+    {
+      "url": "/product/double-effect-direct-fired-chiller-600tr/",
+      "name": "double-effect-direct-fired-chiller-600tr"
+    },
+    {
+      "url": "/product/double-effect-direct-fired-chiller-900tr/",
+      "name": "double-effect-direct-fired-chiller-900tr"
+    },
+    {
+      "url": "/product/double-effect-steam-fired-chiller-150tr/",
+      "name": "double-effect-steam-fired-chiller-150tr"
+    },
+    {
+      "url": "/product/double-effect-steam-fired-chiller-300tr/",
+      "name": "double-effect-steam-fired-chiller-300tr"
+    },
+    {
+      "url": "/product/double-effect-steam-fired-chiller-600tr/",
+      "name": "double-effect-steam-fired-chiller-600tr"
+    },
+    {
+      "url": "/product/double-effect-steam-fired-chiller-900tr/",
+      "name": "double-effect-steam-fired-chiller-900tr"
+    },
+    {
+      "url": "/product/ycwe-e-water-cooled-chiller/",
+      "name": "ycwe-e-water-cooled-chiller"
+    },
+    {
+      "url": "/product/ygwh-water-cooled-screw-chiller-style-a/",
+      "name": "ygwh-water-cooled-screw-chiller-style-a"
+    },
+    {
+      "url": "/product/yms-magnetic-centrifugal-chiller/",
+      "name": "yms-magnetic-centrifugal-chiller"
+    },
+    {
+      "url": "/product/ycae-x-air-cooled-modular-chiller-heat-pump/",
+      "name": "ycae-x-air-cooled-modular-chiller-heat-pump"
+    }
+  ],
+  "Cooling Tower": [
+    {
+      "url": "/product/cross-flow-closed-cooling-tower/",
+      "name": "cross-flow-closed-cooling-tower"
+    },
+    {
+      "url": "/product/counter-flow-closed-cooling-tower/",
+      "name": "counter-flow-closed-cooling-tower"
+    }
+  ],
+  "Green Solution": [
+    {
+      "url": "/product/ybah-f-ecm-ceiling-fan-coil-unit/",
+      "name": "ybah-f-ecm-ceiling-fan-coil-unit"
+    },
+    {
+      "url": "/product/ybah-g-ceiling-air-handling-unit/",
+      "name": "ybah-g-ceiling-air-handling-unit"
+    },
+    {
+      "url": "/product/e1000-bldc-fcu-thermostat/",
+      "name": "e1000-bldc-fcu-thermostat"
+    }
+  ],
+  "Other": [
+    {
+      "url": "/product/easyio-fc-20-controller-20-point-io-expansion-controller/",
+      "name": "easyio-fc-20-controller-20-point-io-expansion-controller"
+    },
+    {
+      "url": "/product/easyio-fs-32-controller-32-point-ip-controller/",
+      "name": "easyio-fs-32-controller-32-point-ip-controller"
+    },
+    {
+      "url": "/product/easyio-fw-8v-wifi-vav-controller/",
+      "name": "easyio-fw-8v-wifi-vav-controller"
+    },
+    {
+      "url": "/product/easyio-fw-8-wifi-controller/",
+      "name": "easyio-fw-8-wifi-controller"
+    },
+    {
+      "url": "/product/easyio-fd-20i-input-modbus-bacnet-module/",
+      "name": "easyio-fd-20i-input-modbus-bacnet-module"
+    },
+    {
+      "url": "/product/one-controller/",
+      "name": "one-controller"
+    },
+    {
+      "url": "/product/hot-water-controller/",
+      "name": "hot-water-controller"
+    },
+    {
+      "url": "/product/home-load-controller/",
+      "name": "home-load-controller"
+    },
+    {
+      "url": "/product/home-smart-switch/",
+      "name": "home-smart-switch"
+    },
+    {
+      "url": "/product/home-battery-400v/",
+      "name": "home-battery-400v"
+    },
+    {
+      "url": "/product/home-battery-48v/",
+      "name": "home-battery-48v"
+    },
+    {
+      "url": "/product/home-backup-interface/",
+      "name": "home-backup-interface"
+    },
+    {
+      "url": "/product/commercial-storage-system-css-od-102-4/",
+      "name": "commercial-storage-system-css-od-102-4"
+    },
+    {
+      "url": "/product/cable/",
+      "name": "cable"
+    },
+    {
+      "url": "/product/openwell-shos-ca-sa-series/",
+      "name": "openwell-shos-ca-sa-series"
+    },
+    {
+      "url": "/product/plain-drip-irrigation/",
+      "name": "plain-drip-irrigation"
+    },
+    {
+      "url": "/product/round-drip-irrigation/",
+      "name": "round-drip-irrigation"
+    },
+    {
+      "url": "/product/flat-drip-irrigation/",
+      "name": "flat-drip-irrigation"
+    },
+    {
+      "url": "/product/nandi-universal-drive/",
+      "name": "nandi-universal-drive"
+    },
+    {
+      "url": "/product/lotus-universal-drive/",
+      "name": "lotus-universal-drive"
+    },
+    {
+      "url": "/product/du-dt-filter/",
+      "name": "du-dt-filter"
+    },
+    {
+      "url": "/product/rms-dongle/",
+      "name": "rms-dongle"
+    },
+    {
+      "url": "/product/a1-smart-starter/",
+      "name": "a1-smart-starter"
+    },
+    {
+      "url": "/product/elite-soft-starter/",
+      "name": "elite-soft-starter"
+    }
+  ],
+  "Solar Inverter Optimizer": [
+    {
+      "url": "/product/three-phase-inverters-with-synergy-technology/",
+      "name": "three-phase-inverters-with-synergy-technology"
+    },
+    {
+      "url": "/product/home-hub-inverters/",
+      "name": "home-hub-inverters"
+    },
+    {
+      "url": "/product/home-wave-inverters/",
+      "name": "home-wave-inverters"
+    },
+    {
+      "url": "/product/home-short-string-inverter/",
+      "name": "home-short-string-inverter"
+    },
+    {
+      "url": "/product/home-power-optimizers/",
+      "name": "home-power-optimizers"
+    },
+    {
+      "url": "/product/one-ev-charger/",
+      "name": "one-ev-charger"
+    },
+    {
+      "url": "/product/ev-charger/",
+      "name": "ev-charger"
+    },
+    {
+      "url": "/product/s1000-s1200-commercial-power-optimizers/",
+      "name": "s1000-s1200-commercial-power-optimizers"
+    },
+    {
+      "url": "/product/s1500-commercial-power-optimizers/",
+      "name": "s1500-commercial-power-optimizers"
+    },
+    {
+      "url": "/product/terramax-inverter/",
+      "name": "terramax-inverter"
+    },
+    {
+      "url": "/product/h1300-power-optimizers/",
+      "name": "h1300-power-optimizers"
+    },
+    {
+      "url": "/product/hybrid-inverter/",
+      "name": "hybrid-inverter"
+    },
+    {
+      "url": "/product/grid-tie-inverter/",
+      "name": "grid-tie-inverter"
+    }
+  ],
+  "High Efficiency Pump": [
+    {
+      "url": "/product/positive-displacement-pumps/",
+      "name": "positive-displacement-pumps"
+    },
+    {
+      "url": "/product/4-premium-plug-play-pump-dcsop-series/",
+      "name": "4-premium-plug-play-pump-dcsop-series"
+    },
+    {
+      "url": "/product/micro-surface-pumpset-dcssup-series/",
+      "name": "micro-surface-pumpset-dcssup-series"
+    },
+    {
+      "url": "/product/submersible-pumps-motors-qf-series/",
+      "name": "submersible-pumps-motors-qf-series"
+    },
+    {
+      "url": "/product/openwell-pumps-somb-series/",
+      "name": "openwell-pumps-somb-series"
+    },
+    {
+      "url": "/product/end-suction-long-coupled-pumps-snk-series/",
+      "name": "end-suction-long-coupled-pumps-snk-series"
+    },
+    {
+      "url": "/product/end-suction-single-shaft-pumps-smb-series/",
+      "name": "end-suction-single-shaft-pumps-smb-series"
+    },
+    {
+      "url": "/product/openwell-pumps-jalpari-series/",
+      "name": "openwell-pumps-jalpari-series"
+    },
+    {
+      "url": "/product/end-suction-closed-coupled-pumps-snb-series/",
+      "name": "end-suction-closed-coupled-pumps-snb-series"
+    },
+    {
+      "url": "/product/vertical-multi-stage-centrifugal-pumps-scr-scri-scrn-series/",
+      "name": "vertical-multi-stage-centrifugal-pumps-scr-scri-scrn-series"
+    },
+    {
+      "url": "/product/sero-vertical-multi-stage-pumps/",
+      "name": "sero-vertical-multi-stage-pumps"
+    },
+    {
+      "url": "/product/pressure-booster-scm-series/",
+      "name": "pressure-booster-scm-series"
+    },
+    {
+      "url": "/product/high-head-pressure-booster-scr-scrn-series/",
+      "name": "high-head-pressure-booster-scr-scrn-series"
+    },
+    {
+      "url": "/product/domestic-water-pressure-booster-sjp-series/",
+      "name": "domestic-water-pressure-booster-sjp-series"
+    },
+    {
+      "url": "/product/immersible-pumps-smtr-series/",
+      "name": "immersible-pumps-smtr-series"
+    },
+    {
+      "url": "/product/hydropneumatic-booster-system-hypn-series/",
+      "name": "hydropneumatic-booster-system-hypn-series"
+    },
+    {
+      "url": "/product/pressure-booster-pumps-sh-shi-shn-series/",
+      "name": "pressure-booster-pumps-sh-shi-shn-series"
+    },
+    {
+      "url": "/product/ro-pumps/",
+      "name": "ro-pumps"
+    },
+    {
+      "url": "/product/fire-pumps/",
+      "name": "fire-pumps"
+    },
+    {
+      "url": "/product/svx-waste-water-pump/",
+      "name": "svx-waste-water-pump"
+    },
+    {
+      "url": "/product/sdw-waste-water-pump/",
+      "name": "sdw-waste-water-pump"
+    },
+    {
+      "url": "/product/sseg-waste-water-pump/",
+      "name": "sseg-waste-water-pump"
+    },
+    {
+      "url": "/product/non-self-priming-pumps-nsp-series/",
+      "name": "non-self-priming-pumps-nsp-series"
+    },
+    {
+      "url": "/product/self-priming-pumps-crp-series/",
+      "name": "self-priming-pumps-crp-series"
+    },
+    {
+      "url": "/product/self-priming-pumps-megh-series/",
+      "name": "self-priming-pumps-megh-series"
+    },
+    {
+      "url": "/product/horizontal-split-case-pump-shs-series/",
+      "name": "horizontal-split-case-pump-shs-series"
+    },
+    {
+      "url": "/product/shallow-well-pump-ssw-series/",
+      "name": "shallow-well-pump-ssw-series"
+    },
+    {
+      "url": "/product/slow-speed-pump-sss-series/",
+      "name": "slow-speed-pump-sss-series"
+    }
+  ],
+  "PPR Pipe & Fittings": [
+    {
+      "url": "/product/pipes/",
+      "name": "pipes"
+    }
+  ]
+}

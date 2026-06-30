@@ -7,7 +7,8 @@ const nextConfig = {
   images: { 
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
-      /* REMOVED: benuagreenenergy.com — WordPress injects circular Blue Gold Resources logo */
+      { protocol: 'https', hostname: 'benuagreenenergy.com' },
+      { protocol: 'https', hostname: 'cdn.jsdelivr.net' },
     ]
   },
   async headers() {

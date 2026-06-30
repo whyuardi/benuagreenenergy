@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
-
-export const metadata: Metadata = {
-  title: 'Benua Green Energy',
-  description: 'Green Energy Solutions for Industrial Future',
-}
+'use client'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function RootPage() {
-  redirect('/id')
+  const router = useRouter()
+  useEffect(() => {
+    router.replace('/id')
+  }, [router])
+  return null
 }

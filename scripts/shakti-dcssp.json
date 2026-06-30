@@ -1,0 +1,1285 @@
+{
+  "dcssp": [
+    {
+      "model": "SOLAR 16.5 DCSSP 900",
+      "slug": "solar-16.5-dcssp-900",
+      "pump_code": "9000017895",
+      "head_m": 10,
+      "discharge_lpd": 81000.0,
+      "discharge_lpw": 90.0,
+      "power_wp": 900,
+      "connection": "BSP 50 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 3.0 DCSSP 900",
+      "slug": "solar-3.0-dcssp-900",
+      "pump_code": "9000030394",
+      "head_m": 30,
+      "discharge_lpd": 23000.0,
+      "discharge_lpw": 25.6,
+      "power_wp": 900,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 2.0 DCSSP 900",
+      "slug": "solar-2.0-dcssp-900",
+      "pump_code": "9000030266",
+      "head_m": 60,
+      "discharge_lpd": 11700.0,
+      "discharge_lpw": 13.0,
+      "power_wp": 900,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 20.5 DCSSP 1200",
+      "slug": "solar-20.5-dcssp-1200",
+      "pump_code": "9000020417",
+      "head_m": 10,
+      "discharge_lpd": 154800.0,
+      "discharge_lpw": 129.0,
+      "power_wp": 1200,
+      "connection": "BSP 50 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 10 DCSSP 1200",
+      "slug": "solar-10-dcssp-1200",
+      "pump_code": "9000029941",
+      "head_m": 20,
+      "discharge_lpd": 73560.0,
+      "discharge_lpw": 61.3,
+      "power_wp": 1200,
+      "connection": "BSP 50 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 8 DCSSP 1200",
+      "slug": "solar-8-dcssp-1200",
+      "pump_code": "9000030111",
+      "head_m": 30,
+      "discharge_lpd": 47400.0,
+      "discharge_lpw": 39.5,
+      "power_wp": 1200,
+      "connection": "BSP 40 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 3 DCSSP 1200",
+      "slug": "solar-3-dcssp-1200",
+      "pump_code": "9000032726",
+      "head_m": 60,
+      "discharge_lpd": 14400,
+      "discharge_lpw": 12.0,
+      "power_wp": 1200,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 39 DCSSP 1800",
+      "slug": "solar-39-dcssp-1800",
+      "pump_code": "9000029285",
+      "head_m": 10,
+      "discharge_lpd": 237600.0,
+      "discharge_lpw": 132.0,
+      "power_wp": 1800,
+      "connection": "BSP 75 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 19 DCSSP 1800",
+      "slug": "solar-19-dcssp-1800",
+      "pump_code": "9000033009",
+      "head_m": 20,
+      "discharge_lpd": 104400,
+      "discharge_lpw": 58.0,
+      "power_wp": 1800,
+      "connection": "BSP 50mm (4X4)"
+    },
+    {
+      "model": "SOLAR 12 DCSSP 1800",
+      "slug": "solar-12-dcssp-1800",
+      "pump_code": "9000029943",
+      "head_m": 30,
+      "discharge_lpd": 72000.0,
+      "discharge_lpw": 40.0,
+      "power_wp": 1800,
+      "connection": "BSP 50 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 6 DCSSP 1800",
+      "slug": "solar-6-dcssp-1800",
+      "pump_code": "9000023439",
+      "head_m": 50,
+      "discharge_lpd": 36000.0,
+      "discharge_lpw": 20.0,
+      "power_wp": 1800,
+      "connection": "BSP 40 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 2 DCSSP 1800",
+      "slug": "solar-2-dcssp-1800",
+      "pump_code": "9000030391",
+      "head_m": 90,
+      "discharge_lpd": 16000.0,
+      "discharge_lpw": 8.9,
+      "power_wp": 1800,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 1.5 DCSSP 1800",
+      "slug": "solar-1.5-dcssp-1800",
+      "pump_code": "9000029447",
+      "head_m": 120,
+      "discharge_lpd": 10080.0,
+      "discharge_lpw": 5.6,
+      "power_wp": 1800,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 63 DCSSP 3000",
+      "slug": "solar-63-dcssp-3000",
+      "pump_code": "9000032623",
+      "head_m": 10,
+      "discharge_lpd": 237600.0,
+      "discharge_lpw": 118.8,
+      "power_wp": 3000,
+      "connection": "BSP 75 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 30 DCSSP 3000",
+      "slug": "solar-30-dcssp-3000",
+      "pump_code": "9000029694",
+      "head_m": 20,
+      "discharge_lpd": 237600.0,
+      "discharge_lpw": 58.3,
+      "power_wp": 3000,
+      "connection": "BSP 63 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 20 DCSSP 3000",
+      "slug": "solar-20-dcssp-3000",
+      "pump_code": "9000030120",
+      "head_m": 30,
+      "discharge_lpd": 121800.0,
+      "discharge_lpw": 40.6,
+      "power_wp": 3000,
+      "connection": "BSP 50 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 12 DCSSP 3000",
+      "slug": "solar-12-dcssp-3000",
+      "pump_code": "9000032808",
+      "head_m": 50,
+      "discharge_lpd": 74400.0,
+      "discharge_lpw": 24.8,
+      "power_wp": 3000,
+      "connection": "BSP 50 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 8 DCSSP 3000",
+      "slug": "solar-8-dcssp-3000",
+      "pump_code": "9000029699",
+      "head_m": 70,
+      "discharge_lpd": 49500.0,
+      "discharge_lpw": 16.5,
+      "power_wp": 3000,
+      "connection": "BSP 50 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 5 DCSSP 3000",
+      "slug": "solar-5-dcssp-3000",
+      "pump_code": "9000030615",
+      "head_m": 100,
+      "discharge_lpd": 33000.0,
+      "discharge_lpw": 11.0,
+      "power_wp": 3000,
+      "connection": "BSP 40 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 2 DCSSP 3000",
+      "slug": "solar-2-dcssp-3000",
+      "pump_code": "9000031806",
+      "head_m": 120,
+      "discharge_lpd": 12600,
+      "discharge_lpw": 4.2,
+      "power_wp": 3000,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 3 DCSSP 3000",
+      "slug": "solar-3-dcssp-3000",
+      "pump_code": "9000023430",
+      "head_m": 150,
+      "discharge_lpd": 17100.0,
+      "discharge_lpw": 5.7,
+      "power_wp": 3000,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 103 DCSSP 4800",
+      "slug": "solar-103-dcssp-4800",
+      "pump_code": "9000023656",
+      "head_m": 10,
+      "discharge_lpd": 571200.0,
+      "discharge_lpw": 119.0,
+      "power_wp": 4800,
+      "connection": "BSP 100 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 55 DCSSP 4800",
+      "slug": "solar-55-dcssp-4800",
+      "pump_code": "9000029691",
+      "head_m": 20,
+      "discharge_lpd": 323520.0,
+      "discharge_lpw": 67.4,
+      "power_wp": 4800,
+      "connection": "BSP 75 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 33 DCSSP 4800",
+      "slug": "solar-33-dcssp-4800",
+      "pump_code": "9000032800",
+      "head_m": 30,
+      "discharge_lpd": 192000.0,
+      "discharge_lpw": 40.0,
+      "power_wp": 4800,
+      "connection": "BSP 63 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 20 DCSSP 4800",
+      "slug": "solar-20-dcssp-4800",
+      "pump_code": "9000032802",
+      "head_m": 50,
+      "discharge_lpd": 116640.0,
+      "discharge_lpw": 24.3,
+      "power_wp": 4800,
+      "connection": "BSP 50 mm (4X6)"
+    },
+    {
+      "model": "SOLAR 13 DCSSP 4800",
+      "slug": "solar-13-dcssp-4800",
+      "pump_code": "9000032796",
+      "head_m": 70,
+      "discharge_lpd": 89280.0,
+      "discharge_lpw": 18.6,
+      "power_wp": 4800,
+      "connection": "BSP 50 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 10 DCSSP 4800",
+      "slug": "solar-10-dcssp-4800",
+      "pump_code": "9000032799",
+      "head_m": 100,
+      "discharge_lpd": 55200.0,
+      "discharge_lpw": 11.5,
+      "power_wp": 4800,
+      "connection": "BSP 50 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 6 DCSSP 4800",
+      "slug": "solar-6-dcssp-4800",
+      "pump_code": "9000023437",
+      "head_m": 120,
+      "discharge_lpd": 48000.0,
+      "discharge_lpw": 10.0,
+      "power_wp": 4800,
+      "connection": "BSP 40 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 5 DCSSP 4800",
+      "slug": "solar-5-dcssp-4800",
+      "pump_code": "9000032987",
+      "head_m": 150,
+      "discharge_lpd": 33600.0,
+      "discharge_lpw": 7.0,
+      "power_wp": 4800,
+      "connection": "BSP 40 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 4.5 DCSSP 4800",
+      "slug": "solar-4.5-dcssp-4800",
+      "pump_code": "9000029451",
+      "head_m": 180,
+      "discharge_lpd": 28800.0,
+      "discharge_lpw": 6.0,
+      "power_wp": 4800,
+      "connection": "BSP 40 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 3 DCSSP 4800",
+      "slug": "solar-3-dcssp-4800",
+      "pump_code": "9000030727",
+      "head_m": 250,
+      "discharge_lpd": 14400.0,
+      "discharge_lpw": 3.0,
+      "power_wp": 4800,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 2.5 DCSSP 4800",
+      "slug": "solar-2.5-dcssp-4800",
+      "pump_code": "9000031620",
+      "head_m": 300,
+      "discharge_lpd": 13440.0,
+      "discharge_lpw": 2.8,
+      "power_wp": 4800,
+      "connection": "BSP 32 mm (4X4)"
+    },
+    {
+      "model": "SOLAR 137 DCSSP 6750",
+      "slug": "solar-137-dcssp-6750",
+      "pump_code": "9000018437",
+      "head_m": 10,
+      "discharge_lpd": 822825.0,
+      "discharge_lpw": 121.9,
+      "power_wp": 6750,
+      "connection": "BSP 100 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 71 DCSSP 6750",
+      "slug": "solar-71-dcssp-6750",
+      "pump_code": "9000032988",
+      "head_m": 20,
+      "discharge_lpd": 432000.0,
+      "discharge_lpw": 64.0,
+      "power_wp": 6750,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 50 DCSSP 6750",
+      "slug": "solar-50-dcssp-6750",
+      "pump_code": "9000029692",
+      "head_m": 30,
+      "discharge_lpd": 299025.0,
+      "discharge_lpw": 44.3,
+      "power_wp": 6750,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 28 DCSSP 6750",
+      "slug": "solar-28-dcssp-6750",
+      "pump_code": "9000029683",
+      "head_m": 50,
+      "discharge_lpd": 162000.0,
+      "discharge_lpw": 24.0,
+      "power_wp": 6750,
+      "connection": "BSP 63 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 19 DCSSP 6750",
+      "slug": "solar-19-dcssp-6750",
+      "pump_code": "9000030108",
+      "head_m": 70,
+      "discharge_lpd": 114750.0,
+      "discharge_lpw": 17.0,
+      "power_wp": 6750,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 14 DCSSP 6750",
+      "slug": "solar-14-dcssp-6750",
+      "pump_code": "9000029686",
+      "head_m": 100,
+      "discharge_lpd": 84375.0,
+      "discharge_lpw": 12.5,
+      "power_wp": 6750,
+      "connection": "BSP 50 mm (6X4)"
+    },
+    {
+      "model": "SOLAR 11 DCSSP 6750",
+      "slug": "solar-11-dcssp-6750",
+      "pump_code": "9000026230",
+      "head_m": 120,
+      "discharge_lpd": 69525.0,
+      "discharge_lpw": 10.3,
+      "power_wp": 6750,
+      "connection": "BSP 50 mm (6X4)"
+    },
+    {
+      "model": "SOLAR 10 DCSSP 6750",
+      "slug": "solar-10-dcssp-6750",
+      "pump_code": "9000023415",
+      "head_m": 150,
+      "discharge_lpd": 54000.0,
+      "discharge_lpw": 8.0,
+      "power_wp": 6750,
+      "connection": "BSP 50 mm (6X4)"
+    },
+    {
+      "model": "SOLAR 5 DCSSP 6750",
+      "slug": "solar-5-dcssp-6750",
+      "pump_code": "9000030930",
+      "head_m": 250,
+      "discharge_lpd": 29025.0,
+      "discharge_lpw": 4.3,
+      "power_wp": 6750,
+      "connection": "BSP 40 mm (6X4)"
+    },
+    {
+      "model": "SOLAR 188 DCSSP 9000",
+      "slug": "solar-188-dcssp-9000",
+      "pump_code": "9000018677",
+      "head_m": 10,
+      "discharge_lpd": 1132200.0,
+      "discharge_lpw": 125.8,
+      "power_wp": 9000,
+      "connection": "BSP 100 mm (6X8)"
+    },
+    {
+      "model": "SOLAR 103 DCSSP 9000",
+      "slug": "solar-103-dcssp-9000",
+      "pump_code": "9000028881",
+      "head_m": 20,
+      "discharge_lpd": 621000.0,
+      "discharge_lpw": 69.0,
+      "power_wp": 9000,
+      "connection": "BSP 100 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 64 DCSSP 9000",
+      "slug": "solar-64-dcssp-9000",
+      "pump_code": "9000032931",
+      "head_m": 30,
+      "discharge_lpd": 369000.0,
+      "discharge_lpw": 41.0,
+      "power_wp": 9000,
+      "connection": "BSP 100 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 41 DCSSP 9000",
+      "slug": "solar-41-dcssp-9000",
+      "pump_code": "9000032632",
+      "head_m": 50,
+      "discharge_lpd": 243000.0,
+      "discharge_lpw": 27.0,
+      "power_wp": 9000,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 27 DCSSP 9000",
+      "slug": "solar-27-dcssp-9000",
+      "pump_code": "9000032932",
+      "head_m": 70,
+      "discharge_lpd": 162000.0,
+      "discharge_lpw": 18.0,
+      "power_wp": 9000,
+      "connection": "BSP 63 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 19 DCSSP 9000",
+      "slug": "solar-19-dcssp-9000",
+      "pump_code": "9000030109",
+      "head_m": 100,
+      "discharge_lpd": 110700.0,
+      "discharge_lpw": 12.3,
+      "power_wp": 9000,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 16 DCSSP 9000",
+      "slug": "solar-16-dcssp-9000",
+      "pump_code": "9000023560",
+      "head_m": 120,
+      "discharge_lpd": 84600.0,
+      "discharge_lpw": 9.4,
+      "power_wp": 9000,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 12 DCSSP 9000",
+      "slug": "solar-12-dcssp-9000",
+      "pump_code": "9000032060",
+      "head_m": 150,
+      "discharge_lpd": 81000.0,
+      "discharge_lpw": 9.0,
+      "power_wp": 9000,
+      "connection": "BSP 50mm (6X4)"
+    },
+    {
+      "model": "SOLAR 9 DCSSP 9000",
+      "slug": "solar-9-dcssp-9000",
+      "pump_code": "9000025654",
+      "head_m": 200,
+      "discharge_lpd": 49500.0,
+      "discharge_lpw": 5.5,
+      "power_wp": 9000,
+      "connection": "BSP 50 mm (6X4)"
+    },
+    {
+      "model": "SOLAR 48 DCSSP 11250",
+      "slug": "solar-48-dcssp-11250",
+      "pump_code": "9000032937",
+      "head_m": 50,
+      "discharge_lpd": 303750.0,
+      "discharge_lpw": 27.0,
+      "power_wp": 11250,
+      "connection": "BSP  75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 34 DCSSP 11250",
+      "slug": "solar-34-dcssp-11250",
+      "pump_code": "9000033021",
+      "head_m": 70,
+      "discharge_lpd": 210375.0,
+      "discharge_lpw": 18.7,
+      "power_wp": 11250,
+      "connection": "BSP 63 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 24 DCSSP 11250",
+      "slug": "solar-24-dcssp-11250",
+      "pump_code": "9000032989",
+      "head_m": 100,
+      "discharge_lpd": 145125.0,
+      "discharge_lpw": 12.9,
+      "power_wp": 11250,
+      "connection": "BSP 63 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 20 DCSSP 11250",
+      "slug": "solar-20-dcssp-11250",
+      "pump_code": "9000031065",
+      "head_m": 120,
+      "discharge_lpd": 112500.0,
+      "discharge_lpw": 10.0,
+      "power_wp": 11250,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 16 DCSSP 11250",
+      "slug": "solar-16-dcssp-11250",
+      "pump_code": "9000029700",
+      "head_m": 150,
+      "discharge_lpd": 97875.0,
+      "discharge_lpw": 8.7,
+      "power_wp": 11250,
+      "connection": "BSP 50 mm (6X4)"
+    },
+    {
+      "model": "SOLAR 12 DCSSP 11250",
+      "slug": "solar-12-dcssp-11250",
+      "pump_code": "9000033073",
+      "head_m": 200,
+      "discharge_lpd": 67500.0,
+      "discharge_lpw": 6.0,
+      "power_wp": 11250,
+      "connection": "BSP 50 mm (6X4)"
+    },
+    {
+      "model": "SOLAR 139 DCSSP 13500",
+      "slug": "solar-139-dcssp-13500",
+      "pump_code": "9000029342",
+      "head_m": 20,
+      "discharge_lpd": 0,
+      "discharge_lpw": 68.0,
+      "power_wp": 13500,
+      "connection": "BSP 100 mm (6X8)"
+    },
+    {
+      "model": "SOLAR 86 DCSSP 13500",
+      "slug": "solar-86-dcssp-13500",
+      "pump_code": "9000018426",
+      "head_m": 30,
+      "discharge_lpd": 661500.0,
+      "discharge_lpw": 49.0,
+      "power_wp": 13500,
+      "connection": "BSP 100 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 58 DCSSP 13500",
+      "slug": "solar-58-dcssp-13500",
+      "pump_code": "9000028912",
+      "head_m": 50,
+      "discharge_lpd": 359100.0,
+      "discharge_lpw": 26.6,
+      "power_wp": 13500,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 43 DCSSP 13500",
+      "slug": "solar-43-dcssp-13500",
+      "pump_code": "9000031006",
+      "head_m": 70,
+      "discharge_lpd": 275400.0,
+      "discharge_lpw": 20.4,
+      "power_wp": 13500,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 30 DCSSP 13500",
+      "slug": "solar-30-dcssp-13500",
+      "pump_code": "9000032990",
+      "head_m": 100,
+      "discharge_lpd": 175500.0,
+      "discharge_lpw": 13.0,
+      "power_wp": 13500,
+      "connection": "BSP 63 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 25 DCSSP 13500",
+      "slug": "solar-25-dcssp-13500",
+      "pump_code": "9000031439",
+      "head_m": 120,
+      "discharge_lpd": 147150.0,
+      "discharge_lpw": 10.9,
+      "power_wp": 13500,
+      "connection": "BSP 63 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 19 DCSSP 13500",
+      "slug": "solar-19-dcssp-13500",
+      "pump_code": "9000031005",
+      "head_m": 150,
+      "discharge_lpd": 117450.0,
+      "discharge_lpw": 8.7,
+      "power_wp": 13500,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 12 DCSSP 13500",
+      "slug": "solar-12-dcssp-13500",
+      "pump_code": "9000029206",
+      "head_m": 200,
+      "discharge_lpd": 72900.0,
+      "discharge_lpw": 5.4,
+      "power_wp": 13500,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 11 DCSSP 13500",
+      "slug": "solar-11-dcssp-13500",
+      "pump_code": "9000028470",
+      "head_m": 250,
+      "discharge_lpd": 64800.0,
+      "discharge_lpw": 4.8,
+      "power_wp": 13500,
+      "connection": "BSP 50 mm (6X4)"
+    },
+    {
+      "model": "SOLAR 240 DCSSP 18000",
+      "slug": "solar-240-dcssp-18000",
+      "pump_code": "9000018445",
+      "head_m": 10,
+      "discharge_lpd": 2250000.0,
+      "discharge_lpw": 125.0,
+      "power_wp": 18000,
+      "connection": "BSP 150 mm (6X12)"
+    },
+    {
+      "model": "SOLAR 148 DCSSP 18000",
+      "slug": "solar-148-dcssp-18000",
+      "pump_code": "9000028922",
+      "head_m": 20,
+      "discharge_lpd": 1231200.0,
+      "discharge_lpw": 68.4,
+      "power_wp": 18000,
+      "connection": "BSP 100 mm (6X8)"
+    },
+    {
+      "model": "SOLAR 129 DCSSP 18000",
+      "slug": "solar-129-dcssp-18000",
+      "pump_code": "9000032991",
+      "head_m": 30,
+      "discharge_lpd": 864000.0,
+      "discharge_lpw": 48.0,
+      "power_wp": 18000,
+      "connection": "BSP 100 mm (6X8)"
+    },
+    {
+      "model": "SOLAR 78 DCSSP 18000",
+      "slug": "solar-78-dcssp-18000",
+      "pump_code": "9000029278",
+      "head_m": 50,
+      "discharge_lpd": 486000.0,
+      "discharge_lpw": 27.0,
+      "power_wp": 18000,
+      "connection": "BSP 100 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 53 DCSSP 18000",
+      "slug": "solar-53-dcssp-18000",
+      "pump_code": "9000028913",
+      "head_m": 70,
+      "discharge_lpd": 360000.0,
+      "discharge_lpw": 20.0,
+      "power_wp": 18000,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 43 DCSSP 18000",
+      "slug": "solar-43-dcssp-18000",
+      "pump_code": "9000028914",
+      "head_m": 100,
+      "discharge_lpd": 252000.0,
+      "discharge_lpw": 14.0,
+      "power_wp": 18000,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 32 DCSSP 18000",
+      "slug": "solar-32-dcssp-18000",
+      "pump_code": "9000029309",
+      "head_m": 120,
+      "discharge_lpd": 196200.0,
+      "discharge_lpw": 10.9,
+      "power_wp": 18000,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 27 DCSSP 18000",
+      "slug": "solar-27-dcssp-18000",
+      "pump_code": "9000029185",
+      "head_m": 150,
+      "discharge_lpd": 162000.0,
+      "discharge_lpw": 9.0,
+      "power_wp": 18000,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 20 DCSSP 18000",
+      "slug": "solar-20-dcssp-18000",
+      "pump_code": "9000022316",
+      "head_m": 200,
+      "discharge_lpd": 115200.0,
+      "discharge_lpw": 6.4,
+      "power_wp": 18000,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 16 DCSSP 18000",
+      "slug": "solar-16-dcssp-18000",
+      "pump_code": "9000029279",
+      "head_m": 250,
+      "discharge_lpd": 99000.0,
+      "discharge_lpw": 5.5,
+      "power_wp": 18000,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 13 DCSSP 18000",
+      "slug": "solar-13-dcssp-18000",
+      "pump_code": "9000029283",
+      "head_m": 300,
+      "discharge_lpd": 59400.0,
+      "discharge_lpw": 3.3,
+      "power_wp": 18000,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 8 DCSSP 18000",
+      "slug": "solar-8-dcssp-18000",
+      "pump_code": "9000030873",
+      "head_m": 400,
+      "discharge_lpd": 30600.0,
+      "discharge_lpw": 1.7,
+      "power_wp": 18000,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 156 DCSSP 22500",
+      "slug": "solar-156-dcssp-22500",
+      "pump_code": "9000032992",
+      "head_m": 20,
+      "discharge_lpd": 1462500.0,
+      "discharge_lpw": 65.0,
+      "power_wp": 22500,
+      "connection": "BSP 100 mm (6X8)"
+    },
+    {
+      "model": "SOLAR 140 DCSSP 22500",
+      "slug": "solar-140-dcssp-22500",
+      "pump_code": "9000018440",
+      "head_m": 30,
+      "discharge_lpd": 1073250.0,
+      "discharge_lpw": 47.7,
+      "power_wp": 22500,
+      "connection": "BSP 125 mm (6X8)"
+    },
+    {
+      "model": "SOLAR 93 DCSSP 22500",
+      "slug": "solar-93-dcssp-22500",
+      "pump_code": "9000032993",
+      "head_m": 50,
+      "discharge_lpd": 643500.0,
+      "discharge_lpw": 28.6,
+      "power_wp": 22500,
+      "connection": "BSP 100 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 72 DCSSP 22500",
+      "slug": "solar-72-dcssp-22500",
+      "pump_code": "9000029306",
+      "head_m": 70,
+      "discharge_lpd": 405000.0,
+      "discharge_lpw": 18.0,
+      "power_wp": 22500,
+      "connection": "BSP 100mm (6X6)"
+    },
+    {
+      "model": "SOLAR 48 DCSSP 22500",
+      "slug": "solar-48-dcssp-22500",
+      "pump_code": "9000029188",
+      "head_m": 100,
+      "discharge_lpd": 351000.0,
+      "discharge_lpw": 15.6,
+      "power_wp": 22500,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 42 DCSSP 22500",
+      "slug": "solar-42-dcssp-22500",
+      "pump_code": "9000032994",
+      "head_m": 120,
+      "discharge_lpd": 254250.0,
+      "discharge_lpw": 11.3,
+      "power_wp": 22500,
+      "connection": "BSP 75 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 35 DCSSP 22500",
+      "slug": "solar-35-dcssp-22500",
+      "pump_code": "9000032995",
+      "head_m": 150,
+      "discharge_lpd": 209250.0,
+      "discharge_lpw": 9.3,
+      "power_wp": 22500,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 25 DCSSP 22500",
+      "slug": "solar-25-dcssp-22500",
+      "pump_code": "9000032996",
+      "head_m": 200,
+      "discharge_lpd": 150750.0,
+      "discharge_lpw": 6.7,
+      "power_wp": 22500,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 19 DCSSP 22500",
+      "slug": "solar-19-dcssp-22500",
+      "pump_code": "9000029186",
+      "head_m": 250,
+      "discharge_lpd": 110250.0,
+      "discharge_lpw": 4.9,
+      "power_wp": 22500,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 16 DCSSP 22500",
+      "slug": "solar-16-dcssp-22500",
+      "pump_code": "9000032997",
+      "head_m": 300,
+      "discharge_lpd": 87750.0,
+      "discharge_lpw": 3.9,
+      "power_wp": 22500,
+      "connection": "BSP 50 mm (6X6)"
+    },
+    {
+      "model": "SOLAR 121 DCSSP 27000",
+      "slug": "solar-121-dcssp-27000",
+      "pump_code": "9000029280",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 14 DCSSP 27000",
+      "slug": "solar-14-dcssp-27000",
+      "pump_code": "9000031066",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": "BSP 50mm (6X6)"
+    },
+    {
+      "model": "SOLAR 20 DCSSP 27000",
+      "slug": "solar-20-dcssp-27000",
+      "pump_code": "9000029284",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 23 DCSSP 27000",
+      "slug": "solar-23-dcssp-27000",
+      "pump_code": "9000033001",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 26 DCSSP 27000",
+      "slug": "solar-26-dcssp-27000",
+      "pump_code": "9000033000",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 43 DCSSP 27000",
+      "slug": "solar-43-dcssp-27000",
+      "pump_code": "9000032999",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 60 DCSSP 27000",
+      "slug": "solar-60-dcssp-27000",
+      "pump_code": "9000032998",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 64.5 DCSSP 27000",
+      "slug": "solar-64.5-dcssp-27000",
+      "pump_code": "9000027998",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 84 DCSSP 27000",
+      "slug": "solar-84-dcssp-27000",
+      "pump_code": "9000028459",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 27000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 119 DCSSP 36000",
+      "slug": "solar-119-dcssp-36000",
+      "pump_code": "9000033002",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 139 DCSSP 36000",
+      "slug": "solar-139-dcssp-36000",
+      "pump_code": "9000029281",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 19 DCSSP 36000",
+      "slug": "solar-19-dcssp-36000",
+      "pump_code": "9000024612",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": "BSP 50mm (8X6)"
+    },
+    {
+      "model": "SOLAR 25 DCSSP 36000",
+      "slug": "solar-25-dcssp-36000",
+      "pump_code": "9000033003",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 27 DCSSP 36000",
+      "slug": "solar-27-dcssp-36000",
+      "pump_code": "9000029190",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 44 DCSSP 36000",
+      "slug": "solar-44-dcssp-36000",
+      "pump_code": "9000029205",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 57 DCSSP 36000",
+      "slug": "solar-57-dcssp-36000",
+      "pump_code": "9000025117",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 69 DCSSP 36000",
+      "slug": "solar-69-dcssp-36000",
+      "pump_code": "9000029311",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 84 DCSSP 36000",
+      "slug": "solar-84-dcssp-36000",
+      "pump_code": "9000030778",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 36000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 110 DCSSP 45000",
+      "slug": "solar-110-dcssp-45000",
+      "pump_code": "9000029286",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 45000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 135 DCSSP 45000",
+      "slug": "solar-135-dcssp-45000",
+      "pump_code": "9000033004",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 45000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 150 DCSSP 45000",
+      "slug": "solar-150-dcssp-45000",
+      "pump_code": "9000029288",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 45000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 42 DCSSP 45000",
+      "slug": "solar-42-dcssp-45000",
+      "pump_code": "9000029197",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 45000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 53 DCSSP 45000",
+      "slug": "solar-53-dcssp-45000",
+      "pump_code": "9000033005",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 45000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 70 DCSSP 45000",
+      "slug": "solar-70-dcssp-45000",
+      "pump_code": "9000029307",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 45000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 87 DCSSP 45000",
+      "slug": "solar-87-dcssp-45000",
+      "pump_code": "9000029308",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 45000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 113 DCSSP 54000",
+      "slug": "solar-113-dcssp-54000",
+      "pump_code": "9000033008",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 54000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 126 DCSSP 54000",
+      "slug": "solar-126-dcssp-54000",
+      "pump_code": "9000033007",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 54000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 148 DCSSP 54000",
+      "slug": "solar-148-dcssp-54000",
+      "pump_code": "9000033006",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 54000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 42 DCSSP 54000",
+      "slug": "solar-42-dcssp-54000",
+      "pump_code": "9000029392",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 54000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 53 DCSSP 54000",
+      "slug": "solar-53-dcssp-54000",
+      "pump_code": "9000029329",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 54000,
+      "connection": ""
+    },
+    {
+      "model": "SOLAR 64 DCSSP 54000",
+      "slug": "solar-64-dcssp-54000",
+      "pump_code": "9000029196",
+      "head_m": 0,
+      "discharge_lpd": 0,
+      "discharge_lpw": 0.0,
+      "power_wp": 54000,
+      "connection": ""
+    }
+  ],
+  "dcsop": [],
+  "accessories": [
+    {
+      "type": "SOLAR PUMP CONTROLLER",
+      "code": "9600000126",
+      "description": "SIMHA UNIVERSAL DRIVE+3P 15A 450VDC",
+      "vfd_min_v": "30",
+      "vfd_max_v": "450",
+      "max_current_a": "15",
+      "efficiency_pct": "93",
+      "weight_kg": "5.5",
+      "solar_power_range": "900W - 3000W"
+    },
+    {
+      "type": "SOLAR PUMP CONTROLLER",
+      "code": "9600000127",
+      "description": "SIMHA UNIVERSAL DRIVE+3P 15A 850VDC",
+      "vfd_min_v": "200",
+      "vfd_max_v": "850",
+      "max_current_a": "15",
+      "efficiency_pct": "96",
+      "weight_kg": "5.5",
+      "solar_power_range": "4800W - 6750W"
+    },
+    {
+      "type": "SOLAR PUMP CONTROLLER",
+      "code": "9600000143",
+      "description": "SIMHA UNIVERSAL DRIVE+3P 15A 850V-HV",
+      "vfd_min_v": "200",
+      "vfd_max_v": "850",
+      "max_current_a": "15",
+      "efficiency_pct": "96",
+      "weight_kg": "5.5",
+      "solar_power_range": "9000W"
+    },
+    {
+      "type": "SOLAR PUMP CONTROLLER",
+      "code": "9600000073",
+      "description": "NANDI UNIVERSAL DRIVE 3P 25A 850 VDC",
+      "vfd_min_v": "200",
+      "vfd_max_v": "850",
+      "max_current_a": "30",
+      "efficiency_pct": "96",
+      "weight_kg": "10.8",
+      "solar_power_range": "11250W - 13500W"
+    },
+    {
+      "type": "SOLAR PUMP CONTROLLER",
+      "code": "9600000066",
+      "description": "NANDI UNIVERSAL DRIVE 3P 38A 850 VDC",
+      "vfd_min_v": "200",
+      "vfd_max_v": "850",
+      "max_current_a": "38",
+      "efficiency_pct": "96",
+      "weight_kg": "15.0",
+      "solar_power_range": "18000W - 22500W"
+    },
+    {
+      "type": "SOLAR PUMP CONTROLLER",
+      "code": "9600000067",
+      "description": "NANDI UNIVERSAL DRIVE 3P 50A 850 VDC",
+      "vfd_min_v": "200",
+      "vfd_max_v": "850",
+      "max_current_a": "50",
+      "efficiency_pct": "96",
+      "weight_kg": "15.0",
+      "solar_power_range": "27000W"
+    },
+    {
+      "type": "SOLAR PUMP CONTROLLER",
+      "code": "9600000068",
+      "description": "NANDI UNIVERSAL DRIVE 3P 70A 850 VDC",
+      "vfd_min_v": "200",
+      "vfd_max_v": "850",
+      "max_current_a": "60",
+      "efficiency_pct": "96",
+      "weight_kg": "15.0",
+      "solar_power_range": "36000W"
+    },
+    {
+      "type": "SOLAR PUMP CONTROLLER",
+      "code": "9600000106",
+      "description": "NANDI UNIVERSAL DRIVE 3P 135A 850VDC",
+      "vfd_min_v": "200",
+      "vfd_max_v": "850",
+      "max_current_a": "135",
+      "efficiency_pct": "96",
+      "weight_kg": "28.5",
+      "solar_power_range": "45000W - 54000W"
+    },
+    {
+      "type": "CHANGE OVER SWITCH",
+      "note": "Page 5 is image-based. Refer to PDF page 5 for complete specs.",
+      "page": 5
+    },
+    {
+      "type": "SHAKTI DU DT FILTER",
+      "note": "Page 4 is image-based. Refer to PDF page 4 for complete specs.",
+      "page": 4
+    }
+  ]
+}

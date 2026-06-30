@@ -1,0 +1,482 @@
+{
+  "tiger-neo-78hc-bdv": {
+    "name": "Tiger Neo 78HC-BDV",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/02/Tiger-Neo-78HC-BDV-600x600.png",
+    "page": "https://benuagreenenergy.com/product/tiger-neo-78hc-bdv/"
+  },
+  "ycae-185tr": {
+    "name": "Chiller YCAE 18,5TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/05/Chiller-YCAE-185TR-600x600.jpg",
+    "page": "https://benuagreenenergy.com/product/ycae-185tr/"
+  },
+  "tiger-neo-72hc-bdv": {
+    "name": "Tiger Neo 72HC-BDV",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/02/Tiger-Neo-72HC-BDV-600x600.png",
+    "page": "https://benuagreenenergy.com/product/tiger-neo-72hc-bdv/"
+  },
+  "chiller-ycwe-32tr": {
+    "name": "Chiller YCWE 32TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/05/Chiller-YCWE-32TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/chiller-ycwe-32tr/"
+  },
+  "ycae-285tr": {
+    "name": "Chiller YCAE 28,5TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/05/Chiller-YCAE-285TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/ycae-285tr/"
+  },
+  "ycae-37tr": {
+    "name": "Chiller YCAE 37TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/05/Chiller-YCAE-37TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/ycae-37tr/"
+  },
+  "chiller-ycwe-42tr": {
+    "name": "Chiller YCWE 42TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/05/Chiller-YCWE-42TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/chiller-ycwe-42tr/"
+  },
+  "steam-absorption-chiller": {
+    "name": "Steam Absorption Chiller",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/02/Steam-Absorption-Chiller-600x600.png",
+    "page": "https://benuagreenenergy.com/product/steam-absorption-chiller/"
+  },
+  "chiller-ycwe-21tr": {
+    "name": "Chiller YCWE 21TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/05/Chiller-YCWE-21TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/chiller-ycwe-21tr/"
+  },
+  "double-effect-direct-fired-chiller-150tr": {
+    "name": "Double Effect Direct Fired Chiller &#8211; 150TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/Double-Effect-Direct-Fired-Chiller-150TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/double-effect-direct-fired-chiller-150tr/"
+  },
+  "double-effect-direct-fired-chiller-300tr": {
+    "name": "Double Effect Direct Fired Chiller &#8211; 300TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/Double-Effect-Direct-Fired-Chiller-300TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/double-effect-direct-fired-chiller-300tr/"
+  },
+  "double-effect-direct-fired-chiller-600tr": {
+    "name": "Double Effect Direct Fired Chiller &#8211; 600TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/Double-Effect-Direct-Fired-Chiller-600TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/double-effect-direct-fired-chiller-600tr/"
+  },
+  "double-effect-steam-fired-chiller-150tr": {
+    "name": "Double Effect Steam Fired Chiller \u2013 150TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/Double-Effect-Steam-Fired-Chiller-\u2013-150TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/double-effect-steam-fired-chiller-150tr/"
+  },
+  "double-effect-direct-fired-chiller-900tr": {
+    "name": "Double Effect Direct Fired Chiller &#8211; 900TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/Double-Effect-Direct-Fired-Chiller-900TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/double-effect-direct-fired-chiller-900tr/"
+  },
+  "double-effect-steam-fired-chiller-300tr": {
+    "name": "Double Effect Steam Fired Chiller \u2013 300TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/Double-Effect-Direct-Fired-Chiller-300TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/double-effect-steam-fired-chiller-300tr/"
+  },
+  "double-effect-steam-fired-chiller-600tr": {
+    "name": "Double Effect Steam Fired Chiller \u2013 600TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/Double-Effect-Direct-Fired-Chiller-600TR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/double-effect-steam-fired-chiller-600tr/"
+  },
+  "double-effect-steam-fired-chiller-900tr": {
+    "name": "Double Effect Steam Fired Chiller \u2013 900TR",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/Double-Effect-Steam-Fired-Chiller-\u2013-900T-600x600.png",
+    "page": "https://benuagreenenergy.com/product/double-effect-steam-fired-chiller-900tr/"
+  },
+  "cross-flow-closed-cooling-tower": {
+    "name": "Cross-Flow Closed Cooling Tower",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/cross-flow-600x474.jpg",
+    "page": "https://benuagreenenergy.com/product/cross-flow-closed-cooling-tower/"
+  },
+  "counter-flow-closed-cooling-tower": {
+    "name": "Counter-Flow Closed Cooling Tower",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/06/COUNTERCURRENT-600x420.jpg",
+    "page": "https://benuagreenenergy.com/product/counter-flow-closed-cooling-tower/"
+  },
+  "ybah-g-ceiling-air-handling-unit": {
+    "name": "YBAH-G Ceiling Air Handling Unit",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/YBAH-G-Ceiling-Air-Handling-Unit-600x600.png",
+    "page": "https://benuagreenenergy.com/product/ybah-g-ceiling-air-handling-unit/"
+  },
+  "ycwe-e-water-cooled-chiller": {
+    "name": "YCWE-E Water Cooled Chiller",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/YCWE-E-Water-Cooled-Chiller-1-600x600.png",
+    "page": "https://benuagreenenergy.com/product/ycwe-e-water-cooled-chiller/"
+  },
+  "ybah-f-ecm-ceiling-fan-coil-unit": {
+    "name": "YBAH-F ECM Ceiling Fan Coil Unit",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/YBAH-F-ECM-Ceiling-Fan-Coil-Unit-600x600.png",
+    "page": "https://benuagreenenergy.com/product/ybah-f-ecm-ceiling-fan-coil-unit/"
+  },
+  "ygwh-water-cooled-screw-chiller-style-a": {
+    "name": "YGWH Water Cooled Screw Chiller (Style A)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/YGWH-Water-Cooled-Screw-Chiller-Style-A-600x600.png",
+    "page": "https://benuagreenenergy.com/product/ygwh-water-cooled-screw-chiller-style-a/"
+  },
+  "yms-magnetic-centrifugal-chiller": {
+    "name": "YMS Magnetic Centrifugal Chiller",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/YMS-Magnetic-Centrifugal-Chiller-600x600.png",
+    "page": "https://benuagreenenergy.com/product/yms-magnetic-centrifugal-chiller/"
+  },
+  "ycae-x-air-cooled-modular-chiller-heat-pump": {
+    "name": "YCAE-X Air-Cooled Modular Chiller &#038; Heat Pump",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/YCAE-X-Air-Cooled-Modular-Chiller-Heat-Pump-600x600.png",
+    "page": "https://benuagreenenergy.com/product/ycae-x-air-cooled-modular-chiller-heat-pump/"
+  },
+  "e1000-bldc-fcu-thermostat": {
+    "name": "E1000 BLDC FCU Thermostat YORK",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/E1000-BLDC-FCU-Thermostat--600x600.png",
+    "page": "https://benuagreenenergy.com/product/e1000-bldc-fcu-thermostat/"
+  },
+  "easyio-fc-20-controller-20-point-io-expansion-controller": {
+    "name": "EasyIO FC-20 Controller IO EXPANSION CONTROLLER",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/EasyIO-FC-20-Controller-ok.png",
+    "page": "https://benuagreenenergy.com/product/easyio-fc-20-controller-20-point-io-expansion-controller/"
+  },
+  "easyio-fw-8v-wifi-vav-controller": {
+    "name": "EasyIO FW-8V WiFi VAV WIFI CONTROLLER FOR VAV",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/EasyIO-FW-8V-WiFi-VAV-Controller-ok.png",
+    "page": "https://benuagreenenergy.com/product/easyio-fw-8v-wifi-vav-controller/"
+  },
+  "easyio-fd-20i-input-modbus-bacnet-module": {
+    "name": "EasyIO FD-20i Input Modbus IO EXPANSION MODULE",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/EasyIO-FD-20i-Input-ModbusBacnet-Module-Utama.png",
+    "page": "https://benuagreenenergy.com/product/easyio-fd-20i-input-modbus-bacnet-module/"
+  },
+  "easyio-fw-8-wifi-controller": {
+    "name": "EasyIO FW-8 WiFi Controller EASYIO-FW-08",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/EasyIO-FW-8-WiFi-Controller-ok.png",
+    "page": "https://benuagreenenergy.com/product/easyio-fw-8-wifi-controller/"
+  },
+  "easyio-fs-32-controller-32-point-ip-controller": {
+    "name": "EasyIO FS-32 Controller IP Controller",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/10/EasyIO-FS-32-Controller-Utama.png",
+    "page": "https://benuagreenenergy.com/product/easyio-fs-32-controller-32-point-ip-controller/"
+  },
+  "three-phase-inverters-with-synergy-technology": {
+    "name": "Three Phase Inverters with Synergy Technology",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Three-Phase-Inverter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/three-phase-inverters-with-synergy-technology/"
+  },
+  "home-hub-inverters": {
+    "name": "Home Hub Inverters",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Home-Hub-Inverter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-hub-inverters/"
+  },
+  "home-wave-inverters": {
+    "name": "Home Wave Inverters",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Home-Wave-Inverter-1-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-wave-inverters/"
+  },
+  "home-short-string-inverter": {
+    "name": "Home Short String Inverter",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Home-Short-String-Inverter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-short-string-inverter/"
+  },
+  "hot-water-controller": {
+    "name": "Hot Water Controller",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Hot-Water-Controller-1-600x600.png",
+    "page": "https://benuagreenenergy.com/product/hot-water-controller/"
+  },
+  "home-smart-switch": {
+    "name": "Home Smart Switch",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Home-Load-Controller-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-smart-switch/"
+  },
+  "one-controller": {
+    "name": "ONE Controller",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/ONE-Controller-1-600x600.png",
+    "page": "https://benuagreenenergy.com/product/one-controller/"
+  },
+  "home-load-controller": {
+    "name": "Home Load Controller",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Home-Load-Controller-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-load-controller/"
+  },
+  "home-battery-48v": {
+    "name": "Home Battery 48v",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Home-Battery-48V-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-battery-48v/"
+  },
+  "home-battery-400v": {
+    "name": "Home Battery 400v",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Home-Battery-400V-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-battery-400v/"
+  },
+  "home-backup-interface": {
+    "name": "Home Backup Interface",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Home-Backup-Interface-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-backup-interface/"
+  },
+  "ev-charger": {
+    "name": "Ev Charger",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/photo_2025-11-25_12-15-22-600x570.jpg",
+    "page": "https://benuagreenenergy.com/product/ev-charger/"
+  },
+  "one-ev-charger": {
+    "name": "ONE Ev Charger",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/ONE-Ev-Charger-1-600x600.png",
+    "page": "https://benuagreenenergy.com/product/one-ev-charger/"
+  },
+  "home-power-optimizers": {
+    "name": "Home Power Optimizers",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/S1000-S1200-Commercial-Power-Optimizers-600x600.png",
+    "page": "https://benuagreenenergy.com/product/home-power-optimizers/"
+  },
+  "s1000-s1200-commercial-power-optimizers": {
+    "name": "S1000 &#038; S1200 Commercial Power Optimizers",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/S1000-S1200-Commercial-Power-Optimizers-600x600.png",
+    "page": "https://benuagreenenergy.com/product/s1000-s1200-commercial-power-optimizers/"
+  },
+  "s1500-commercial-power-optimizers": {
+    "name": "S1500 Commercial Power Optimizers",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/S1000-S1200-Commercial-Power-Optimizers-600x600.png",
+    "page": "https://benuagreenenergy.com/product/s1500-commercial-power-optimizers/"
+  },
+  "commercial-storage-system-css-od-102-4": {
+    "name": "Commercial Storage System CSS-OD 102.4",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/Commercial-Storage-System-CSS-OD-600x600.png",
+    "page": "https://benuagreenenergy.com/product/commercial-storage-system-css-od-102-4/"
+  },
+  "terramax-inverter": {
+    "name": "TerraMax\u2122 Inverter",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/TerraMax\u2122-Inverter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/terramax-inverter/"
+  },
+  "h1300-power-optimizers": {
+    "name": "H1300 Power Optimizers",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/H1300-Power-Optimizers-600x600.png",
+    "page": "https://benuagreenenergy.com/product/h1300-power-optimizers/"
+  },
+  "solar-dc-submersible-surface-pumps": {
+    "name": "Solar DC Submersible &#038; Surface Pumps",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/4-Micro-Surface-Pumpset-300x300.png",
+    "page": "https://benuagreenenergy.com/product/solar-dc-submersible-surface-pumps/"
+  },
+  "4-premium-plug-play-pump-dcsop-series": {
+    "name": "4&#8243; Premium Plug &#038; Play Pump (DCSOP Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/3-4-inch-Premium-Plug-Play-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/4-premium-plug-play-pump-dcsop-series/"
+  },
+  "positive-displacement-pumps": {
+    "name": "Positive Displacement Pumps",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/2-Positive-Displacement-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/positive-displacement-pumps/"
+  },
+  "solar-open-well-pumps-dcsop-series": {
+    "name": "Solar Open Well Pumps (DCSOP Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/1-Solar-Open-Well-pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/solar-open-well-pumps-dcsop-series/"
+  },
+  "micro-surface-pumpset-dcssup-series": {
+    "name": "Micro Surface Pumpset (DCSSUP Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/4-Micro-Surface-Pumpset-600x600.png",
+    "page": "https://benuagreenenergy.com/product/micro-surface-pumpset-dcssup-series/"
+  },
+  "openwell-pumps-somb-series": {
+    "name": "OpenWell Pumps (SOMB Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/6-Openwell-Pumps-SOMB-series-600x600.png",
+    "page": "https://benuagreenenergy.com/product/openwell-pumps-somb-series/"
+  },
+  "submersible-pumps-motors-qf-series": {
+    "name": "Submersible Pumps &#038; Motors (QF Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/5-Submersile-Pumps-Motors-600x600.png",
+    "page": "https://benuagreenenergy.com/product/submersible-pumps-motors-qf-series/"
+  },
+  "end-suction-long-coupled-pumps-snk-series": {
+    "name": "End-Suction Long Coupled Pumps (SNK Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/7-End-Suction-Lon-Coupled-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/end-suction-long-coupled-pumps-snk-series/"
+  },
+  "end-suction-closed-coupled-pumps-snb-series": {
+    "name": "End-Suction Closed Coupled Pumps (SNB Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/10-End-Section-Closed-Couple-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/end-suction-closed-coupled-pumps-snb-series/"
+  },
+  "end-suction-single-shaft-pumps-smb-series": {
+    "name": "End-Suction Single Shaft Pumps (SMB Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/8-End-Suction-Single-Shaft-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/end-suction-single-shaft-pumps-smb-series/"
+  },
+  "openwell-pumps-jalpari-series": {
+    "name": "OpenWell Pumps (JALPARI Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/9-Openwell-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/openwell-pumps-jalpari-series/"
+  },
+  "cable": {
+    "name": "Cable",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/11-Cable-600x600.png",
+    "page": "https://benuagreenenergy.com/product/cable/"
+  },
+  "openwell-shos-ca-sa-series": {
+    "name": "OpenWell SHOS CA/SA Series",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/12-Openwell-SHOS-CA_SA-Series-600x600.png",
+    "page": "https://benuagreenenergy.com/product/openwell-shos-ca-sa-series/"
+  },
+  "pipes": {
+    "name": "Pipes",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/13-Pipes-600x600.png",
+    "page": "https://benuagreenenergy.com/product/pipes/"
+  },
+  "plain-drip-irrigation": {
+    "name": "Plain Drip Irrigation",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/14-Plain-Drip-Irrigation-600x600.png",
+    "page": "https://benuagreenenergy.com/product/plain-drip-irrigation/"
+  },
+  "round-drip-irrigation": {
+    "name": "Round Drip Irrigation",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/15-Round-Drip-Irrigation-600x600.png",
+    "page": "https://benuagreenenergy.com/product/round-drip-irrigation/"
+  },
+  "pressure-booster-scm-series": {
+    "name": "Pressure Booster (SCM Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/19-Pressure-Booster-600x600.png",
+    "page": "https://benuagreenenergy.com/product/pressure-booster-scm-series/"
+  },
+  "vertical-multi-stage-centrifugal-pumps-scr-scri-scrn-series": {
+    "name": "Vertical Multi-Stage Centrifugal Pumps (SCR, SCRI, SCRN Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/17-Vertical-Multi-Stage-Centrifugal-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/vertical-multi-stage-centrifugal-pumps-scr-scri-scrn-series/"
+  },
+  "sero-vertical-multi-stage-pumps": {
+    "name": "Sero Vertical Multi-Stage Pumps",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/18-Sero-vertical-Multistage-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/sero-vertical-multi-stage-pumps/"
+  },
+  "flat-drip-irrigation": {
+    "name": "Flat Drip Irrigation",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/16-Flat-Drip-Irrigation-600x600.png",
+    "page": "https://benuagreenenergy.com/product/flat-drip-irrigation/"
+  },
+  "high-head-pressure-booster-scr-scrn-series": {
+    "name": "High Head Pressure Booster (SCR &#038; SCRN Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/20-SCR-SCRN-High-Head-Pressure-Booster-600x600.png",
+    "page": "https://benuagreenenergy.com/product/high-head-pressure-booster-scr-scrn-series/"
+  },
+  "domestic-water-pressure-booster-sjp-series": {
+    "name": "Domestic Water Pressure Booster (SJP Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/21-Domestic-Water-Pressure-Booster-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/domestic-water-pressure-booster-sjp-series/"
+  },
+  "immersible-pumps-smtr-series": {
+    "name": "Immersible Pumps (SMTR Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/22-Immersible-Pumps-SMTR-600x600.png",
+    "page": "https://benuagreenenergy.com/product/immersible-pumps-smtr-series/"
+  },
+  "hydropneumatic-booster-system-hypn-series": {
+    "name": "Hydropneumatic Booster System (HYPN Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/23-Hydropneumatic-Booster-Systems-600x600.png",
+    "page": "https://benuagreenenergy.com/product/hydropneumatic-booster-system-hypn-series/"
+  },
+  "pressure-booster-pumps-sh-shi-shn-series": {
+    "name": "Pressure Booster Pumps (SH, SHI, &#038; SHN Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/24-Pressure-Booster-Pumps-SH_SHI_SHIN-600x600.png",
+    "page": "https://benuagreenenergy.com/product/pressure-booster-pumps-sh-shi-shn-series/"
+  },
+  "nandi-universal-drive": {
+    "name": "NANDI Universal Drive",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/27-Nandi-Universal-Drive-600x600.png",
+    "page": "https://benuagreenenergy.com/product/nandi-universal-drive/"
+  },
+  "solar-drive": {
+    "name": "Solar Drive (SIMHA)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/26-Solar-SIMHA-Drive-600x600.png",
+    "page": "https://benuagreenenergy.com/product/solar-drive/"
+  },
+  "ro-pumps": {
+    "name": "RO Pumps",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/25-RO-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/ro-pumps/"
+  },
+  "lotus-universal-drive": {
+    "name": "LOTUS Universal Drive",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/28-Lotus-Universal-Drive-600x600.png",
+    "page": "https://benuagreenenergy.com/product/lotus-universal-drive/"
+  },
+  "rms-dongle": {
+    "name": "RMS Dongle",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/30-RMS-Dongle-600x600.png",
+    "page": "https://benuagreenenergy.com/product/rms-dongle/"
+  },
+  "du-dt-filter": {
+    "name": "DU DT Filter",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/29-DU_DT-Filter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/du-dt-filter/"
+  },
+  "hybrid-inverter": {
+    "name": "Hybrid Inverter",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/31-Hybrid-Inverter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/hybrid-inverter/"
+  },
+  "elite-soft-starter": {
+    "name": "Elite Soft Starter",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/35-Elite-Soft-Starter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/elite-soft-starter/"
+  },
+  "a1-smart-starter": {
+    "name": "A1 Smart Starter",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/34-A1-Smart-Starter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/a1-smart-starter/"
+  },
+  "grid-tie-inverter": {
+    "name": "Grid Tie Inverter",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/33-Grid-Tie-Inverter-600x600.png",
+    "page": "https://benuagreenenergy.com/product/grid-tie-inverter/"
+  },
+  "universal-solar-pump-controller": {
+    "name": "Universal Solar Pump Controller",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/32-Universal-Solar-Pump-Controller-600x600.png",
+    "page": "https://benuagreenenergy.com/product/universal-solar-pump-controller/"
+  },
+  "fire-pumps": {
+    "name": "Fire Pumps",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/36-Fire-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/fire-pumps/"
+  },
+  "sdw-waste-water-pump": {
+    "name": "SDW Waste Water Pump",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/38-SDW-Waste-Water-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/sdw-waste-water-pump/"
+  },
+  "svx-waste-water-pump": {
+    "name": "SVX Waste Water Pump",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/37-SVX-Waste-Water-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/svx-waste-water-pump/"
+  },
+  "sseg-waste-water-pump": {
+    "name": "SSEG Waste Water Pump",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/39-SSEG-Waste-Water-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/sseg-waste-water-pump/"
+  },
+  "shallow-well-pump-ssw-series": {
+    "name": "Shallow Well Pump (SSW Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/44-Shallow-Well-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/shallow-well-pump-ssw-series/"
+  },
+  "horizontal-split-case-pump-shs-series": {
+    "name": "Horizontal Split Case Pump (SHS Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/43-Horizontal-Split-Case-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/horizontal-split-case-pump-shs-series/"
+  },
+  "slow-speed-pump-sss-series": {
+    "name": "Slow Speed Pump (SSS Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/45-Slow-Speed-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/slow-speed-pump-sss-series/"
+  },
+  "self-priming-pumps-megh-series": {
+    "name": "Self-Priming Pumps (MEGH Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/42-Megh-Self-Priming-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/self-priming-pumps-megh-series/"
+  },
+  "self-priming-pumps-crp-series": {
+    "name": "Self-Priming Pumps (CRP Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/41-CRP-Self-Priming-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/self-priming-pumps-crp-series/"
+  },
+  "non-self-priming-pumps-nsp-series": {
+    "name": "Non Self-Priming Pumps (NSP Series)",
+    "img": "https://benuagreenenergy.com/wp-content/uploads/2025/11/40-NSP-Non-Self-Priming-Pumps-600x600.png",
+    "page": "https://benuagreenenergy.com/product/non-self-priming-pumps-nsp-series/"
+  }
+}
